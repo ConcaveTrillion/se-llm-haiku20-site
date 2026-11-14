@@ -9,83 +9,911 @@ th,td{border:1px solid #ddd;padding:5px 7px;vertical-align:top;text-align:left}t
 .small{font-size:12.5px;color:#555}.cards{display:flex;flex-wrap:wrap;gap:.6em;margin:.8em 0}
 .card{background:#fff;border:1px solid #e3e3e0;border-radius:6px;padding:.5em .8em;min-width:150px}.card b{font-size:1.4em;display:block}
 .cmp{width:100%;border:none}.cmp td{border:none;padding:2px 6px;font-size:14px}
+.cmp pre.src{margin:0;white-space:pre-wrap;word-break:break-word;tab-size:2;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace}
 .cmp td.l{width:90px;color:#555;font-size:12px;white-space:nowrap;padding-top:4px}
 .cmp tr.g td{background:#f6f6f4}.cmp tr.s td{background:#eef4ff}.cmp tr.o td{background:#fff6ea}
-mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:#ff8a80}
+mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:none;border-left:3px solid #d32f2f;padding:0;margin:0 1px}
 .diff>tbody>tr>td{border-top:2px solid #ccc}
 .v-sellm{background:#d8f3dc;color:#14532d}.v-se{background:#fde2e1;color:#7f1d1d}.v-both{background:#e8eaf6;color:#283593}.v-ed{background:#eee;color:#444}
 .filters button{margin:0 .3em .5em 0;padding:.2em .7em;border:1px solid #bbb;border-radius:4px;background:#fff;cursor:pointer}
 .filters button.on{background:#1d1d1f;color:#fff}
 </style>
 <script>
-function filt(v,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
-document.querySelectorAll('tr.drow').forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
+function filt(v,btn,cls){cls=cls||'drow';btn.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+document.querySelectorAll('tr.'+cls).forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
 </script>
 </head><body>
 <p class="small"><a href="../index.html">← All twenty books</a></p>
 <h1>The Importance of Being Earnest, Oscar Wilde</h1>
-<p><a href="https://www.gutenberg.org/ebooks/844">Project Gutenberg 844</a> · <a href="https://standardebooks.org/ebooks/oscar-wilde/the-importance-of-being-earnest">Standard Ebooks edition</a> · <a href="https://github.com/ConcaveTrillion/se-llm-haiku20-earnest/tree/attempt/e2e52-process">se-llm book source (private)</a></p>
+<p><a href="https://www.gutenberg.org/ebooks/844">Project Gutenberg 844</a> · <a href="https://standardebooks.org/ebooks/oscar-wilde/the-importance-of-being-earnest">Standard Ebooks edition</a></p>
 <p><b>The run stopped at: lint resolve=1.</b></p>
-<div class="cards"><div class="card">Process<b><span class="b bad">failed</span></b></div><div class="card">Lint<b><span class="b bad">failed</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e52</b></div></div>
-<p class="small">Generated 2026-11-14 12:38 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG historical actor/production credits exceed comparison content; retain them, no cut authorized. SE recorded source citations: https://www.gutenberg.org/ebooks/844 | https://archive.org/details/ladywindermeresf00wild</p>
+<div class="cards"><div class="card">Process<b><span class="b bad">failed</span></b></div><div class="card">Lint<b><span class="b bad">failed</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e83</b></div></div>
+<p class="small">Generated 2026-11-14 14:25 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG historical actor/production credits exceed comparison content; retain them, no cut authorized. SE recorded source citations: https://www.gutenberg.org/ebooks/844 | https://archive.org/details/ladywindermeresf00wild</p>
 <h2>Text differences from the Standard Ebooks edition</h2>
-<p>32 places where the se-llm text differs from SE, word by word. Each row shows the same passage three ways: the Gutenberg source on top, SE in the middle and se-llm at the bottom, with the differing characters highlighted. Gutenberg is marked where it differs from se-llm; SE and se-llm are marked where they differ from each other. The se-llm step is the commit that last produced that se-llm reading. Verdicts are a model's judgment (Claude Sonnet) against the SE Manual of Style and se-llm's keep-the-Gutenberg-reading policy; they are not proof.</p>
-<div class="filters"><button class="on" onclick="filt('all',this)">All (32)</button><button onclick="filt('SE correct',this)">SE correct (23)</button><button onclick="filt('se-llm correct',this)">se-llm correct (2)</button><button onclick="filt('both acceptable',this)">both acceptable (5)</button><button onclick="filt('SE edition difference',this)">SE edition difference (2)</button></div>
+<p>31 places where the se-llm text differs from SE, word by word. Each row shows the same passage three ways: the Gutenberg HTML on top, the SE XHTML in the middle and the se-llm XHTML at the bottom, as source with markup and line breaks. In Gutenberg, the highlight is the passage that corresponds to the difference. SE and se-llm are highlighted character by character where they differ from each other, tags and attributes included; a red bar marks where one side has nothing and the other has text. A row exists only where the words differ, so a markup-only difference shows up only when it falls inside a row. The se-llm step is the commit that last produced that se-llm reading. Verdicts are a model's judgment (Claude Sonnet) against the SE Manual of Style and se-llm's keep-the-Gutenberg-reading policy; they are not proof.</p>
+<div class="filters"><button class="on" onclick="filt('all',this)">All (31)</button><button onclick="filt('SE correct',this)">SE correct (20)</button><button onclick="filt('se-llm correct',this)">se-llm correct (2)</button><button onclick="filt('both acceptable',this)">both acceptable (7)</button><button onclick="filt('SE edition difference',this)">SE edition difference (2)</button></div>
 <table class="diff"><thead><tr><th>#</th><th>Gutenberg / SE / se-llm</th><th>se-llm step</th><th>Which is right, and why</th></tr></thead><tbody>
-<tr class="drow" data-v="SE edition difference"><td>1</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>The <mark>Importance of Being Earnest A Trivial Comedy for Serious </mark>Peo<mark>pl</mark>e <mark>THE </mark>P<mark>ERSONS IN THE PLAY</mark> John Worthing, J. P. Algernon Moncrieff Rev. Canon</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><mark>Dramatis</mark> Person<mark>a</mark>e John Worthing, J. P. Algernon Moncrieff Rev. Canon</td></tr><tr class="o"><td class="l">se-llm</td><td><mark>The</mark> Person<mark>s in th</mark>e<mark> Play</mark> John Worthing, J. P. Algernon Moncrieff Rev. Canon</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-ed">SE edition difference</span> <span class="small">heading text</span><br>SE retitled the cast-list heading &quot;Dramatis Personae&quot; instead of Gutenberg&#x27;s &quot;The Persons in the Play&quot;. That is an SE editorial choice. se-llm keeps the Gutenberg wording.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>2</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>Fairfax Cecily Cardew Miss Prism, Governess T<mark>HE</mark> S<mark>CENES</mark> <mark>OF</mark> <mark>THE</mark> P<mark>LAY</mark> ACT I. Algernon Moncrieff’s Flat in Half-Moon Street, W. ACT II.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>Fairfax Cecily Cardew Miss Prism, Governess The Scenes of the Play A<mark>ct</mark> I<mark>:</mark> Algernon Moncrieff’s Flat in Half-Moon Street, W. A<mark>ct</mark> II<mark>:</mark></td></tr><tr class="o"><td class="l">se-llm</td><td>Fairfax Cecily Cardew Miss Prism, Governess The Scenes of the Play A<mark>CT</mark> I<mark>.</mark> Algernon Moncrieff’s Flat in Half-Moon Street, W. A<mark>CT</mark> II<mark>.</mark></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">capitalization / heading style</span><br>SE does not leave all-caps text in the body, so &quot;ACT I.&quot; should be set as &quot;Act I:&quot; in title case. se-llm left the Gutenberg caps and punctuation.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>3</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>ACT I. Algernon Moncrieff’s Flat in Half-Moon Street, W. ACT II. The Garden at the Manor House, Woolton. ACT III.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>A<mark>ct</mark> I<mark>:</mark> Algernon Moncrieff’s Flat in Half-Moon Street, W. A<mark>ct</mark> II<mark>:</mark> The Garden at the Manor House, Woolton. A<mark>ct</mark> III<mark>:</mark></td></tr><tr class="o"><td class="l">se-llm</td><td>A<mark>CT</mark> I<mark>.</mark> Algernon Moncrieff’s Flat in Half-Moon Street, W. A<mark>CT</mark> II<mark>.</mark> The Garden at the Manor House, Woolton. A<mark>CT</mark> III<mark>.</mark></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">capitalization / heading style</span><br>The all-caps &quot;ACT II.&quot; should be restyled to &quot;Act II:&quot; in title case. se-llm missed this.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>4</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>ACT II. The Garden at the Manor House, Woolton. ACT III. Drawing-Room at the Manor House, Woolton. T<mark>IME</mark>: The Present</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>A<mark>ct</mark> II<mark>:</mark> The Garden at the Manor House, Woolton. A<mark>ct</mark> III<mark>:</mark> Drawing-Room at the Manor House, Woolton. Time: The <mark>p</mark>resent</td></tr><tr class="o"><td class="l">se-llm</td><td>A<mark>CT</mark> II<mark>.</mark> The Garden at the Manor House, Woolton. A<mark>CT</mark> III<mark>.</mark> Drawing-Room at the Manor House, Woolton. Time: The <mark>P</mark>resent</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">capitalization / heading style</span><br>&quot;ACT III.&quot; should be restyled to &quot;Act III:&quot; in title case. SE also lowercases &quot;present&quot; in &quot;The present&quot;, but se-llm&#x27;s &quot;Present&quot; is only a minor difference.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE edition difference"><td>5</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>. Drawing-Room at the Manor House, Woolton. T<mark>IME</mark>: The Present. L<mark>ONDON</mark>: S<mark>T</mark>. J<mark>AMES</mark>’<mark>S</mark> T<mark>HEATRE</mark> Lessee and Manager: Mr. George Alexander February 14th, 1895 * * * * * John Worthing, J. P.: Mr. George Alexander. Algernon Moncrieff: Mr. Allen Aynesworth. Rev. Canon Chasuble, D. D.: Mr. H. H. Vincent. Merriman: Mr. Frank Dyall. Lane: Mr. F. Kinsey Peile. Lady Bracknell: Miss Rose Leclercq. Hon. Gwendolen Fairfax: Miss Irene Vanbrugh. Cecily Cardew: Miss Evelyn Millard. Miss Prism: Mrs. George Canninge. <mark>FIRST </mark>A<mark>CT</mark> S<mark>CENE</mark> Morning-room in Algernon’s flat in Half-Moon Street. The room is luxuriously</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><mark>:</mark> Drawing-Room at the Manor House, Woolton. Time: The <mark>p</mark>resent. Act I Scene<mark>:</mark> Morning-room in Algernon’s flat in Half-Moon Street. The room is luxuriously</td></tr><tr class="o"><td class="l">se-llm</td><td><mark>.</mark> Drawing-Room at the Manor House, Woolton. Time: The <mark>P</mark>resent<mark>. London: St. James’s Theatre Lessee and Manager: Mr. George Alexander February 14th, 1895 * * * * * John Worthing, J. P.: Mr. George Alexander. Algernon Moncrieff: Mr. Allen Aynesworth. Rev. Canon Chasuble, D. D.: Mr. H. H. Vincent. Merriman: Mr. Frank Dyall. Lane: Mr. F. Kinsey Peile. Lady Bracknell: Miss Rose Leclercq. Hon. Gwendolen Fairfax: Miss Irene Vanbrugh. Cecily Cardew: Miss Evelyn Millard. Miss Prism: Mrs. George Canninge</mark>. Act I Scene Morning-room in Algernon’s flat in Half-Moon Street. The room is luxuriously</td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-ed">SE edition difference</span> <span class="small">dropped text</span><br>SE omits the St James&#x27;s Theatre playbill and first-night cast list, which is a source-edition choice. se-llm keeps it, as its policy of never silently dropping Gutenberg text requires.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>6</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>do you mean, Algy, by Cecily! I don’t know any one of the name of Cecily. <mark>[</mark>Enter Lane.<mark>]</mark> A<mark>LGERNON.</mark> Bring me</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>do you mean, Algy, by Cecily! I don’t know anyone of the name of Cecily. Enter Lane. Algernon Bring me</td></tr><tr class="o"><td class="l">se-llm</td><td>do you mean, Algy, by Cecily! I don’t know any<mark> </mark>one of the name of Cecily. Enter Lane. Algernon Bring me</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>SE modernizes &quot;any one&quot; to the single word &quot;anyone&quot; when it means any person. se-llm missed this.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>7</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>isn’t your cigarette case. This cigarette case is a present from some one of the name of Cecily, and you said you didn’t know</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>isn’t your cigarette case. This cigarette case is a present from someone of the name of Cecily, and you said you didn’t know</td></tr><tr class="o"><td class="l">se-llm</td><td>isn’t your cigarette case. This cigarette case is a present from some<mark> </mark>one of the name of Cecily, and you said you didn’t know</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;some one&quot; is modernized to &quot;someone&quot;. se-llm missed it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>8</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>of the name of Cecily, and you said you didn’t know any one of that name. J<mark>ACK.</mark> Well, if you want to know</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>of the name of Cecily, and you said you didn’t know anyone of that name. Jack Well, if you want to know</td></tr><tr class="o"><td class="l">se-llm</td><td>of the name of Cecily, and you said you didn’t know any<mark> </mark>one of that name. Jack Well, if you want to know</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;any one&quot; is modernized to &quot;anyone&quot;. se-llm missed it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>9</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>she is your aunt and lives at Tunbridge Wells? <mark>[</mark>Reading.<mark>]</mark> ‘From little Cecily with her fondest love.’ J<mark>ACK.</mark> <mark>[</mark>Moving to sofa and kneeling upon it.<mark>]</mark> My dear fellow</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>she is your aunt and lives at Tunbridge Wells? Reading. <mark>“</mark>From little Cecily with her fondest love.<mark>”</mark> Jack Moving to sofa and kneeling upon it. My dear fellow</td></tr><tr class="o"><td class="l">se-llm</td><td>she is your aunt and lives at Tunbridge Wells? Reading. <mark>‘</mark>From little Cecily with her fondest love.<mark>’</mark> Jack Moving to sofa and kneeling upon it. My dear fellow</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE uses American-style double quotes for primary quotations, and the read-aloud text is a primary quotation. se-llm kept the British single quotes.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>10</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>Yes. But why does your aunt call you her uncle? ‘From little Cecily, with her fondest love to her dear Uncle</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>Yes. But why does your aunt call you her uncle? <mark>“</mark>From little Cecily, with her fondest love to her dear Uncle</td></tr><tr class="o"><td class="l">se-llm</td><td>Yes. But why does your aunt call you her uncle? <mark>‘</mark>From little Cecily, with her fondest love to her dear Uncle</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The opening single quote of a primary quotation should be a double quote under SE typography. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>11</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>Cecily, with her fondest love to her dear Uncle Jack.’ There is no objection, I admit, to an aunt being</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>Cecily, with her fondest love to her dear Uncle Jack.<mark>”</mark> There is no objection, I admit, to an aunt being</td></tr><tr class="o"><td class="l">se-llm</td><td>Cecily, with her fondest love to her dear Uncle Jack.<mark>’</mark> There is no objection, I admit, to an aunt being</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The closing single quote should be a double quote under SE&#x27;s primary-quotation style. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>12</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>. Here is one of them. <mark>[</mark>Taking it from case.<mark>]</mark> ‘Mr. Ernest Worthing, B. 4, The Albany.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>. Here is one of them. Taking it from case. <mark>“</mark>Mr. Ernest Worthing, B. 4, The Albany.</td></tr><tr class="o"><td class="l">se-llm</td><td>. Here is one of them. Taking it from case. <mark>‘</mark>Mr. Ernest Worthing, B. 4, The Albany.</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The card text is a primary quotation, so it takes double quotes. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>13</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>Mr. Ernest Worthing, B. 4, The Albany.’ I’ll keep this as a proof that your name is Ernest if</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>Mr. Ernest Worthing, B. 4, The Albany.<mark>”</mark> I’ll keep this as a proof that your name is Ernest if</td></tr><tr class="o"><td class="l">se-llm</td><td>Mr. Ernest Worthing, B. 4, The Albany.<mark>’</mark> I’ll keep this as a proof that your name is Ernest if</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The closing single quote should be a double quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>14</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>I am told; and my ideal has always been to love some one of the name of Ernest. There is something in that name</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>I am told; and my ideal has always been to love someone of the name of Ernest. There is something in that name</td></tr><tr class="o"><td class="l">se-llm</td><td>I am told; and my ideal has always been to love some<mark> </mark>one of the name of Ernest. There is something in that name</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;some one&quot; is modernized to &quot;someone&quot;. se-llm missed it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>15</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>morning! <mark>[</mark>Algernon, from the other room, strikes up the Wedding March. Jack looks perfectly furious, and goes to the door.<mark>]</mark></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>morning! Algernon, from the other room, strikes up the Wedding March. Jack looks perfectly furious, and goes to the door.</td></tr><tr class="o"><td class="l">se-llm</td><td>morning! Algernon, from the other room, strikes up the <mark>“</mark>Wedding March<mark>”</mark>. Jack looks perfectly furious, and goes to the door.</td></tr></table></td><td>[Semantic] Apply publication-music-titles-tag (3 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">italics/quotes for music title</span><br>&quot;Wedding March&quot; is a generic popular name for the piece and sits inside an italic stage direction, so SE leaves it plain. se-llm&#x27;s added quotes are unnecessary, and its period falls outside the closing quote, against American style.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
-<tr class="drow" data-v="se-llm correct"><td>16</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>isn’t! J<mark>ACK.</mark> Very well, then. My poor brother Ernest is carried off suddenly, in Paris, by a severe chill.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>isn’t! Jack Very well, then. My poor brother Ernest <mark>to</mark> carried off suddenly, in Paris, by a severe chill.</td></tr><tr class="o"><td class="l">se-llm</td><td>isn’t! Jack Very well, then. My poor brother Ernest <mark>is</mark> carried off suddenly, in Paris, by a severe chill.</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">introduced error</span><br>SE&#x27;s &quot;Ernest to carried off&quot; is a garble. The Gutenberg reading &quot;is carried off&quot; is correct, and se-llm keeps it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="both acceptable"><td>17</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>reads his shirt-cuff, and smiles.<mark>]</mark> A<mark>CT</mark> D<mark>ROP SECOND</mark> A<mark>CT</mark> S<mark>CENE</mark> Garden at the Manor House. A flight of grey stone steps</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>reads his shirt-cuff, and smiles. Act Drop Act II Scene<mark>:</mark> Garden at the Manor House. A flight of grey stone steps</td></tr><tr class="o"><td class="l">se-llm</td><td>reads his shirt-cuff, and smiles. Act Drop Act II Scene Garden at the Manor House. A flight of grey stone steps</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">heading style / punctuation</span><br>SE restyles the stage heading as &quot;Act II Scene:&quot; with a colon. se-llm keeps the Gutenberg wording without one. The manual allows either form for a stage-direction label.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>18</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>luggage with him. C<mark>ECILY.</mark> <mark>[</mark>Takes the card and reads it.<mark>]</mark> ‘Mr. Ernest Worthing, B. 4, The Albany,</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>luggage with him. Cecily Takes the card and reads it. <mark>“</mark>Mr. Ernest Worthing, B. 4, The Albany,</td></tr><tr class="o"><td class="l">se-llm</td><td>luggage with him. Cecily Takes the card and reads it. <mark>‘</mark>Mr. Ernest Worthing, B. 4, The Albany,</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The opening single quote of a quoted card should be a double quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>19</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>Ernest Worthing, B. 4, The Albany, W.’ Uncle Jack’s brother! Did you tell him Mr. Worthing was</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>Ernest Worthing, B. 4, The Albany, W.<mark>”</mark> Uncle Jack’s brother! Did you tell him Mr. Worthing was</td></tr><tr class="o"><td class="l">se-llm</td><td>Ernest Worthing, B. 4, The Albany, W.<mark>’</mark> Uncle Jack’s brother! Did you tell him Mr. Worthing was</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The closing single quote should be a double quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>20</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>little over<mark>-</mark>dressed, I make up for it by being always immensely over-educated. J<mark>ACK.</mark> Your vanity is ridiculous, your conduct an outrage,</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>little overdressed, I make up for it by being always immensely overeducated. Jack Your vanity is ridiculous, your conduct an outrage,</td></tr><tr class="o"><td class="l">se-llm</td><td>little overdressed, I make up for it by being always immensely over<mark>-</mark>educated. Jack Your vanity is ridiculous, your conduct an outrage,</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">hyphenation</span><br>SE&#x27;s modernization closes up the &quot;over-&quot; prefix, as in &quot;overeducated&quot;. se-llm modernized &quot;over-dressed&quot; but missed &quot;over-educated&quot;, so it is inconsistent.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>21</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>. I delight in taking down from dictation. I have reached ‘absolute perfection’. You can go on. I am quite ready for more.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>. I delight in taking down from dictation. I have reached <mark>“</mark>absolute perfection.<mark>”</mark> You can go on. I am quite ready for more.</td></tr><tr class="o"><td class="l">se-llm</td><td>. I delight in taking down from dictation. I have reached <mark>‘</mark>absolute perfection<mark>’</mark>. You can go on. I am quite ready for more.</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks / punctuation</span><br>A quoted phrase takes double quotes, with the period inside the closing quote under American style. se-llm kept single quotes with the period outside.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>22</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>You can see the entry if you like. <mark>[</mark>Shows diary.<mark>]</mark> ‘To<mark>-</mark>day I broke off my engagement with Ernest. I feel it</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>You can see the entry if you like. Shows diary. <mark>“</mark>Today I broke off my engagement with Ernest. I feel it</td></tr><tr class="o"><td class="l">se-llm</td><td>You can see the entry if you like. Shows diary. <mark>‘</mark>Today I broke off my engagement with Ernest. I feel it</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The opening single quote of the diary quotation should be a double quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>23</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>is better to do so. The weather still continues charming.’ A<mark>LGERNON.</mark> But why on earth did you break it off? What</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>is better to do so. The weather still continues charming.<mark>”</mark> Algernon But why on earth did you break it off? What</td></tr><tr class="o"><td class="l">se-llm</td><td>is better to do so. The weather still continues charming.<mark>’</mark> Algernon But why on earth did you break it off? What</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The closing single quote of the diary quotation should be a double quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="both acceptable"><td>24</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>ten minutes ago. <mark>[</mark>Shows diary.<mark>]</mark> G<mark>WENDOLEN.</mark> <mark>[</mark>Examines diary through her lorgnettte carefully.<mark>]</mark> It is certainly very curious, for he asked me</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>ten minutes ago. Shows diary. Gwendolen Examines diary through her lorgnette carefully. It is certainly very curious, for he asked me</td></tr><tr class="o"><td class="l">se-llm</td><td>ten minutes ago. Shows diary. Gwendolen Examines diary through her lorgnett<mark>t</mark>e carefully. It is certainly very curious, for he asked me</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>&quot;lorgnettte&quot; is a genuine Gutenberg typo, and SE corrected it to &quot;lorgnette&quot;. se-llm keeps it by policy, which is to record suspected typos and not correct them.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>25</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>for he asked me to be his wife yesterday afternoon at 5. 30. If you would care to verify the incident, pray</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>for he asked me to be his wife yesterday afternoon at 5<mark>:</mark> 30. If you would care to verify the incident, pray</td></tr><tr class="o"><td class="l">se-llm</td><td>for he asked me to be his wife yesterday afternoon at 5<mark>.</mark> 30. If you would care to verify the incident, pray</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">punctuation</span><br>SE writes times with a colon, so &quot;5:30&quot; is right and Gutenberg&#x27;s period is dated. The leftover space in &quot;5: 30&quot; is probably an extraction artifact. se-llm kept the period.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="both acceptable"><td>26</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>this morning with Dr. Chasuble to be christened myself at 5. 30, and I naturally will take the name of Ernest.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>this morning with Dr. Chasuble to be christened myself at 5<mark>:</mark> 30, and I naturally will take the name of Ernest.</td></tr><tr class="o"><td class="l">se-llm</td><td>this morning with Dr. Chasuble to be christened myself at 5<mark>.</mark> 30, and I naturally will take the name of Ernest.</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>The time &quot;5. 30&quot; is a Gutenberg punctuation slip. SE changed it to a colon, and se-llm keeps the Gutenberg reading by policy. SE&#x27;s result &quot;5: 30&quot; still has a stray space.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="both acceptable"><td>27</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>and sinks into a chair. Algernon still continues eating.<mark>]</mark> A<mark>CT</mark> <mark>DROP THIRD</mark> A<mark>CT</mark> S<mark>CENE</mark> Morning-room at the Manor House. <mark>[</mark>Gwendolen and Cecily are at the</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>and sinks into a chair. Algernon still continues eating. Act <mark>D</mark>rop Act III Scene<mark>:</mark> Morning-room at the Manor House. Gwendolen and Cecily are at the</td></tr><tr class="o"><td class="l">se-llm</td><td>and sinks into a chair. Algernon still continues eating. Act <mark>d</mark>rop Act III Scene Morning-room at the Manor House. Gwendolen and Cecily are at the</td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-both">both acceptable</span> <span class="small">heading style</span><br>Both editions turned &quot;THIRD ACT&quot; into &quot;Act III&quot; and dropped the all-caps and the brackets. SE adds a colon after &quot;Scene&quot; and title-cases &quot;Act Drop&quot;, while se-llm writes &quot;Act drop&quot; with no colon. The manual allows either handling of this stage direction.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>28</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>me? C<mark>ECILY.</mark> Certainly. <mark>[</mark>Gwendolen beats time with uplifted finger.<mark>]</mark> GWENDOLEN and CECILY <mark>[</mark>Speaking together.<mark>]</mark> Your Christian names are still an insuperable barrier.</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>me? Cecily Certainly. Gwendolen beats time with uplifted finger. G<mark>wendolen</mark> and C<mark>ecily</mark> Speaking together. Your Christian names are still an insuperable barrier.</td></tr><tr class="o"><td class="l">se-llm</td><td>me? Cecily Certainly. Gwendolen beats time with uplifted finger. G<mark>WENDOLEN</mark> and C<mark>ECILY</mark> Speaking together. Your Christian names are still an insuperable barrier.</td></tr></table></td><td>Set the dialogue of the play in tables</td><td><span class="b v-se">SE correct</span> <span class="small">capitalization</span><br>SE sets speaker names in normal case and marks them up as personae. se-llm left &quot;GWENDOLEN and CECILY&quot; in Gutenberg&#x27;s all caps, so it missed the case conversion that it applied to the other speaker names.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>29</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>Christian names are still an insuperable barrier. That is all! JACK and ALGERNON <mark>[</mark>Speaking together.<mark>]</mark> Our Christian names! Is that all? But</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>Christian names are still an insuperable barrier. That is all! J<mark>ack</mark> and A<mark>lgernon</mark> Speaking together. Our Christian names! Is that all? But</td></tr><tr class="o"><td class="l">se-llm</td><td>Christian names are still an insuperable barrier. That is all! J<mark>ACK</mark> and A<mark>LGERNON</mark> Speaking together. Our Christian names! Is that all? But</td></tr></table></td><td>Set the dialogue of the play in tables</td><td><span class="b v-se">SE correct</span> <span class="small">capitalization</span><br>SE sets speaker names in normal case and marks them up as personae. se-llm left &quot;JACK and ALGERNON&quot; in all caps, which is inconsistent with the rest of the play.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
-<tr class="drow" data-v="se-llm correct"><td>30</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>am firm. J<mark>ACK.</mark> I am engaged to be married to Gwendolen, Lady Bracknell! L<mark>ADY</mark> B<mark>RACKNELL.</mark> You are nothing of the kind,</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>am firm. Jack I am engaged to be married to Gwendolen Lady Bracknell! Lady Bracknell You are nothing of the kind,</td></tr><tr class="o"><td class="l">se-llm</td><td>am firm. Jack I am engaged to be married to Gwendolen<mark>,</mark> Lady Bracknell! Lady Bracknell You are nothing of the kind,</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">punctuation</span><br>&quot;Gwendolen, Lady Bracknell!&quot; is direct address and needs the comma, which Gutenberg has. SE&#x27;s removal of it introduces an error and changes the sense.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="SE correct"><td>31</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>, Surrey; and the Sporran, Fifeshire, N. B. L<mark>ADY</mark> B<mark>RACKNELL.</mark> That sounds not unsatisfactory. Three addresses always inspire</td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>, Surrey; and the Sporran, Fifeshire, N. B. Lady Bracknell That sounds not unsatisfactory. Three addresses always inspire</td></tr><tr class="o"><td class="l">se-llm</td><td>, Surrey; and the Sporran, Fifeshire, N. B<mark>.</mark>. Lady Bracknell That sounds not unsatisfactory. Three addresses always inspire</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">punctuation</span><br>se-llm shows &quot;N. B..&quot; with a doubled period that is not in Gutenberg, which has a single period. SE&#x27;s single period is correct.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
-<tr class="drow" data-v="both acceptable"><td>32</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg</td><td>own one! C<mark>HASUBLE.</mark> <mark>[</mark>To Miss Prism.<mark>]</mark> L<mark>æ</mark>titia! <mark>[</mark>Embraces her<mark>]</mark> M<mark>ISS</mark> P<mark>RISM.</mark> <mark>[</mark>Enthusiastically.<mark>]</mark> Frederick! At last! A<mark>LGERNON.</mark> Cecily!<mark> [</mark></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td>own one! Chasuble To Miss Prism. Laetitia! Embraces her<mark>.</mark> Miss Prism Enthusiastically. Frederick! At last! Algernon Cecily!</td></tr><tr class="o"><td class="l">se-llm</td><td>own one! Chasuble To Miss Prism. Laetitia! Embraces her Miss Prism Enthusiastically. Frederick! At last! Algernon Cecily!</td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>Gutenberg&#x27;s &quot;[Embraces her]&quot; lacks a final period, unlike the neighbouring stage directions. SE added the period as a typo correction, and se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE edition difference"><td>1</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;h1&gt;The Importance of Being Earnest&lt;/h1&gt;
+
+&lt;h3&gt;A Trivial Comedy for Serious People&lt;/h3&gt;
+
+&lt;h2&gt;<mark>THE PERSONS IN THE PLAY</mark>&lt;/h2&gt;
+
+&lt;p&gt;John Worthing, J.P.&lt;br&gt;
+Algernon Moncrieff&lt;br&gt;
+Rev. Canon Chasuble, D.D.&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;h2 epub:type=&quot;title&quot;<mark> xml:lang=&quot;la&quot;</mark>&gt;<mark>Dramatis</mark> P<mark>ersonae</mark>&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;
+		&lt;p&gt;John Worthing, &lt;abbr epub:type=&quot;z3998:<mark class="gap">&#8203;</mark>name-title&quot;&gt;J.<mark> </mark>P.&lt;/abbr&gt;&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;Algernon Moncrieff&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Rev.&lt;/abbr&gt;<mark> </mark>Canon Chasuble, &lt;abbr epub:type=&quot;z3998:<mark class="gap">&#8203;</mark>name-title&quot;&gt;D.D.&lt;/abbr&gt;&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;h2 epub:type=&quot;title&quot;<mark class="gap">&#8203;</mark>&gt;<mark>THE</mark> P<mark>ERSONS IN THE PLAY</mark>&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;
+		&lt;p&gt;John Worthing, &lt;abbr epub:type=&quot;z3998:<mark>initialism z3998:</mark>name-title&quot;&gt;J.<mark class="gap">&#8203;</mark>P.&lt;/abbr&gt;&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;Algernon Moncrieff&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Rev.&lt;/abbr&gt;<mark> </mark>Canon Chasuble, &lt;abbr epub:type=&quot;z3998:<mark>initialism z3998:</mark>name-title&quot;&gt;D.D.&lt;/abbr&gt;&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-ed">SE edition difference</span> <span class="small">heading text</span><br>SE replaced the Gutenberg heading &quot;The Persons in the Play&quot; (and dropped the title line) with its own &quot;Dramatis Personae&quot; heading, a different source/editorial choice.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>2</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Lady Bracknell&lt;br&gt;
+Hon. Gwendolen Fairfax&lt;br&gt;
+Cecily Cardew&lt;br&gt;
+Miss Prism, Governess
+&lt;/p&gt;
+
+&lt;h2&gt;<mark>THE SCENES OF THE PLAY&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;#chap01&quot; class=&quot;pginternal&quot;&gt;ACT I.</mark> Algernon Moncrieff’s Flat in Half-Moon
+Street, W.&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#chap02&quot; class=&quot;pginternal&quot;&gt;ACT II. The Garden at the Manor House, Woolton.&lt;/a&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;h2 epub:type=&quot;title&quot;&gt;T<mark>he</mark> S<mark>cenes</mark> <mark>of</mark> <mark>the</mark> P<mark>lay</mark>&lt;/h2&gt;
+&lt;p&gt;<mark>A</mark>c<mark>t</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;I&lt;/span&gt;<mark>:</mark> Algernon Moncrieff’s Flat in Half-Moon Street, <mark class="gap">&#8203;</mark>W.<mark class="gap">&#8203;</mark>&lt;/p&gt;
+&lt;p&gt;<mark>A</mark>c<mark>t</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;II&lt;/span&gt;<mark>:</mark> The Garden at the Manor House, Woolton.&lt;/<mark>p</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark>		&lt;p&gt;Lady Bracknell&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Hon.&lt;/abbr&gt; Gwendolen Fairfax&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;Cecily Cardew&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;p&gt;Miss Prism, Governess&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</mark>&lt;h2 epub:type=&quot;title&quot;&gt;T<mark>HE</mark> S<mark>CENES</mark> <mark>OF</mark> <mark>THE</mark> P<mark>LAY</mark>&lt;/h2&gt;
+&lt;p&gt;<mark>
+	&lt;a href=&quot;#</mark>c<mark>hap01&quot;&gt;ACT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;I&lt;/span&gt;<mark>.</mark> Algernon Moncrieff’s Flat in Half-Moon Street, <mark>&lt;abbr class=&quot;eoc&quot; epub:type=&quot;se:compass&quot;&gt;</mark>W.<mark>&lt;/abbr&gt;&lt;/a&gt;
+</mark>&lt;/p&gt;
+&lt;p&gt;<mark>
+	&lt;a href=&quot;#</mark>c<mark>hap02&quot;&gt;ACT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;II&lt;/span&gt;<mark>.</mark> The Garden at the Manor House, Woolton.&lt;/<mark>a</mark>&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">capitalization</span><br>SE does not leave all-caps headings in the text and uses title case for them; se-llm left &quot;THE SCENES OF THE PLAY ACT I.&quot; in capitals.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>3</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;&lt;a href=&quot;#chap01&quot; class=&quot;pginternal&quot;&gt;ACT I. Algernon Moncrieff’s Flat in Half-Moon
+Street, W.&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#chap02&quot; class=&quot;pginternal&quot;&gt;<mark>ACT II.</mark> The Garden at the Manor House, Woolton.&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#chap03&quot; class=&quot;pginternal&quot;&gt;ACT III. Drawing-Room at the Manor House, Woolton.&lt;/a&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;A<mark>ct</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;I&lt;/span&gt;<mark>:</mark> Algernon Moncrieff’s Flat in Half-Moon Street, <mark class="gap">&#8203;</mark>W.<mark class="gap">&#8203;</mark>&lt;/p&gt;
+&lt;p&gt;<mark>A</mark>c<mark>t</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;II&lt;/span&gt;<mark>:</mark> The Garden at the Manor House, Woolton.&lt;/<mark class="gap">&#8203;</mark>p&gt;
+&lt;p&gt;<mark>A</mark>c<mark>t</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;III&lt;/span&gt;<mark>:</mark> Drawing-Room at the Manor House, Woolton.&lt;/<mark>p</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark>	</mark>&lt;<mark>a href=&quot;#cha</mark>p<mark>01&quot;</mark>&gt;A<mark>CT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;I&lt;/span&gt;<mark>.</mark> Algernon Moncrieff’s Flat in Half-Moon Street, <mark>&lt;abbr class=&quot;eoc&quot; epub:type=&quot;se:compass&quot;&gt;</mark>W.<mark>&lt;/abbr&gt;&lt;/a&gt;
+</mark>&lt;/p&gt;
+&lt;p&gt;<mark>
+	&lt;a href=&quot;#</mark>c<mark>hap02&quot;&gt;ACT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;II&lt;/span&gt;<mark>.</mark> The Garden at the Manor House, Woolton.&lt;/<mark>a&gt;
+&lt;/</mark>p&gt;
+&lt;p&gt;<mark>
+	&lt;a href=&quot;#</mark>c<mark>hap03&quot;&gt;ACT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;III&lt;/span&gt;<mark>.</mark> Drawing-Room at the Manor House, Woolton.&lt;/<mark>a</mark>&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">capitalization</span><br>SE sets act labels in title case (&quot;Act II&quot;) rather than leaving Gutenberg&#x27;s all-caps; se-llm missed that.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE edition difference"><td>4</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;&lt;a href=&quot;#chap02&quot; class=&quot;pginternal&quot;&gt;ACT II. The Garden at the Manor House, Woolton.&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#chap03&quot; class=&quot;pginternal&quot;&gt;<mark>ACT III. Drawing-Room at the Manor House, Woolton.&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;TIME: The Present.
+&lt;/p&gt;
+
+&lt;h2&gt;LONDON: ST. JAMES’S THEATRE&lt;/h2&gt;
+
+&lt;p&gt;Lessee and Manager: Mr. George Alexander
+&lt;/p&gt;
+
+&lt;p&gt;February 14th, 1895
+&lt;/p&gt;
+
+&lt;p&gt;* * * * *
+&lt;/p&gt;
+
+&lt;p&gt;John Worthing, J.P.: Mr. George Alexander.&lt;br&gt;
+Algernon Moncrieff: Mr. Allen Aynesworth.&lt;br&gt;
+Rev. Canon Chasuble, D.D.: Mr. H. H. Vincent.&lt;br&gt;
+Merriman: Mr. Frank Dyall.&lt;br&gt;
+Lane: Mr. F. Kinsey Peile.&lt;br&gt;
+Lady Bracknell: Miss Rose Leclercq.&lt;br&gt;
+Hon. Gwendolen Fairfax: Miss Irene Vanbrugh.&lt;br&gt;
+Cecily Cardew: Miss Evelyn Millard.&lt;br&gt;
+Miss Prism: Mrs. George Canninge.
+&lt;/p&gt;
+
+&lt;div class=&quot;chapter&quot;&gt;
+
+&lt;h2&gt;&lt;a id=&quot;chap01&quot;&gt;&lt;/a&gt;FIRST ACT&lt;/h2&gt;
+
+&lt;h3&gt;SCENE</mark>&lt;/h3&gt;
+
+&lt;p&gt;Morning-room in Algernon’s flat in Half-Moon Street. The room is
+luxuriously and artistically furnished. The sound of a piano is heard in the</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;A<mark>ct</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;II&lt;/span&gt;<mark>:</mark> The Garden at the Manor House, Woolton.&lt;/<mark class="gap">&#8203;</mark>p&gt;
+&lt;p&gt;<mark>A</mark>c<mark>t</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;III&lt;/span&gt;<mark>:</mark> Drawing-Room at the Manor House, Woolton.&lt;/<mark class="gap">&#8203;</mark>p&gt;
+&lt;p&gt;T<mark>ime</mark>: The <mark>p</mark>resent.&lt;/p&gt;<mark class="gap">&#8203;</mark></pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark>	</mark>&lt;<mark>a href=&quot;#cha</mark>p<mark>02&quot;</mark>&gt;A<mark>CT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;II&lt;/span&gt;<mark>.</mark> The Garden at the Manor House, Woolton.&lt;/<mark>a&gt;
+&lt;/</mark>p&gt;
+&lt;p&gt;<mark>
+	&lt;a href=&quot;#</mark>c<mark>hap03&quot;&gt;ACT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;III&lt;/span&gt;<mark>.</mark> Drawing-Room at the Manor House, Woolton.&lt;/<mark>a&gt;
+&lt;/</mark>p&gt;
+&lt;p&gt;T<mark>IME</mark>: The <mark>P</mark>resent.&lt;/p&gt;<mark>
+&lt;h2&gt;LONDON: ST. JAMES’S THEATRE&lt;/h2&gt;
+&lt;p&gt;Lessee and Manager: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; George Alexander&lt;/p&gt;
+&lt;p&gt;
+	&lt;time datetime=&quot;1895-02-14&quot;&gt;February 14th, 1895&lt;/time&gt;
+&lt;/p&gt;
+&lt;p&gt;* * * * *&lt;/p&gt;
+&lt;p&gt;John Worthing, &lt;abbr epub:type=&quot;z3998:initialism z3998:name-title&quot;&gt;J.P.&lt;/abbr&gt;: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; George Alexander.&lt;br/&gt;
+Algernon Moncrieff: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Allen Aynesworth.&lt;br/&gt;
+&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Rev.&lt;/abbr&gt; Canon Chasuble, &lt;abbr epub:type=&quot;z3998:initialism z3998:name-title&quot;&gt;D.D.&lt;/abbr&gt;: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; &lt;abbr epub:type=&quot;z3998:given-name&quot;&gt;H. H.&lt;/abbr&gt; Vincent.&lt;br/&gt;
+Merriman: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Frank Dyall.&lt;br/&gt;
+Lane: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; &lt;abbr epub:type=&quot;z3998:given-name&quot;&gt;F.&lt;/abbr&gt; Kinsey Peile.&lt;br/&gt;
+Lady Bracknell: Miss Rose Leclercq.&lt;br/&gt;
+&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Hon.&lt;/abbr&gt; Gwendolen Fairfax: Miss Irene Vanbrugh.&lt;br/&gt;
+Cecily Cardew: Miss Evelyn Millard.&lt;br/&gt;
+Miss Prism: &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mrs.&lt;/abbr&gt; George Canninge.&lt;/p&gt;</mark></pre></td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-ed">SE edition difference</span> <span class="small">dropped text</span><br>SE omits the St. James&#x27;s Theatre first-night cast list that Gutenberg includes, and restyles the scene headings. se-llm keeps Gutenberg text by policy.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>5</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Cecily! What on earth do you mean? What do you mean, Algy, by Cecily! I
+don’t know <mark>any one</mark> of the name of Cecily.
+&lt;/p&gt;
+
+&lt;p&gt;[Enter &lt;b&gt;Lane&lt;/b&gt;.]
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+Bring me that cigarette case Mr. Worthing left in the smoking-room the last</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;Cecily! What on earth do you mean? What do you mean, Algy, by Cecily! I don’t know any<mark class="gap">&#8203;</mark>one of the name of Cecily.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td/&gt;
+	&lt;td&gt;
+		&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Lane&lt;/b&gt;.&lt;/i&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;Bring me…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;Cecily! What on earth do you mean? What do you mean, Algy, by Cecily! I don’t know any<mark> </mark>one of the name of Cecily.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td/&gt;
+	&lt;td&gt;
+		&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Lane&lt;/b&gt;.&lt;/i&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;Bring me…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>SE modernizes &quot;any one&quot; to &quot;anyone&quot; when it means any person. se-llm missed this.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>6</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Yes; but this isn’t your cigarette case. This cigarette case is a present
+from <mark>some one</mark> of the name of Cecily, and you said you didn’t know any one</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;td&gt;Yes; but this isn’t your cigarette case. This cigarette case is a present from some<mark class="gap">&#8203;</mark>one of the name of Cecily, and you said you didn’t know any<mark class="gap">&#8203;</mark>one of that name.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;td&gt;Yes; but this isn’t your cigarette case. This cigarette case is a present from some<mark> </mark>one of the name of Cecily, and you said you didn’t know any<mark> </mark>one of that name.&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;some one&quot; meaning a person is modernized to &quot;someone&quot; in SE spelling practice. se-llm missed it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>7</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">from some one of the name of Cecily, and you said you didn’t know <mark>any one</mark>
+of that name.
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+Well, if you want to know, Cecily happens to be my aunt.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;Yes; but this isn’t your cigarette case. This cigarette case is a present from some<mark class="gap">&#8203;</mark>one of the name of Cecily, and you said you didn’t know any<mark class="gap">&#8203;</mark>one of that name.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;Well, if you want to know, Cecily happens to be my aunt.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;Yes; but this isn’t your cigarette case. This cigarette case is a present from some<mark> </mark>one of the name of Cecily, and you said you didn’t know any<mark> </mark>one of that name.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;Well, if you want to know, Cecily happens to be my aunt.&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;any one&quot; meaning any person becomes &quot;anyone&quot; under SE modernization. se-llm missed it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>8</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">she is your aunt and lives at Tunbridge Wells? [Reading.] <mark>‘From little
+Cecily with her fondest love.’</mark>
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+[Moving to sofa and kneeling upon it.] My dear fellow, what on earth is there</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…she is your aunt and lives at Tunbridge Wells? &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Reading.&lt;/i&gt; <mark>“</mark>From little Cecily with her fondest love.<mark>”</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Moving to sofa and kneeling upon it.&lt;/i&gt; My dear fellow…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…she is your aunt and lives at Tunbridge Wells? &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Reading.&lt;/i&gt; <mark>‘</mark>From little Cecily with her fondest love.<mark>’</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Moving to sofa and kneeling upon it.&lt;/i&gt; My dear fellow…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE uses American-style double quotes for quoted matter, here the card inscription in the dialogue. se-llm kept British single quotes.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>9</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Yes. But why does your aunt call you her uncle? <mark>‘</mark>From little Cecily, with
+her fondest love to her dear Uncle Jack.’ There is no objection, I admit,</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;td&gt;Yes. But why does your aunt call you her uncle? <mark>“</mark>From little Cecily, with her fondest love to her dear Uncle…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;td&gt;Yes. But why does your aunt call you her uncle? <mark>‘</mark>From little Cecily, with her fondest love to her dear Uncle…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE&#x27;s typography uses double quotes for a quoted inscription. se-llm left single quotes.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>10</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Yes. But why does your aunt call you her uncle? ‘From little Cecily, with
+her fondest love to her dear Uncle Jack.<mark>’</mark> There is no objection, I admit,
+to an aunt being a small aunt, but why an aunt, no matter what her size may be,</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;td&gt;Yes. But why does your aunt call you her uncle? <mark>“</mark>From little Cecily, with her fondest love to her dear Uncle Jack.<mark>”</mark> There is no objection, I admit, to an aunt being…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;td&gt;Yes. But why does your aunt call you her uncle? <mark>‘</mark>From little Cecily, with her fondest love to her dear Uncle Jack.<mark>’</mark> There is no objection, I admit, to an aunt being…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>This is the closing quote of the same quotation. SE uses double quotes, and se-llm left the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>11</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">absurd your saying that your name isn’t Ernest. It’s on your cards.
+Here is one of them. [Taking it from case.] <mark>‘</mark>Mr. Ernest Worthing, B. 4,
+The Albany.’ I’ll keep this as a proof that your name is Ernest if</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…. Here is one of them. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Taking it from case.&lt;/i&gt; <mark>“</mark>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Ernest Worthing, B. 4, The Albany.…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…. Here is one of them. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Taking it from case.&lt;/i&gt; <mark>‘</mark>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Ernest Worthing, B. 4, The Albany.…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE uses double quotes for the quoted card text. se-llm kept single quotes.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>12</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Here is one of them. [Taking it from case.] ‘Mr. Ernest Worthing, B. 4,
+The Albany.<mark>’</mark> I’ll keep this as a proof that your name is Ernest if</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…Mr.&lt;/abbr&gt; Ernest Worthing, B. 4, The Albany.<mark>”</mark> I’ll keep this as a proof that your name is Ernest if…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…Mr.&lt;/abbr&gt; Ernest Worthing, B. 4, The Albany.<mark>’</mark> I’ll keep this as a proof that your name is Ernest if…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>This is the closing quote of the card text, and SE uses a double closing quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>13</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">expensive monthly magazines, and has reached the provincial pulpits, I am told;
+and my ideal has always been to love <mark>some one</mark> of the name of Ernest. There is
+something in that name that inspires absolute confidence. The moment Algernon</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…I am told; and my ideal has always been to love some<mark class="gap">&#8203;</mark>one of the name of Ernest. There is something in that name…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…I am told; and my ideal has always been to love some<mark> </mark>one of the name of Ernest. There is something in that name…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;some one&quot; meaning a person is modernized to &quot;someone&quot;. se-llm missed it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>14</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Good morning! [&lt;b&gt;Algernon&lt;/b&gt;, from the other room, strikes up the <mark>Wedding
+March</mark>. Jack looks perfectly furious, and goes to the door.] For goodness’</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;td&gt;Good morning! &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt;, from the other room, strikes up the <mark class="gap">&#8203;</mark>Wedding March<mark class="gap">&#8203;</mark>. <mark class="gap">&#8203;</mark>Jack<mark class="gap">&#8203;</mark> looks perfectly furious, and goes to the door.&lt;/i&gt; For goodness’ sake don’t play that ghastly tune, Algy. How idiotic you are!&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;td&gt;Good morning! &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt;, from the other room, strikes up the <mark>“&lt;span epub:type=&quot;se:name.music.song&quot;&gt;</mark>Wedding March<mark>&lt;/span&gt;”</mark>. <mark>&lt;b epub:type=&quot;z3998:persona&quot;&gt;</mark>Jack<mark>&lt;/b&gt;</mark> looks perfectly furious, and goes to the door.&lt;/i&gt; For goodness’ sake don’t play that ghastly tune, Algy. How idiotic you are!&lt;/td&gt;</pre></td></tr></table></td><td>[Semantic] Apply publication-music-titles-tag (4 changes)<br>[Semantic] Apply drama/stage-directions (6 changes)</td><td><span class="b v-both">both acceptable</span> <span class="small">italics to quotes</span><br>Wedding March is a short piece of music, so SE&#x27;s rules allow it in quotes. SE left it plain inside the italic stage direction, and either handling is defensible.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="se-llm correct"><td>15</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Of course it isn’t!
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+Very well, then. My poor brother Ernest <mark>is</mark> carried off suddenly, in Paris, by a
+severe chill. That gets rid of him.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;Of course it isn’t!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;Very well, then. My poor brother Ernest <mark>to</mark> carried off suddenly, in Paris, by a severe chill. That gets rid of him.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;Of course it isn’t!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;Very well, then. My poor brother Ernest <mark>is</mark> carried off suddenly, in Paris, by a severe chill. That gets rid of him.&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">SE introduced error</span><br>SE&#x27;s &quot;Ernest to carried off&quot; is a typo it introduced. Gutenberg&#x27;s &quot;is carried off&quot; is correct, and se-llm keeps it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>16</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">lights a cigarette, reads his shirt-cuff, and smiles.]
+&lt;/p&gt;
+
+&lt;p&gt;ACT <mark>DROP
+&lt;/p&gt;
+
+&lt;/div&gt;&lt;!--end chapter--&gt;
+
+&lt;div class=&quot;chapter&quot;&gt;
+
+&lt;h2&gt;&lt;a id=&quot;chap02&quot;&gt;&lt;/a&gt;SECOND ACT&lt;/h2&gt;
+
+&lt;h3&gt;SCENE</mark>&lt;/h3&gt;
+
+&lt;p&gt;Garden at the Manor House. A flight of grey stone steps leads up to the</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…lights a cigarette, reads his shirt-cuff, and smiles.&lt;/i&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p epub:type=&quot;z3998:stage-direction&quot;&gt;Act <mark>D</mark>rop&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…lights a cigarette, reads his shirt-cuff, and smiles.&lt;/i&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p epub:type=&quot;z3998:stage-direction&quot;&gt;Act <mark>d</mark>rop&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-both">both acceptable</span> <span class="small">heading style</span><br>Both normalize Gutenberg&#x27;s &quot;SECOND ACT SCENE&quot; to &quot;Act II Scene&quot;, and the capitalization or colon difference is a minor stylistic choice. SE&#x27;s version is a little cleaner, but neither is wrong.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>17</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">luggage with him.
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+[Takes the card and reads it.] <mark>‘</mark>Mr. Ernest Worthing, B. 4, The Albany,</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…luggage with him.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Takes the card and reads it.&lt;/i&gt; <mark>“</mark>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Ernest Worthing, B. 4, The Albany,…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…luggage with him.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Takes the card and reads it.&lt;/i&gt; <mark>‘</mark>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Ernest Worthing, B. 4, The Albany,…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE uses double quotes for the card text Cecily reads. se-llm kept single quotes.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>18</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">[Takes the card and reads it.] ‘Mr. Ernest Worthing, B. 4, The Albany,
+W.<mark>’</mark> Uncle Jack’s brother! Did you tell him Mr. Worthing was in</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…Ernest Worthing, B. 4, The Albany, <mark class="gap">&#8203;</mark>W.<mark>”</mark> Uncle Jack’s brother! Did you tell him &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Worthing was in town?&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…Ernest Worthing, B. 4, The Albany, <mark>&lt;abbr epub:type=&quot;se:compass&quot;&gt;</mark>W.<mark>&lt;/abbr&gt;’</mark> Uncle Jack’s brother! Did you tell him &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Worthing was in town?&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>This is the closing quote of the card text, and SE uses a double closing quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>19</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">If I am occasionally a little over-dressed, I make up for it by being always
+immensely <mark>over-educated</mark>.
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+Your vanity is ridiculous, your conduct an outrage, and your presence in my</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;If I am occasionally a little overdressed, I make up for it by being always immensely over<mark class="gap">&#8203;</mark>educated.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;Your vanity is ridiculous, your conduct an outrage,…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;If I am occasionally a little overdressed, I make up for it by being always immensely over<mark>-</mark>educated.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;Your vanity is ridiculous, your conduct an outrage,…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">hyphenation</span><br>SE&#x27;s hyphenation modernization closes up &quot;over-educated&quot; to &quot;overeducated&quot;, matching &quot;overdressed&quot; in the same sentence. se-llm modernized only the first and missed the second.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>20</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">pray, Ernest, don’t stop. I delight in taking down from dictation. I have
+reached <mark>‘absolute perfection’.</mark> You can go on. I am quite ready for
+more.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…. I delight in taking down from dictation. I have reached <mark>“</mark>absolute perfection<mark class="gap">&#8203;</mark>.<mark>”</mark> You can go on. I am quite ready for more.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…. I delight in taking down from dictation. I have reached <mark>‘</mark>absolute perfection<mark>’</mark>.<mark class="gap">&#8203;</mark> You can go on. I am quite ready for more.&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE uses double quotes and puts the period inside the closing quote (American style). se-llm kept single quotes with the period outside.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>21</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Of course it was. On the 22nd of last March. You can see the entry if you like.
+[Shows diary.] <mark>‘</mark>To-day I broke off my engagement with Ernest. I feel it</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;td&gt;Of course it was. On the 22nd of last March. You can see the entry if you like. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Shows diary.&lt;/i&gt; <mark>“</mark>Today I broke off my engagement with Ernest. I feel it is better to do so. The weather still continues charming.<mark>”</mark>&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;td&gt;Of course it was. On the 22nd of last March. You can see the entry if you like. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Shows diary.&lt;/i&gt; <mark>‘</mark>Today I broke off my engagement with Ernest. I feel it is better to do so. The weather still continues charming.<mark>’</mark>&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE uses double quotes for the diary entry and closes up &quot;To-day&quot; to &quot;Today&quot;. se-llm kept the single quote here.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>22</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">is better to do so. The weather still continues charming.<mark>’</mark>
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+But why on earth did you break it off? What had I done? I had done nothing at</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…is better to do so. The weather still continues charming.<mark>”</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;But why on earth did you break it off? What…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…is better to do so. The weather still continues charming.<mark>’</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;But why on earth did you break it off? What…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>This is the closing quote of the diary entry, and SE uses a double closing quote. se-llm kept the single quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>23</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Ernest proposed to me exactly ten minutes ago. [Shows diary.]
+&lt;/p&gt;
+
+&lt;p&gt;GWENDOLEN.&lt;br&gt;
+[Examines diary through her <mark>lorgnettte</mark> carefully.] It is certainly very
+curious, for he asked me to be his wife yesterday afternoon at 5.30. If you</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…ten minutes ago. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Shows diary.&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Examines diary through her lorgnett<mark class="gap">&#8203;</mark>e carefully.&lt;/i&gt; It is certainly very curious, for he asked me…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…ten minutes ago. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Shows diary.&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Examines diary through her lorgnett<mark>t</mark>e carefully.&lt;/i&gt; It is certainly very curious, for he asked me…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>&quot;lorgnettte&quot; is a genuine Gutenberg typo. SE corrected it, and se-llm keeps it by policy and records it.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>24</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">curious, for he asked me to be his wife yesterday afternoon at 5<mark>.</mark>30. If you
+would care to verify the incident, pray do so. [Produces diary of her own.] I</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…for he asked me to be his wife yesterday afternoon at 5<mark>:</mark>30. If you would care to verify the incident, pray…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…for he asked me to be his wife yesterday afternoon at 5<mark>.</mark>30. If you would care to verify the incident, pray…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>The time &quot;5. 30&quot; is period-style punctuation that SE changed to a colon, though it kept the odd space. Keeping Gutenberg&#x27;s reading is permitted by se-llm policy, and the colon is the modern form.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>25</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">arrangements this morning with Dr. Chasuble to be christened myself at 5<mark>.</mark>30,
+and I naturally will take the name of Ernest. Gwendolen would wish it. We</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;td&gt;My dear fellow, the sooner you give up that nonsense the better. I made arrangements this morning with &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Dr.&lt;/abbr&gt; Chasuble to be christened myself at 5<mark>:</mark>30, and I naturally will take the name of Ernest.…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;td&gt;My dear fellow, the sooner you give up that nonsense the better. I made arrangements this morning with &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Dr.&lt;/abbr&gt; Chasuble to be christened myself at 5<mark>.</mark>30, and I naturally will take the name of Ernest.…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>The time &quot;5. 30&quot; is period-style punctuation that SE changed to a colon, though it kept the odd space. Keeping Gutenberg&#x27;s reading is permitted by se-llm policy, and the colon is the modern form.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>26</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">[&lt;b&gt;Jack&lt;/b&gt; groans, and sinks into a chair. &lt;b&gt;Algernon&lt;/b&gt; still continues
+eating.]
+&lt;/p&gt;
+
+&lt;p&gt;ACT <mark>DROP
+&lt;/p&gt;
+
+&lt;/div&gt;&lt;!--end chapter--&gt;
+
+&lt;div class=&quot;chapter&quot;&gt;
+
+&lt;h2&gt;&lt;a id=&quot;chap03&quot;&gt;&lt;/a&gt;THIRD ACT&lt;/h2&gt;
+
+&lt;h3&gt;SCENE</mark>&lt;/h3&gt;
+
+&lt;p&gt;Morning-room at the Manor House.
+&lt;/p&gt;
+
+&lt;p&gt;[&lt;b&gt;Gwendolen&lt;/b&gt; and &lt;b&gt;Cecily&lt;/b&gt; are at the window, looking out into the</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…and sinks into a chair. &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt; still continues eating.&lt;/i&gt;&lt;/<mark>td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table</mark>&gt;
+&lt;p<mark> epub:type=&quot;z3998:stage-direction&quot;</mark>&gt;Act <mark>D</mark>rop&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…and sinks into a chair. &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt; still continues eating.&lt;/i&gt;&lt;/<mark>p</mark>&gt;
+&lt;p<mark class="gap">&#8203;</mark>&gt;Act <mark>d</mark>rop&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-both">both acceptable</span> <span class="small">heading style / capitalization</span><br>Both turn the all-caps act-drop line into the same text with &#x27;Act III&#x27;, and neither is wrong. SE&#x27;s title-case &#x27;Act Drop&#x27; and added colon after &#x27;Scene&#x27; are editorial styling choices. se-llm&#x27;s lowercase &#x27;drop&#x27; and missing colon are also allowed.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>27</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">you take the time from me?
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+Certainly. [&lt;b&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.]
+&lt;/p&gt;
+
+&lt;p&gt;<mark>GWENDOLEN and CECILY [</mark>Speaking together.] Your Christian names are still an
+insuperable barrier. That is all!</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…me?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td<mark class="gap">&#8203;</mark>&gt;Certainly. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.&lt;/i&gt;&lt;/<mark>td&gt;
+&lt;/tr&gt;
+&lt;tr</mark>&gt;
+	<mark class="gap">&#8203;</mark>&lt;<mark>td e</mark>p<mark>ub:type=&quot;z3998:persona&quot;</mark>&gt;G<mark>wendolen</mark> and C<mark>ecily&lt;/td&gt;
+	&lt;td&gt;</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…me?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td<mark>&gt;
+		&lt;p</mark>&gt;Certainly. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.&lt;/i&gt;&lt;/<mark>p</mark>&gt;
+	<mark>	</mark>&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;G<mark>WENDOLEN</mark> and C<mark>ECILY </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>p</mark>&gt;</pre></td></tr></table></td><td>Set the dialogue of the play in tables</td><td><span class="b v-se">SE correct</span> <span class="small">speaker names / caps</span><br>SE sets speaker names in a persona element with normal case, and the caps come from styling. se-llm left the Gutenberg all-caps &#x27;GWENDOLEN and CECILY&#x27; in the text, so it missed the SE all-caps conversion.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>28</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;GWENDOLEN and CECILY [Speaking together.] Your Christian names are still an
+insuperable barrier. That is all!
+&lt;/p&gt;
+
+&lt;p&gt;<mark>JACK and ALGERNON [</mark>Speaking together.] Our Christian names! Is that all? But</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>	</mark>&lt;<mark>td</mark>&gt;<mark class="gap">&#8203;</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>td</mark>&gt;
+&lt;<mark>/tr&gt;
+&lt;tr&gt;
+	&lt;td e</mark>p<mark>ub:type=&quot;z3998:persona&quot;</mark>&gt;J<mark>ack</mark> and A<mark>lgernon&lt;/td&gt;
+	&lt;td&gt;</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Our Christian names! Is that all? But we are going to be christened this afternoon.&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark>p</mark>&gt;<mark>GWENDOLEN and CECILY </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>p</mark>&gt;
+&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;J<mark>ACK</mark> and A<mark>LGERNON </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Our Christian names! Is that all? But we are going to be christened this afternoon.&lt;/<mark>p</mark>&gt;</pre></td></tr></table></td><td>Set the dialogue of the play in tables</td><td><span class="b v-se">SE correct</span> <span class="small">speaker names / caps</span><br>The combined speaker label &#x27;JACK and ALGERNON&#x27; should be in normal case, with caps applied by CSS. se-llm kept the uppercase literal text and missed the SE rule.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
+<tr class="drow" data-v="se-llm correct"><td>29</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">from this moment. On this point, as indeed on all points, I am firm.
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+I am engaged to be married to Gwendolen<mark>,</mark> Lady Bracknell!
+&lt;/p&gt;
+
+&lt;p&gt;LADY BRACKNELL.&lt;br&gt;
+You are nothing of the kind, sir. And now, as regards Algernon! . . . Algernon!</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…am firm.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;I am engaged to be married to Gwendolen<mark class="gap">&#8203;</mark> Lady Bracknell!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Lady Bracknell&lt;/td&gt;
+	&lt;td&gt;You are nothing of the kind, sir. And now, as regards Algernon!⁠ ⁠… Algernon!&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…am firm.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;I am engaged to be married to Gwendolen<mark>,</mark> Lady Bracknell!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Lady Bracknell&lt;/td&gt;
+	&lt;td&gt;You are nothing of the kind, sir. And now, as regards Algernon!⁠ ⁠… Algernon!&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">punctuation</span><br>The comma in &#x27;Gwendolen, Lady Bracknell!&#x27; is in Gutenberg and is a normal reading. SE&#x27;s removal changes the punctuation without any manual rule requiring it. se-llm&#x27;s policy is to keep the Gutenberg reading.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>30</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Thomas Cardew of 149 Belgrave Square, S.W.; Gervase Park, Dorking, Surrey; and
+the Sporran, Fifeshire, N.B<mark>.</mark>
+&lt;/p&gt;
+
+&lt;p&gt;LADY BRACKNELL.&lt;br&gt;
+That sounds not unsatisfactory. Three addresses always inspire confidence, even</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…, Surrey; and the Sporran, Fifeshire, <mark class="gap">&#8203;</mark>N.<mark> </mark>B<mark class="gap">&#8203;</mark>.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Lady Bracknell&lt;/td&gt;
+	&lt;td&gt;That sounds not unsatisfactory. Three addresses always inspire confidence, even in tradesmen. But what proof have I of their authenticity?&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…, Surrey; and the Sporran, Fifeshire, <mark>&lt;abbr epub:type=&quot;z3998:initialism&quot;&gt;</mark>N.<mark class="gap">&#8203;</mark>B<mark>.&lt;/abbr&gt;</mark>.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Lady Bracknell&lt;/td&gt;
+	&lt;td&gt;That sounds not unsatisfactory. Three addresses always inspire confidence, even in tradesmen. But what proof have I of their authenticity?&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">punctuation</span><br>&#x27;N. B..&#x27; with a doubled period is wrong, since the abbreviation&#x27;s period also ends the sentence. SE has a single period. This looks like a stray period from the speaker-label conversion, or at best a Gutenberg typo that should not be kept.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>31</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">My own one!
+&lt;/p&gt;
+
+&lt;p&gt;CHASUBLE.&lt;br&gt;
+[To &lt;b&gt;Miss Prism&lt;/b&gt;.] Lætitia! [Embraces her]
+&lt;/p&gt;
+
+&lt;p&gt;<mark class="gap">&#8203;</mark>MISS PRISM.&lt;br&gt;
+[Enthusiastically.] Frederick! At last!
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+Cecily! [Embraces her.] At last!</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;My own one!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Chasuble&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;To &lt;b epub:type=&quot;z3998:persona&quot;&gt;Miss Prism&lt;/b&gt;.&lt;/i&gt; Laetitia! &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Embraces her<mark>.</mark>&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Miss Prism&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enthusiastically.&lt;/i&gt; Frederick! At last!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;Cecily! &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Embraces her.&lt;/i&gt; At last!&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;My own one!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Chasuble&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;To &lt;b epub:type=&quot;z3998:persona&quot;&gt;Miss Prism&lt;/b&gt;.&lt;/i&gt; Laetitia! &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Embraces her<mark class="gap">&#8203;</mark>&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Miss Prism&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enthusiastically.&lt;/i&gt; Frederick! At last!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;Cecily! &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Embraces her.&lt;/i&gt; At last!&lt;/td&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction / punctuation</span><br>Gutenberg&#x27;s &#x27;[Embraces her]&#x27; has no final period, unlike the other stage directions. SE added one for consistency. se-llm keeps the Gutenberg reading by policy, and either is defensible.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+</tbody></table>
+<h2>Markup differences from the Standard Ebooks edition</h2>
+<p>27 places where the words agree but the markup differs, in 16 patterns. Tags are compared by element and by the epub:type, xml:lang, class and role attributes; ids and link targets are ignored. Each pattern is one row with its first example; open “more examples” for others. The verdict is given once per pattern by a model (Claude Sonnet) against the SE Manual of Style; it is not proof. Places where the words differ are in the text table above, where their markup is shown too.</p>
+<div class="filters"><button class="on" onclick="filt('all',this,'mrow')">All (16)</button><button onclick="filt('SE correct',this,'mrow')">SE correct (4)</button><button onclick="filt('se-llm correct',this,'mrow')">se-llm correct (3)</button><button onclick="filt('both acceptable',this,'mrow')">both acceptable (7)</button><button onclick="filt('SE edition difference',this,'mrow')">SE edition difference (2)</button></div>
+<table class="diff"><thead><tr><th>Times</th><th>Gutenberg / SE / se-llm</th><th>se-llm step</th><th>Which is right, and why</th></tr></thead><tbody>
+<tr class="mrow" data-v="both acceptable"><td>4</td><td><div class="small"><b>se-llm only:</b> <code>&lt;p&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Yes, Miss.
+&lt;/p&gt;
+
+&lt;p&gt;[&lt;b&gt;Merriman&lt;/b&gt; goes off.]
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+I have never met any really wicked person before. I feel rather frightened. I</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">		&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Merriman&lt;/b&gt; goes off.&lt;/i&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;<mark class="gap">&#8203;</mark>I have never met any really wicked person before. I feel rather frightened. I am so afraid he will look just like everyone else.&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">		&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Merriman&lt;/b&gt; goes off.&lt;/i&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;<mark>
+		&lt;p&gt;</mark>I have never met any really wicked person before. I feel rather frightened. I am so afraid he will look just like everyone else.&lt;/<mark>p</mark>&gt;</pre></td></tr></table><details><summary class="small">more examples (3)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">has not been a great success for you.
+&lt;/p&gt;
+
+&lt;p&gt;[Goes into the house.]
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+I think it has been a great success. I’m in love with Cecily, and that is</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">		&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Goes into the house.&lt;/i&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;<mark class="gap">&#8203;</mark>I think it has been a great success. I’m in love with Cecily, and that is everything.&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">		&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Goes into the house.&lt;/i&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;<mark>
+		&lt;p&gt;</mark>I think it has been a great success. I’m in love with Cecily, and that is everything.&lt;/<mark>p</mark>&gt;</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Algernon! I have already told you to go. I don’t want you here. Why
+don’t you go!
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+I haven’t quite finished my tea yet! and there is still one muffin left.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;Algernon! I have already told you to go. I don’t want you here. Why don’t you go!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;<mark class="gap">&#8203;</mark>I haven’t quite finished my tea yet! and there is still one muffin…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;Algernon! I have already told you to go. I don’t want you here. Why don’t you go!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;<mark>
+		&lt;p&gt;</mark>I haven’t quite finished my tea yet! and there is still one muffin…</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">An excellent idea! I nearly always speak at the same time as other people. Will
+you take the time from me?
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+Certainly. [&lt;b&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.]</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;An excellent idea! I nearly always speak at the same time as other people. Will you take the time from me?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;<mark class="gap">&#8203;</mark>Certainly. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.&lt;/i&gt;&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;An excellent idea! I nearly always speak at the same time as other people. Will you take the time from me?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;<mark>
+		&lt;p&gt;</mark>Certainly. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.&lt;/i&gt;&lt;/<mark>p</mark>&gt;</pre></td></tr></table></details></td><td>[Semantic] Apply drama/structure (3 changes)<br>[Semantic] Apply caps-and-bold (3 changes)<br>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-both">both acceptable</span> <span class="small">verse/drama markup</span><br>In the Gutenberg source the following stage-direction paragraph is a continuation of the same speech. se-llm wraps the multi-paragraph speech in p elements inside one td, which matches the drama rules for multi-paragraph speeches. SE instead puts the continuation in a separate row with an empty speaker cell. Either reading is defensible.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>4</td><td><div class="small"><b>se-llm only:</b> <code>&lt;time&gt; &lt;/time&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Darling! And when was the engagement actually settled?
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+On the 14th of February last. Worn out by your entire ignorance of my</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;Darling! And when was the engagement actually settled?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;On the <mark class="gap">&#8203;</mark>14th of February<mark class="gap">&#8203;</mark> last. Worn out by your entire ignorance of my existence, I determined…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;Darling! And when was the engagement actually settled?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;On the <mark>&lt;time datetime=&quot;02-14&quot;&gt;</mark>14th of February<mark>&lt;/time&gt;</mark> last. Worn out by your entire ignorance of my existence, I determined…</pre></td></tr></table><details><summary class="small">more examples (3)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">I shan’t be away more than half an hour.
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+Considering that we have been engaged since February the 14th, and that I only
+met you to-day for the first time, I think it is rather hard that you should</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;I shan’t be away more than half an hour.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;Considering that we have been engaged since <mark class="gap">&#8203;</mark>February the 14th<mark class="gap">&#8203;</mark>, and that I only met you today for the first time, I…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;I shan’t be away more than half an hour.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;Considering that we have been engaged since <mark>&lt;time datetime=&quot;02-14&quot;&gt;</mark>February the 14th<mark>&lt;/time&gt;</mark>, and that I only met you today for the first time, I…</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">have—Markby, Migsby, Mobbs, Moncrieff! Lieutenant 1840, Captain,
+Lieutenant-Colonel, Colonel, General 1869, Christian names, Ernest John. [Puts</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…ghastly names they have⁠—Markby, Migsby, Mobbs, Moncrieff! Lieutenant <mark class="gap">&#8203;</mark>1840<mark class="gap">&#8203;</mark>, Captain, Lieutenant-Colonel, Colonel, General <mark class="gap">&#8203;</mark>1869<mark class="gap">&#8203;</mark>, Christian names<mark>, Ernest</mark>…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…ghastly names they have⁠—Markby, Migsby, Mobbs, Moncrieff! Lieutenant <mark>&lt;time datetime=&quot;</mark>1840<mark>&quot;&gt;1840&lt;/time&gt;</mark>, Captain, Lieutenant-Colonel, Colonel, General <mark>&lt;time datetime=&quot;</mark>1869<mark>&quot;&gt;1869&lt;/time&gt;</mark>, Christian names<mark class="gap">&#8203;</mark>…</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">have—Markby, Migsby, Mobbs, Moncrieff! Lieutenant 1840, Captain,
+Lieutenant-Colonel, Colonel, General 1869, Christian names, Ernest John. [Puts</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…<mark>Mobbs, </mark>Moncrieff! Lieutenant <mark class="gap">&#8203;</mark>1840<mark class="gap">&#8203;</mark>, Captain, Lieutenant-Colonel, Colonel, General <mark class="gap">&#8203;</mark>1869<mark class="gap">&#8203;</mark>, Christian names, Ernest John. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Puts book very quietly down and…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…<mark class="gap">&#8203;</mark>Moncrieff! Lieutenant <mark>&lt;time datetime=&quot;</mark>1840<mark>&quot;&gt;1840&lt;/time&gt;</mark>, Captain, Lieutenant-Colonel, Colonel, General <mark>&lt;time datetime=&quot;</mark>1869<mark>&quot;&gt;1869&lt;/time&gt;</mark>, Christian names, Ernest John. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Puts book very quietly down and…</pre></td></tr></table></details></td><td>[Semantic] Apply time-elements (4 changes)<br>[Editorial] Modernize spelling and hyphenation</td><td><span class="b v-both">both acceptable</span> <span class="small">time element</span><br>The manual allows time for dates, but it does not require tagging dates inside dialogue. SE left them as plain text, and se-llm&#x27;s datetime values are valid. Gutenberg has no markup for these dates.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>3</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/p&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;[Enter &lt;b&gt;Algernon&lt;/b&gt;, very gay and debonnair.] He does!
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+[Raising his hat.] You are my little cousin Cecily, I’m sure.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark class="gap">&#8203;</mark>	&lt;<mark>td</mark>&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt;, very gay and debonnair.&lt;/i&gt; He does!<mark class="gap">&#8203;</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Raising his hat.&lt;/i&gt; You are my little cousin Cecily, I’m sure.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark>	</mark>	&lt;<mark>p</mark>&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt;, very gay and debonnair.&lt;/i&gt; He does!<mark>&lt;/p&gt;
+	</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Raising his hat.&lt;/i&gt; You are my little cousin Cecily, I’m sure.&lt;/td&gt;</pre></td></tr></table><details><summary class="small">more examples (2)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">arrangements for another Bunbury. Ah, there she is.
+&lt;/p&gt;
+
+&lt;p&gt;CECILY.&lt;br&gt;
+Oh, I merely came back to water the roses. I thought you were with Uncle Jack.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…, and make arrangements for another Bunbury. Ah, there she is.<mark class="gap">&#8203;</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;Oh, I merely came back to water the roses. I thought you were with Uncle Jack.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…, and make arrangements for another Bunbury. Ah, there she is.<mark>&lt;/p&gt;
+	</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/td&gt;
+	&lt;td&gt;Oh, I merely came back to water the roses. I thought you were with Uncle Jack.&lt;/td&gt;</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;JACK and ALGERNON [Speaking together.] Our Christian names! Is that all? But
+we are going to be christened this afternoon.
+&lt;/p&gt;
+
+&lt;p&gt;GWENDOLEN.&lt;br&gt;
+[To &lt;b&gt;Jack&lt;/b&gt;.] For my sake you are prepared to do this terrible thing?</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Our Christian names! </mark>Is that all? But we are going to be christened this afternoon.<mark class="gap">&#8203;</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;To &lt;b epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/b&gt;.&lt;/i&gt; For my sake you are prepared to do this terrible thing?&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark>…</mark>Is that all? But we are going to be christened this afternoon.<mark>&lt;/p&gt;
+	</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/td&gt;
+	&lt;td&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;To &lt;b epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/b&gt;.&lt;/i&gt; For my sake you are prepared to do this terrible thing?&lt;/td&gt;</pre></td></tr></table></details></td><td>[Semantic] Apply drama/structure (3 changes)<br>[Semantic] Apply caps-and-bold (3 changes)<br>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-both">both acceptable</span> <span class="small">drama markup</span><br>These are the closing &lt;/p&gt; tags of the multi-paragraph speeches from the previous two patterns. They differ only because se-llm uses p inside the td and SE uses separate rows. Both are valid structure.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>2</td><td><div class="small"><b>se-llm only:</b> <code>&lt;abbr epub:type=&quot;z3998:initialism z3998:name-title&quot;&gt;</code><br><b>SE only:</b> <code>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;h3&gt;A Trivial Comedy for Serious People&lt;/h3&gt;
+
+&lt;h2&gt;THE PERSONS IN THE PLAY&lt;/h2&gt;
+
+&lt;p&gt;John Worthing, J.P.&lt;br&gt;
+Algernon Moncrieff&lt;br&gt;
+Rev. Canon Chasuble, D.D.&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>&lt;body epub:type=&quot;frontmatter z3998:drama z3998:fiction&quot;&gt;
+	</mark>&lt;section id=&quot;dramatis-personae&quot; epub:type=&quot;z3998:dramatis-personae&quot;&gt;
+	<mark>	</mark>&lt;h2 epub:type=&quot;title&quot;<mark> xml:lang=&quot;la&quot;</mark>&gt;<mark>Dramatis</mark> P<mark>ersonae</mark>&lt;/h2&gt;
+<mark>	</mark>	&lt;ul&gt;
+		<mark>	</mark>&lt;li&gt;
+<mark>	</mark>			&lt;p&gt;John Worthing, &lt;abbr epub:type=&quot;z3998:<mark class="gap">&#8203;</mark>name-title&quot;&gt;J.<mark> </mark>P.&lt;/abbr&gt;&lt;/p&gt;
+		<mark>	</mark>&lt;/li&gt;
+		<mark>	</mark>&lt;li&gt;
+<mark>	</mark>			&lt;p&gt;Algernon Moncrieff&lt;/p&gt;
+		<mark>	</mark>&lt;/li&gt;
+		<mark>	</mark>&lt;li&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;section id=&quot;dramatis-personae&quot; epub:type=&quot;z3998:dramatis-personae&quot;&gt;
+	<mark class="gap">&#8203;</mark>&lt;h2 epub:type=&quot;title&quot;<mark class="gap">&#8203;</mark>&gt;<mark>THE</mark> P<mark>ERSONS IN THE PLAY</mark>&lt;/h2&gt;
+<mark class="gap">&#8203;</mark>	&lt;ul&gt;
+		<mark class="gap">&#8203;</mark>&lt;li&gt;
+<mark class="gap">&#8203;</mark>			&lt;p&gt;John Worthing, &lt;abbr epub:type=&quot;z3998:<mark>initialism z3998:</mark>name-title&quot;&gt;J.<mark class="gap">&#8203;</mark>P.&lt;/abbr&gt;&lt;/p&gt;
+		<mark class="gap">&#8203;</mark>&lt;/li&gt;
+		<mark class="gap">&#8203;</mark>&lt;li&gt;
+<mark class="gap">&#8203;</mark>			&lt;p&gt;Algernon Moncrieff&lt;/p&gt;
+		<mark class="gap">&#8203;</mark>&lt;/li&gt;
+		<mark class="gap">&#8203;</mark>&lt;li&gt;</pre></td></tr></table><details><summary class="small">more examples (1)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;John Worthing, J.P.&lt;br&gt;
+Algernon Moncrieff&lt;br&gt;
+Rev. Canon Chasuble, D.D.&lt;br&gt;
+Merriman, Butler&lt;br&gt;
+Lane, Manservant&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;p&gt;Algernon Moncrieff&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+	&lt;p&gt;&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Rev.&lt;/abbr&gt;<mark> </mark>Canon Chasuble, &lt;abbr epub:type=&quot;<mark class="gap">&#8203;</mark>z3998:name-title&quot;&gt;D.D.&lt;/abbr&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+	&lt;p&gt;Merriman, Butler&lt;/p&gt;
+&lt;/li&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;p&gt;Algernon Moncrieff&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+	&lt;p&gt;&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Rev.&lt;/abbr&gt;<mark> </mark>Canon Chasuble, &lt;abbr epub:type=&quot;<mark>z3998:initialism </mark>z3998:name-title&quot;&gt;D.D.&lt;/abbr&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+	&lt;p&gt;Merriman, Butler&lt;/p&gt;
+&lt;/li&gt;</pre></td></tr></table></details></td><td>[Semantic] Apply abbreviations/era-compass-credentials (4 changes)<br>[Semantic] Apply abbreviations/initialisms-acronyms (1 change)<br>[Semantic] Apply drama/structure (3 changes)</td><td><span class="b v-both">both acceptable</span> <span class="small">abbreviation</span><br>Per the SE abbreviation rules, name-title abbreviations like J.P. and D.D. take z3998:name-title. Adding z3998:initialism is defensible but not required, and SE normally omits it. Gutenberg has plain text, so neither edition is copying markup.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>2</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/p&gt; &lt;p&gt;</code><br><b>SE only:</b> <code>&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt; &lt;td&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">am so afraid he will look just like every one else.
+&lt;/p&gt;
+
+&lt;p&gt;[Enter &lt;b&gt;Algernon&lt;/b&gt;, very gay and debonnair.] He does!</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>	</mark>&lt;<mark>td</mark>&gt;I have never met any really wicked person before. I feel rather frightened. I am so afraid he will look just like everyone else.&lt;/<mark>td</mark>&gt;
+&lt;<mark>/tr&gt;
+&lt;tr&gt;
+	&lt;td/&gt;
+	&lt;td</mark>&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt;, very gay and debonnair.&lt;/i&gt; He does!&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark>p</mark>&gt;I have never met any really wicked person before. I feel rather frightened. I am so afraid he will look just like everyone else.&lt;/<mark>p</mark>&gt;
+&lt;<mark>p</mark>&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt;, very gay and debonnair.&lt;/i&gt; He does!&lt;/<mark>p</mark>&gt;</pre></td></tr></table><details><summary class="small">more examples (1)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">I think it has been a great success. I’m in love with Cecily, and that is
+everything.
+&lt;/p&gt;
+
+&lt;p&gt;[Enter &lt;b&gt;Cecily&lt;/b&gt; at the back of the garden. She picks up the can and</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>	</mark>&lt;<mark>td</mark>&gt;I think it has been a great success. I’m in love with Cecily, and that is everything.&lt;/<mark>td</mark>&gt;
+&lt;<mark>/tr&gt;
+&lt;tr&gt;
+	&lt;td/&gt;
+	&lt;td</mark>&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/b&gt; at the back of the garden. She picks…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark>p</mark>&gt;I think it has been a great success. I’m in love with Cecily, and that is everything.&lt;/<mark>p</mark>&gt;
+&lt;<mark>p</mark>&gt;&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Enter &lt;b epub:type=&quot;z3998:persona&quot;&gt;Cecily&lt;/b&gt; at the back of the garden. She picks…</pre></td></tr></table></details></td><td>[Semantic] Apply drama/structure (3 changes)<br>[Semantic] Apply caps-and-bold (3 changes)<br>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-both">both acceptable</span> <span class="small">drama markup</span><br>This is the same continuation-paragraph case as the previous pattern. se-llm keeps the continuation as a second p in the speaker&#x27;s td. SE splits it into a new row with an empty td. The manual&#x27;s drama rules allow either.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>2</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/p&gt; &lt;p&gt;</code><br><b>SE only:</b> <code>&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td epub:type=&quot;z3998:persona&quot;&gt; &lt;/td&gt; &lt;td&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Certainly. [&lt;b&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.]
+&lt;/p&gt;
+
+&lt;p&gt;GWENDOLEN and CECILY [Speaking together.] Your Christian names are still an</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>	</mark>&lt;<mark>td</mark>&gt;Certainly. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.&lt;/i&gt;&lt;/<mark>td</mark>&gt;
+&lt;<mark>/tr&gt;
+&lt;tr&gt;
+	&lt;td e</mark>p<mark>ub:type=&quot;z3998:persona&quot;</mark>&gt;G<mark>wendolen</mark> and C<mark>ecily&lt;/td&gt;
+	&lt;td&gt;</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark>p</mark>&gt;Certainly. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;&lt;b epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/b&gt; beats time with uplifted finger.&lt;/i&gt;&lt;/<mark>p</mark>&gt;
+&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;G<mark>WENDOLEN</mark> and C<mark>ECILY </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>p</mark>&gt;</pre></td></tr></table><details><summary class="small">more examples (1)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;GWENDOLEN and CECILY [Speaking together.] Your Christian names are still an
+insuperable barrier. That is all!
+&lt;/p&gt;
+
+&lt;p&gt;JACK and ALGERNON [Speaking together.] Our Christian names! Is that all? But</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>	</mark>&lt;<mark>td</mark>&gt;<mark class="gap">&#8203;</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>td</mark>&gt;
+&lt;<mark>/tr&gt;
+&lt;tr&gt;
+	&lt;td e</mark>p<mark>ub:type=&quot;z3998:persona&quot;</mark>&gt;J<mark>ack</mark> and A<mark>lgernon&lt;/td&gt;
+	&lt;td&gt;</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Our Christian names! Is that all? But we are going to be christened this afternoon.&lt;/<mark>td</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>&lt;<mark>p</mark>&gt;<mark>GWENDOLEN and CECILY </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Your Christian names are still an insuperable barrier. That is all!&lt;/<mark>p</mark>&gt;
+&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;J<mark>ACK</mark> and A<mark>LGERNON </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Speaking together.&lt;/i&gt; Our Christian names! Is that all? But we are going to be christened this afternoon.&lt;/<mark>p</mark>&gt;</pre></td></tr></table></details></td><td>[Semantic] Apply drama/structure (3 changes)<br>[Semantic] Apply caps-and-bold (3 changes)<br>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">drama markup</span><br>&#x27;GWENDOLEN and CECILY [Speaking together.]&#x27; is a joint speaker line and should be its own row with a z3998:persona cell. se-llm did not recognize the joint speaker and left it as a stray paragraph inside the previous speaker&#x27;s cell. That misattributes the speech.</td></tr>
+<tr class="mrow" data-v="SE edition difference"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>nothing</code><br><b>SE only:</b> <code>&lt;/section&gt; &lt;/body&gt; &lt;/html&gt; &lt;body epub:type=&quot;frontmatter z3998:drama z3998:fiction&quot;&gt; &lt;section&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Hon. Gwendolen Fairfax&lt;br&gt;
+Cecily Cardew&lt;br&gt;
+Miss Prism, Governess
+&lt;/p&gt;
+
+&lt;h2&gt;THE SCENES OF THE PLAY&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;#chap01&quot; class=&quot;pginternal&quot;&gt;ACT I. Algernon Moncrieff’s Flat in Half-Moon</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>			</mark>		&lt;p&gt;Cecily Cardew&lt;/p&gt;
+	<mark>			</mark>&lt;/li&gt;
+	<mark>			</mark>&lt;li&gt;
+<mark>			</mark>		&lt;p&gt;Miss Prism, Governess&lt;/p&gt;
+	<mark>			</mark>&lt;/li&gt;
+<mark>			</mark>&lt;/ul&gt;
+<mark>		</mark>&lt;<mark>/s</mark>e<mark>c</mark>ti<mark>on</mark>&gt;
+	&lt;<mark>/body</mark>&gt;<mark>
+</mark>&lt;/<mark>html</mark>&gt;<mark class="gap">&#8203;</mark></pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>		&lt;p&gt;Cecily Cardew&lt;/p&gt;
+	<mark class="gap">&#8203;</mark>&lt;/li&gt;
+	<mark class="gap">&#8203;</mark>&lt;li&gt;
+<mark class="gap">&#8203;</mark>		&lt;p&gt;Miss Prism, Governess&lt;/p&gt;
+	<mark class="gap">&#8203;</mark>&lt;/li&gt;
+<mark class="gap">&#8203;</mark>&lt;/ul&gt;
+<mark class="gap">&#8203;</mark>&lt;<mark>h2 </mark>e<mark>pub:type=&quot;</mark>ti<mark>tle&quot;&gt;THE SCENES OF THE PLAY&lt;/h2&gt;
+&lt;p</mark>&gt;
+	&lt;<mark>a href=&quot;#chap01&quot;</mark>&gt;<mark>ACT &lt;span epub:type=&quot;z3998:roman&quot;&gt;I</mark>&lt;/<mark>span</mark>&gt;<mark>.…</mark></pre></td></tr></table></td><td><span class="small">se-llm has no markup here</span></td><td><span class="b v-ed">SE edition difference</span> <span class="small">section structure</span><br>SE ends the dramatis personae section there and drops the &#x27;Scenes of the Play&#x27; list. se-llm keeps that list because the Gutenberg source has it. The difference comes from SE&#x27;s editorial choice of source material.</td></tr>
+<tr class="mrow" data-v="SE edition difference"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/a&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;p&gt;&lt;a href=&quot;#chap03&quot; class=&quot;pginternal&quot;&gt;ACT III. Drawing-Room at the Manor House, Woolton.&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;TIME: The Present.
+&lt;/p&gt;
+
+&lt;h2&gt;LONDON: ST. JAMES’S THEATRE&lt;/h2&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark>		</mark>	&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;A<mark>ct</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;III&lt;/span&gt;<mark>:</mark> Drawing-Room at the Manor House, Woolton.&lt;/<mark class="gap">&#8203;</mark>p&gt;
+<mark>			</mark>&lt;p&gt;T<mark>ime</mark>: The <mark>p</mark>resent.&lt;/p&gt;
+<mark>		</mark>&lt;<mark>/section</mark>&gt;<mark>
+	&lt;/body&gt;
+</mark>&lt;/h<mark>tml</mark>&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark class="gap">&#8203;</mark>	&lt;<mark>a href=&quot;#cha</mark>p<mark>03&quot;</mark>&gt;A<mark>CT</mark> &lt;span epub:type=&quot;z3998:roman&quot;&gt;III&lt;/span&gt;<mark>.</mark> Drawing-Room at the Manor House, Woolton.&lt;/<mark>a&gt;
+&lt;/</mark>p&gt;
+<mark class="gap">&#8203;</mark>&lt;p&gt;T<mark>IME</mark>: The <mark>P</mark>resent.&lt;/p&gt;
+<mark class="gap">&#8203;</mark>&lt;<mark>h2</mark>&gt;<mark>LONDON: ST. JAMES’S THEATRE</mark>&lt;/h<mark>2</mark>&gt;</pre></td></tr></table></td><td>[Semantic][eoc] Apply eoc (1 change)<br>[Semantic] Apply roman-numerals-tag (1 change)<br>[Semantic] Apply drama/structure (3 changes)</td><td><span class="b v-ed">SE edition difference</span> <span class="small">eoc / internal link</span><br>SE drops the Gutenberg scenes list, so it has no link here. se-llm keeps the list, correctly converts the Gutenberg pginternal link and tags the Roman numeral. The difference comes from SE removing the content.</td></tr>
+<tr class="mrow" data-v="se-llm correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;em&gt; &lt;/em&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">something else. And that makes me so nervous.
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+I &lt;i&gt;do&lt;/i&gt; mean something else.
+&lt;/p&gt;
+
+&lt;p&gt;GWENDOLEN.&lt;br&gt;
+I thought so. In fact, I am never wrong.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…that makes me so nervous.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;I <mark class="gap">&#8203;</mark>do<mark class="gap">&#8203;</mark> mean something else.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/td&gt;
+	&lt;td&gt;I thought so. In fact, I am never wrong.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…that makes me so nervous.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;I <mark>&lt;em&gt;</mark>do<mark>&lt;/em&gt;</mark> mean something else.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Gwendolen&lt;/td&gt;
+	&lt;td&gt;I thought so. In fact, I am never wrong.&lt;/td&gt;</pre></td></tr></table></td><td>[Semantic] Apply em-vs-i (2 changes)</td><td><span class="b v-sellm">se-llm correct</span> <span class="small">semantic italics</span><br>Gutenberg italicizes &#x27;do&#x27; for stress, and the manual says to mark stressed words with em. SE dropped the emphasis, which loses the author&#x27;s stress.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;section epub:type=&quot;chapter&quot;&gt;</code><br><b>SE only:</b> <code>&lt;section epub:type=&quot;chapter z3998:scene&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">lights a cigarette, reads his shirt-cuff, and smiles.]
+&lt;/p&gt;
+
+&lt;p&gt;ACT DROP
+&lt;/p&gt;
+
+&lt;/div&gt;&lt;!--end chapter--&gt;
+
+&lt;div class=&quot;chapter&quot;&gt;
+
+&lt;h2&gt;&lt;a id=&quot;chap02&quot;&gt;&lt;/a&gt;SECOND ACT&lt;/h2&gt;
+
+&lt;h3&gt;SCENE&lt;/h3&gt;
+
+&lt;p&gt;Garden at the Manor House. A flight of grey stone steps leads up to the</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;body epub:type=&quot;bodymatter z3998:drama z3998:fiction&quot;&gt;
+	&lt;section id=&quot;act-2&quot; epub:type=&quot;chapter<mark> z3998:scene</mark>&quot;&gt;
+		&lt;h2&gt;
+			&lt;span epub:type=&quot;se:label&quot;&gt;Act&lt;/span&gt;
+			&lt;span epub:type=&quot;z3998:ordinal z3998:roman&quot;&gt;II&lt;/span&gt;
+		&lt;/h2&gt;
+		&lt;<mark class="gap">&#8203;</mark>p<mark class="gap">&#8203;</mark>&gt;Scene<mark>: G</mark>a<mark>rde</mark>n<mark> at t</mark>h<mark>e</mark>…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;body epub:type=&quot;bodymatter z3998:drama z3998:fiction&quot;&gt;
+	&lt;section id=&quot;act-2&quot; epub:type=&quot;chapter<mark class="gap">&#8203;</mark>&quot;&gt;
+		&lt;h2&gt;
+			&lt;span epub:type=&quot;se:label&quot;&gt;Act&lt;/span&gt;
+			&lt;span epub:type=&quot;z3998:ordinal z3998:roman&quot;&gt;II&lt;/span&gt;
+		&lt;/h2&gt;
+		&lt;<mark>h3&gt;
+			&lt;s</mark>p<mark>an epub:type=&quot;se:label&quot;</mark>&gt;Scene<mark>&lt;/sp</mark>a<mark class="gap">&#8203;</mark>n<mark>&gt;
+		&lt;/</mark>h<mark>3&gt;
+		&lt;p&gt;</mark>…</pre></td></tr></table></td><td>Name and order sections</td><td><span class="b v-se">SE correct</span> <span class="small">section type</span><br>Each act in a play is a scene-level division, and SE types it &#x27;chapter z3998:scene&#x27;. se-llm left off z3998:scene. se-llm also made the &#x27;Scene&#x27; setting description an h3 label, where SE treats it as a paragraph.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>nothing</code><br><b>SE only:</b> <code>&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt; &lt;td&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">It can wait, Merriman for . . . five minutes.
+&lt;/p&gt;
+
+&lt;p&gt;MERRIMAN.&lt;br&gt;
+Yes, Miss. [Exit &lt;b&gt;Merriman&lt;/b&gt;.]
+&lt;/p&gt;
+
+&lt;p&gt;ALGERNON.&lt;br&gt;
+I hope, Cecily, I shall not offend you if I state quite frankly and openly that</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;td&gt;It can wait, Merriman for⁠ ⁠… five minutes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Merriman&lt;/td&gt;
+	&lt;td&gt;Yes, Miss.<mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td/&gt;
+	&lt;td&gt;
+		</mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Exit &lt;b epub:type=&quot;z3998:persona&quot;&gt;Merriman&lt;/b&gt;.&lt;/i&gt;<mark>
+	</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;td&gt;It can wait, Merriman for⁠ ⁠… five minutes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Merriman&lt;/td&gt;
+	&lt;td&gt;Yes, Miss.<mark> </mark>&lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Exit &lt;b epub:type=&quot;z3998:persona&quot;&gt;Merriman&lt;/b&gt;.&lt;/i&gt;<mark class="gap">&#8203;</mark>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/td&gt;
+	&lt;td&gt;…</pre></td></tr></table></td><td><span class="small">se-llm has no markup here</span></td><td><span class="b v-both">both acceptable</span> <span class="small">stage direction placement</span><br>The Gutenberg source has &#x27;Yes, Miss. [Exit Merriman.]&#x27; on one line. se-llm keeps the stage direction inline in the speech. SE moves it to its own row with an empty speaker cell. Both tag it with z3998:stage-direction, so this is an editorial layout choice.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/section&gt; &lt;/body&gt; &lt;/html&gt; &lt;body epub:type=&quot;bodymatter z3998:drama z3998:fiction&quot;&gt; &lt;section epub:type=&quot;chapter&quot;&gt;</code><br><b>SE only:</b> <code>&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p epub:type=&quot;z3998:stage-direction&quot;&gt; &lt;/p&gt; &lt;/section&gt; &lt;/body&gt; &lt;/html&gt; &lt;body epub:type=&quot;bodymatter z3998:drama z3998:fiction&quot;&gt; &lt;section epub:type=&quot;chapter z3998:scene&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">[&lt;b&gt;Jack&lt;/b&gt; groans, and sinks into a chair. &lt;b&gt;Algernon&lt;/b&gt; still continues
+eating.]
+&lt;/p&gt;
+
+&lt;p&gt;ACT DROP
+&lt;/p&gt;
+
+&lt;/div&gt;&lt;!--end chapter--&gt;
+
+&lt;div class=&quot;chapter&quot;&gt;
+
+&lt;h2&gt;&lt;a id=&quot;chap03&quot;&gt;&lt;/a&gt;THIRD ACT&lt;/h2&gt;
+
+&lt;h3&gt;SCENE&lt;/h3&gt;
+
+&lt;p&gt;Morning-room at the Manor House.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…and sinks into a chair. &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt; still continues eating.&lt;/i&gt;&lt;/<mark class="gap">&#8203;</mark>td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		<mark>	&lt;p epub:type=&quot;z3998:stage-direction&quot;&gt;Act Drop&lt;/p&gt;
+		</mark>&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…and sinks into a chair. &lt;b epub:type=&quot;z3998:persona&quot;&gt;Algernon&lt;/b&gt; still continues eating.&lt;/i&gt;&lt;/<mark>p&gt;
+							&lt;p&gt;Act drop&lt;/p&gt;
+						&lt;/</mark>td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		<mark class="gap">&#8203;</mark>&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-se">SE correct</span> <span class="small">stage direction / section type</span><br>The closing &#x27;Act Drop&#x27; is a stage direction, so SE tags it as a p with z3998:stage-direction after the table. se-llm left it as a plain p inside the last speech&#x27;s td, which is wrong semantics. se-llm also missed z3998:scene on the next act&#x27;s section.</td></tr>
+<tr class="mrow" data-v="se-llm correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;abbr epub:type=&quot;se:compass&quot;&gt; &lt;/abbr&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">[In a clear, cold voice.] Miss Cardew is the grand-daughter of the late Mr.
+Thomas Cardew of 149 Belgrave Square, S.W.; Gervase Park, Dorking, Surrey; and</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…of the late &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Thomas Cardew of 149 Belgrave Square, <mark class="gap">&#8203;</mark>S.<mark> </mark>W.<mark class="gap">&#8203;</mark>; Gervase Park, Dorking, Surrey; and the Sporran, Fifeshire, <mark class="gap">&#8203;</mark>N.<mark> </mark>B<mark class="gap">&#8203;</mark>.&lt;/td&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…of the late &lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;Mr.&lt;/abbr&gt; Thomas Cardew of 149 Belgrave Square, <mark>&lt;abbr epub:type=&quot;se:compass&quot;&gt;</mark>S.<mark> </mark>W.<mark>&lt;/abbr&gt;</mark>; Gervase Park, Dorking, Surrey; and the Sporran, Fifeshire, <mark>&lt;abbr epub:type=&quot;z3998:initialism&quot;&gt;</mark>N.<mark class="gap">&#8203;</mark>B<mark>.&lt;/abbr&gt;</mark>.&lt;/td&gt;</pre></td></tr></table></td><td>[Semantic] Apply abbreviations/era-compass-credentials (4 changes)<br>[Semantic] Apply abbreviations-validate (1 change)<br>[Editorial] Modernize spelling and hyphenation</td><td><span class="b v-sellm">se-llm correct</span> <span class="small">abbreviation (compass)</span><br>SE&#x27;s abbreviation rules tag compass-point abbreviations such as &quot;S.W.&quot; with se:compass, and SE left it bare. Gutenberg has plain text, so the tag comes from the rule. One quirk: se-llm&#x27;s output shows a stray extra period after the &quot;N.B.&quot; abbr, though that is outside this pattern.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;i epub:type=&quot;se:name.publication&quot;&gt; &lt;/i&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">have no doubt his name would appear in any military directory.
+&lt;/p&gt;
+
+&lt;p&gt;JACK.&lt;br&gt;
+The Army Lists of the last forty years are here. These delightful records</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…would appear in any military directory.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;<mark class="gap">&#8203;</mark>The Army Lists<mark class="gap">&#8203;</mark> of the last forty years are here. These delightful records should have been…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…would appear in any military directory.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td epub:type=&quot;z3998:persona&quot;&gt;Jack&lt;/td&gt;
+	&lt;td&gt;<mark>&lt;i epub:type=&quot;se:name.publication&quot;&gt;</mark>The Army Lists<mark>&lt;/i&gt;</mark> of the last forty years are here. These delightful records should have been…</pre></td></tr></table></td><td>[Semantic] Apply publication-music-titles-tag (4 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">publication italics</span><br>Gutenberg does not italicize &quot;Army Lists&quot;. Jack is naming a generic kind of reference book, not one titled work, so the manual&#x27;s title italics (se:name.publication) do not apply. SE correctly left it roman.</td></tr>
+<tr class="mrow" data-v="se-llm correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>nothing</code><br><b>SE only:</b> <code>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt; &lt;/abbr&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">should have been my constant study. [Rushes to bookcase and tears the books
+out.] M. Generals . . . Mallam, Maxbohm, Magley, what ghastly names they</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…constant study. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Rushes to bookcase and tears the books out.&lt;/i&gt; <mark>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;</mark>M.<mark>&lt;/abbr&gt;</mark> Generals⁠ ⁠… Mallam, Maxbohm, Magley, what ghastly names they have⁠—…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…constant study. &lt;i epub:type=&quot;z3998:stage-direction&quot;&gt;Rushes to bookcase and tears the books out.&lt;/i&gt; <mark class="gap">&#8203;</mark>M.<mark class="gap">&#8203;</mark> Generals⁠ ⁠… Mallam, Maxbohm, Magley, what ghastly names they have⁠—…</pre></td></tr></table></td><td><span class="small">se-llm has no markup here</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">abbreviation</span><br>Here &quot;M.&quot; is the index letter Jack looks under (M … Mallam, Maxbohm, Magley), not a name title like Mr. or M. for Monsieur. SE&#x27;s z3998:name-title tag is wrong, and se-llm correctly left it untagged. Gutenberg has plain text.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;i epub:type=&quot;se:name.publication.play&quot;&gt; &lt;/i&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">On the contrary, Aunt Augusta, I’ve now realised for the first time in my
+life the vital Importance of Being Earnest.
+&lt;/p&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+TABLEAU</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">						&lt;td&gt;On the contrary, Aunt Augusta, I’ve now realised for the first time in my life the vital <mark class="gap">&#8203;</mark>Importance of Being Earnest<mark class="gap">&#8203;</mark>.&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+			&lt;p epub:type=&quot;z3998:stage-direction&quot;&gt;Tableau&lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">						&lt;td&gt;On the contrary, Aunt Augusta, I’ve now realised for the first time in my life the vital <mark>&lt;i epub:type=&quot;se:name.publication.play&quot;&gt;</mark>Importance of Being Earnest<mark>&lt;/i&gt;</mark>.&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+			&lt;p epub:type=&quot;z3998:stage-direction&quot;&gt;Tableau&lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr></table></td><td>[Semantic] Apply publication-music-titles-tag (4 changes)</td><td><span class="b v-both">both acceptable</span> <span class="small">publication italics (title)</span><br>This is Wilde&#x27;s closing pun on the play&#x27;s own title, and Gutenberg does not italicize it. The manual italicizes titles with se:name.publication.play, so se-llm&#x27;s tag is defensible. SE reads it as wordplay on the word &quot;earnest&quot; and leaves it roman, which is an editorial call.</td></tr>
 </tbody></table>
 <h2>Lint resolution</h2>
-<p>Result: failed. Owner and checker model: claude-opus-5-5. Repair rounds: 0. Owner calls: 2; checker calls: 1.</p>
-<p>Why it stopped: a FIX finding needs at least one proposed edit</p>
-<p>What the independent checker rejected:</p><ul><li>The &lt;p&gt;Scene&lt;/p&gt; replacement in act-1/2/3.xhtml only works inside the &lt;hgroup&gt; that s-071 opens and s-072 closes. s-071 is rejected, so applying this edit alone would leave &lt;h3&gt;&lt;p&gt;Scene&lt;/p&gt;&lt;/h3&gt;, which is invalid markup. Resubmit it together with a corrected s-071 hgroup change.</li><li>The act-1/2/3 hgroup-opening edits are fine, but the two dramatis-personae.xhtml edits are wrong. They insert &#x27;&lt;/section&gt;\n&lt;section id=&quot;the-scenes-of-the-play&quot;&gt;&#x27; and &#x27;&lt;/section&gt;\n&lt;section id=&quot;st-jamess-theatre&quot;&gt;&#x27;, which close the dramatis-personae section and leave three sibling top-level sections in one file. Two of those sections have ids that do not match the filename. SE expects a single top-level sectioning element per file, with an id matching the filename. &#x27;The Scenes of the Play&#x27; and &#x27;London: St. James&#x27;s Theatre&#x27; should be nested as subsections inside &lt;section id=&quot;dramatis-personae&quot;&gt;, with their &lt;h2&gt; changed to &lt;h3&gt; and the outer section kept open, or moved to separate files. Resubmit the act edits together with a corrected dramatis-personae split.</li><li>The edits replacing &#x27;\n\t\t\t&lt;/h3&gt;&#x27; with &#x27;\n\t\t\t&lt;/hgroup&gt;&#x27; in act-1/2/3.xhtml close an &lt;hgroup&gt; that only the rejected s-071 edits open. Applied alone, they leave an unmatched &lt;/hgroup&gt; in each act file. Resubmit them together with a corrected s-071.</li><li>This decision has no edits of its own and relies only on repair_with s-050 (d85b324d…) and s-072 (46c027aa…). Both are rejected because they depend on the rejected s-071 hgroup edits, so nothing currently fixes the label-only &lt;h3&gt;&lt;span epub:type=&quot;se:label&quot;&gt;Scene&lt;/span&gt;&lt;/h3&gt; in act-1/2/3.xhtml.</li></ul>
+<p>Result: failed. Owner and checker model: claude-opus-5-5. Repair rounds: 0. Owner calls: 4; checker calls: 3.</p>
+<p>Why it stopped: the independent checker did not accept every lint decision; checker rejections: f15317e7ffa6: The dramatis-personae.xhtml edits demote, nest and title-case the source headings &#x27;THE SCENES OF THE PLAY&#x27; (line 40) and &#x27;LONDON: ST. JAMES’S THEATRE&#x27; (line 51), turning them into new &lt;h3&gt; sections. The captured HTML representation was never confirmed, although the producer instructions require that before any disposition of these headings. The producer&#x27;s source example shows only &#x27;ST. JAMES’S THEATRE&#x27;, so the heading&#x27;s scope, including whether &#x27;LONDON:&#x27; belongs to it, and its level are unverified. Verify against the captured 844-h.htm before restructuring.; e6800009d781: The line 10 edit changes &#x27;THE PERSONS IN THE PLAY&#x27; to &#x27;The Persons in the Play&#x27;, but the proposal&#x27;s own evidence says the captured 844-h.htm could not be opened. The producer instructions say these source headings&#x27; captured HTML representation must be confirmed before any disposition. Using the producer&#x27;s text examples in place of that check does not meet the requirement. Confirm the captured HTML heading first, then propose the case change.; 4b25856c689c: This edit-less repair depends only on s-071 (f15317e7…), which is rejected. With that repair rejected, nothing resolves the line 51 `&lt;h2&gt;LONDON: ST. JAMES’S THEATRE&lt;/h2&gt;` that has no semantic inflection. It needs an approved FIX with actual edits that cover that heading.; 083343f7fc37: The proposal accepts the line 760 stage direction &#x27;Embraces her&#x27; with no closing punctuation. Its evidence says the captured 844-0.txt and 844-h.htm were not opened, and its rationale agrees the lint is correct. Leaving a real finding unresolved needs evidence that the captured source reads that way, and none is given. Check the captured text: if the source has &#x27;Embraces her.&#x27;, restore the period as a conversion fix; otherwise show the source has no period.</p>
+<p>What the independent checker rejected:</p><ul><li>Accepting this misreads the producer&#x27;s &#x27;Keep THE PERSONS IN THE PLAY, THE SCENES OF THE PLAY, and source historical production credits&#x27;. That instruction says not to cut those sections. It does not say to keep their print capitalization. Title-casing changes no words, and SE requires title-case headings. The evidence also never confirms the captured 844-h.htm representation, which the instructions require before any disposition. This should be a fix: title-case the headings at dramatis-personae.xhtml lines 10, 40 and 51 to &#x27;The Persons in the Play&#x27;, &#x27;The Scenes of the Play&#x27; and &#x27;London: St. James’s Theatre&#x27; (in the h3 forms created by the s-071 edits), with the text otherwise unchanged.</li><li>The evidence quotes only the working file (act-3.xhtml line 760, which reads &#x27;Laetitia&#x27;). It never cites the captured 844-h.htm or 844-0.txt, so the rationale&#x27;s claim that the source prints &#x27;Lætitia! [Embraces her]&#x27; with no stop is unsupported. The rationale also says the instructions forbid adding punctuation. The producer instructions contain no such rule, so that claim is invented. &#x27;Embraces her&#x27; ends the speech as a standalone direction, not an interjection within a parent clause, so t-052 does not exempt it from ending punctuation. Check the captured source. If it reads &#x27;[Embraces her.]&#x27;, the period was lost in conversion and must be restored inside the &lt;i&gt; as &#x27;Embraces her.&#x27;. Acceptance is justified only if quoted captured-source evidence shows there is no stop.</li><li>The act-3.xhtml line 760 edit changes `Embraces her&lt;/i&gt;` to `Embraces her.&lt;/i&gt;`. That adds a period the current text doesn&#x27;t have. The only support is a recalled PG 844 reading (&#x27;[Embraces her.]&#x27;), and the evidence itself says it is unconfirmed because 844-0.txt and 844-h.htm couldn&#x27;t be opened. In this research edition, a missing stop may be restored only if the captured source shows the period was lost in conversion. Otherwise the reading must be kept as it stands: accept the finding with no edit.</li><li>The dramatis-personae.xhtml edits demote, nest and title-case the source headings &#x27;THE SCENES OF THE PLAY&#x27; (line 40) and &#x27;LONDON: ST. JAMES’S THEATRE&#x27; (line 51), turning them into new &lt;h3&gt; sections. The captured HTML representation was never confirmed, although the producer instructions require that before any disposition of these headings. The producer&#x27;s source example shows only &#x27;ST. JAMES’S THEATRE&#x27;, so the heading&#x27;s scope, including whether &#x27;LONDON:&#x27; belongs to it, and its level are unverified. Verify against the captured 844-h.htm before restructuring.</li><li>The line 10 edit changes &#x27;THE PERSONS IN THE PLAY&#x27; to &#x27;The Persons in the Play&#x27;, but the proposal&#x27;s own evidence says the captured 844-h.htm could not be opened. The producer instructions say these source headings&#x27; captured HTML representation must be confirmed before any disposition. Using the producer&#x27;s text examples in place of that check does not meet the requirement. Confirm the captured HTML heading first, then propose the case change.</li><li>This edit-less repair depends only on s-071 (f15317e7…), which is rejected. With that repair rejected, nothing resolves the line 51 `&lt;h2&gt;LONDON: ST. JAMES’S THEATRE&lt;/h2&gt;` that has no semantic inflection. It needs an approved FIX with actual edits that cover that heading.</li><li>The proposal accepts the line 760 stage direction &#x27;Embraces her&#x27; with no closing punctuation. Its evidence says the captured 844-0.txt and 844-h.htm were not opened, and its rationale agrees the lint is correct. Leaving a real finding unresolved needs evidence that the captured source reads that way, and none is given. Check the captured text: if the source has &#x27;Embraces her.&#x27;, restore the period as a conversion fix; otherwise show the source has no period.</li></ul>
 <h2>Semantic markup compared with SE</h2>
-<p>618 of SE's 628 semantic elements match ours; we have 649. The kinds that differ most:</p>
+<p>618 of SE's 628 semantic elements match ours; we have 651. The kinds that differ most:</p>
 <table><tr><th>Kind</th><th>SE</th><th>se-llm</th><th>Match</th><th>SE has, se-llm lacks</th><th>se-llm has, SE lacks</th></tr>
 <tr><td><code>abbr[z3998:name-title]</code></td><td>107</td><td>113</td><td>104</td><td>m | j p | d d</td><td>mr | mrs | rev | hon</td></tr>
 <tr><td><code>abbr[z3998:initialism z3998:name-title]</code></td><td>0</td><td>4</td><td>0</td><td></td><td>j p | d d</td></tr>
 <tr><td><code>section[chapter z3998:scene]</code></td><td>3</td><td>0</td><td>0</td><td>act i scene morning room in algernon s flat in half moon str | act ii scene garden at the manor house a flight of grey ston | act iii scene morning room at the manor house gwendolen and </td><td></td></tr>
+<tr><td><code>section[chapter]</code></td><td>0</td><td>3</td><td>0</td><td></td><td>act i scene morning room in algernon s flat in half moon str | act ii scene garden at the manor house a flight of grey ston | act iii scene morning room at the manor house gwendolen and </td></tr>
 <tr><td><code>span[se:label]</code></td><td>3</td><td>6</td><td>3</td><td></td><td>scene</td></tr>
 <tr><td><code>abbr[se:compass]</code></td><td>0</td><td>3</td><td>0</td><td></td><td>w | s w</td></tr>
-<tr><td><code>section[chapter]</code></td><td>0</td><td>3</td><td>0</td><td></td><td>act i scene morning room in algernon s flat in half moon str | act ii scene garden at the manor house a flight of grey ston | act iii scene morning room at the manor house gwendolen and </td></tr>
-<tr><td><code>i[z3998:stage-direction]</code></td><td>322</td><td>322</td><td>321</td><td>examines diary through her lorgnette carefully</td><td>examines diary through her lorgnettte carefully</td></tr>
-<tr><td><code>b</code></td><td>0</td><td>2</td><td>0</td><td></td><td>act drop | time</td></tr>
+<tr><td><code>abbr[z3998:given-name]</code></td><td>0</td><td>2</td><td>0</td><td></td><td>h h | f</td></tr>
 <tr><td><code>section[z3998:dramatis-personae]</code></td><td>1</td><td>1</td><td>0</td><td>dramatis personae john worthing j p algernon moncrieff rev c</td><td>the persons in the play john worthing j p algernon moncrieff</td></tr>
-<tr><td><code>abbr[z3998:initialism]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>n b</td></tr>
-<tr><td><code>h2[title]</code></td><td>1</td><td>2</td><td>1</td><td></td><td>the persons in the play</td></tr>
+<tr><td><code>i[z3998:stage-direction]</code></td><td>322</td><td>322</td><td>321</td><td>examines diary through her lorgnette carefully</td><td>examines diary through her lorgnettte carefully</td></tr>
+<tr><td><code>i[se:name.publication.play]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>importance of being earnest</td></tr>
+<tr><td><code>i[se:name.publication]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>the army lists</td></tr>
 <tr><td><code>em</code></td><td>1</td><td>2</td><td>1</td><td></td><td>do</td></tr>
 </table>
 <h2>All attempts</h2><table><tr><th>Attempt</th><th>se-llm revision</th><th>Process</th><th>Where it stopped</th><th>Cost (USD)</th><th>Models used (calls)</th></tr>
+<tr><td>e2e83</td><td><code>8e216a11</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>2.0083</td><td class="small">haiku-5-5 84, sonnet-5-5 3; lint: opus-5-5</td></tr>
 <tr><td>e2e52</td><td><code>234df690</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>1.2523</td><td class="small">haiku-5-5 82, sonnet-5-5 3; lint: opus-5-5</td></tr>
 <tr><td>e2e51</td><td><code>1bea3c80</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>1.2819</td><td class="small">haiku-5-5 82, sonnet-5-5 3; lint: opus-5-5</td></tr>
 <tr><td>e2e49</td><td><code>fa17d5d1</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>1.1307</td><td class="small">haiku-5-5 84, sonnet-5-5 3; lint: opus-5-5</td></tr>

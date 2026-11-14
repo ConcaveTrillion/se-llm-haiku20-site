@@ -9,17 +9,18 @@ th,td{border:1px solid #ddd;padding:5px 7px;vertical-align:top;text-align:left}t
 .small{font-size:12.5px;color:#555}.cards{display:flex;flex-wrap:wrap;gap:.6em;margin:.8em 0}
 .card{background:#fff;border:1px solid #e3e3e0;border-radius:6px;padding:.5em .8em;min-width:150px}.card b{font-size:1.4em;display:block}
 .cmp{width:100%;border:none}.cmp td{border:none;padding:2px 6px;font-size:14px}
+.cmp pre.src{margin:0;white-space:pre-wrap;word-break:break-word;tab-size:2;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace}
 .cmp td.l{width:90px;color:#555;font-size:12px;white-space:nowrap;padding-top:4px}
 .cmp tr.g td{background:#f6f6f4}.cmp tr.s td{background:#eef4ff}.cmp tr.o td{background:#fff6ea}
-mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:#ff8a80}
+mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:none;border-left:3px solid #d32f2f;padding:0;margin:0 1px}
 .diff>tbody>tr>td{border-top:2px solid #ccc}
 .v-sellm{background:#d8f3dc;color:#14532d}.v-se{background:#fde2e1;color:#7f1d1d}.v-both{background:#e8eaf6;color:#283593}.v-ed{background:#eee;color:#444}
 .filters button{margin:0 .3em .5em 0;padding:.2em .7em;border:1px solid #bbb;border-radius:4px;background:#fff;cursor:pointer}
 .filters button.on{background:#1d1d1f;color:#fff}
 </style>
 <script>
-function filt(v,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
-document.querySelectorAll('tr.drow').forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
+function filt(v,btn,cls){cls=cls||'drow';btn.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+document.querySelectorAll('tr.'+cls).forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
 </script>
 </head><body>
 <p class="small"><a href="../index.html">← All twenty books</a></p>
@@ -27,9 +28,457 @@ document.querySelectorAll('tr.drow').forEach(r=>{r.style.display=(v==='all'||r.d
 <p><a href="https://www.gutenberg.org/ebooks/1695">Project Gutenberg 1695</a> · <a href="https://standardebooks.org/ebooks/g-k-chesterton/the-man-who-was-thursday">Standard Ebooks edition</a></p>
 <p><b>The run stopped at: lint resolve=1.</b></p>
 <div class="cards"><div class="card">Process<b><span class="b bad">failed</span></b></div><div class="card">Lint<b><span class="b bad">failed</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e77</b></div></div>
-<p class="small">Generated 2026-11-14 12:38 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG promotional opening requires provenance classification; retained research scope, no SE-based cut. SE recorded source citations: https://www.gutenberg.org/ebooks/1695 | https://catalog.hathitrust.org/Record/007122502</p>
+<p class="small">Generated 2026-11-14 14:25 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG promotional opening requires provenance classification; retained research scope, no SE-based cut. SE recorded source citations: https://www.gutenberg.org/ebooks/1695 | https://catalog.hathitrust.org/Record/007122502</p>
 <h2>Text differences from the Standard Ebooks edition</h2>
-<p>No text comparison is available for this attempt yet.</p>
+<p>36 places where the se-llm text differs from SE, word by word. Each row shows the same passage three ways: the Gutenberg HTML on top, the SE XHTML in the middle and the se-llm XHTML at the bottom, as source with markup and line breaks. In Gutenberg, the highlight is the passage that corresponds to the difference. SE and se-llm are highlighted character by character where they differ from each other, tags and attributes included; a red bar marks where one side has nothing and the other has text. A row exists only where the words differ, so a markup-only difference shows up only when it falls inside a row. The se-llm step is the commit that last produced that se-llm reading. Verdicts are a model's judgment (Claude Sonnet) against the SE Manual of Style and se-llm's keep-the-Gutenberg-reading policy; they are not proof.</p>
+<div class="filters"><button class="on" onclick="filt('all',this)">All (36)</button><button onclick="filt('SE correct',this)">SE correct (18)</button><button onclick="filt('se-llm correct',this)">se-llm correct (3)</button><button onclick="filt('both acceptable',this)">both acceptable (15)</button></div>
+<table class="diff"><thead><tr><th>#</th><th>Gutenberg / SE / se-llm</th><th>se-llm step</th><th>Which is right, and why</th></tr></thead><tbody>
+<tr class="drow" data-v="both acceptable"><td>1</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">When that black Baal blocked the heavens he had no hymns from us&lt;br&gt;
+<mark class="gap">&#8203;</mark>Children we were—our forts of sand were even as weak as we,&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;span&gt;When that black Baal blocked the heavens he had no hymns from us<mark>.</mark>&lt;/span&gt;
+&lt;br/&gt;
+&lt;span&gt;Children we were⁠—our forts of sand were even as weak as we,&lt;/span&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;span&gt;When that black Baal blocked the heavens he had no hymns from us<mark class="gap">&#8203;</mark>&lt;/span&gt;
+&lt;br/&gt;
+&lt;span&gt;Children we were⁠—our forts of sand were even as weak as we,&lt;/span&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>Gutenberg lacks a period after &#x27;from us&#x27;. SE supplied it, and se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>2</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">And I may safely write it now, and you may safely read.&lt;br&gt;
+&lt;/p&gt;
+&lt;p class=&quot;right&quot;&gt;
+G. K. C<mark>.
+&lt;/p&gt;
+&lt;/div&gt;&lt;!--end chapter--&gt;
+&lt;div class=&quot;chapter&quot;&gt;
+&lt;h2&gt;&lt;a id=&quot;chap01&quot;&gt;&lt;/a&gt;CHAPTER I.</mark>&lt;br&gt;
+THE TWO POETS OF SAFFRON PARK&lt;/h2&gt;
+&lt;p&gt;
+The suburb of Saffron Park lay on the sunset side of London, as red and ragged</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">		&lt;span&gt;And I may safely write it now, and you may safely read.&lt;/span&gt;
+	&lt;/p&gt;
+&lt;/<mark>div</mark>&gt;
+&lt;footer&gt;
+	&lt;p epub:type=&quot;z3998:signature&quot;&gt;
+		&lt;abbr <mark class="gap">&#8203;</mark>epub:type=&quot;z3998:personal-name&quot;&gt;G. K. C.&lt;/abbr&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">		&lt;span&gt;And I may safely write it now, and you may safely read.&lt;/span&gt;
+	&lt;/p&gt;
+&lt;/<mark>blockquote</mark>&gt;
+&lt;footer&gt;
+	&lt;p epub:type=&quot;z3998:signature&quot;&gt;
+		&lt;abbr <mark>class=&quot;eoc&quot; </mark>epub:type=&quot;z3998:personal-name&quot;&gt;G. K. C.&lt;/abbr&gt;</pre></td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-se">SE correct</span> <span class="small">added text</span><br>The back-cover-style blurb is not part of Chesterton&#x27;s text and does not appear at this point in Gutenberg. se-llm inserted it, which breaks the rule against importing absent text. SE correctly goes straight from the dedicatory poem to the chapter heading, styled &#x27;I / The Two Poets of Saffron Park&#x27; in SE heading style.<br><span class="small">both changed the Gutenberg reading, differently</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>3</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">the established poet, Gregory, upon the whole nature of poetry. He said that he
+(Syme) was <mark class="gap">&#8203;</mark>poet of law, a poet of order; nay, he said he was a poet of</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…nature of poetry. He said that he (Syme) was <mark>a </mark>poet of law, a poet of order; nay, he…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…nature of poetry. He said that he (Syme) was <mark class="gap">&#8203;</mark>poet of law, a poet of order; nay, he…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>&#x27;was poet of law&#x27; is an evident missing article. SE restored &#x27;a&#x27;, and se-llm keeps the Gutenberg text by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="se-llm correct"><td>4</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“And in no other sense,” he asked, “you think me serious? You
+think me <mark>a</mark> &lt;i&gt;flâneur&lt;/i&gt; who lets fall occasional truths. You do not think
+that in a deeper, a more deadly sense, I am serious.”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“And in no other sense,” he asked, “you think me serious? You think me <mark class="gap">&#8203;</mark>flâneur<mark class="gap">&#8203;</mark> who lets fall occasional truths. You do not think that in a deeper, a more deadly sense, I am serious.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“And in no other sense,” he asked, “you think me serious? You think me <mark>a &lt;i&gt;</mark>flâneur<mark>&lt;/i&gt;</mark> who lets fall occasional truths. You do not think that in a deeper, a more deadly sense, I am serious.”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">dropped text</span><br>Gutenberg&#x27;s &#x27;a flâneur&#x27; is correct. SE&#x27;s omission of &#x27;a&#x27; introduces an error.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>5</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Adam, and especially not to the police? Will you swear that! If you will take
+upon yourself this awful abnegation <mark class="gap">&#8203;</mark>if you will consent to burden your soul
+with a vow that you should never make and a knowledge you should never dream</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…swear that! If you will take upon yourself this awful abnegation<mark>,</mark> if you will consent to burden your soul with a vow that…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…swear that! If you will take upon yourself this awful abnegation<mark class="gap">&#8203;</mark> if you will consent to burden your soul with a vow that…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>A comma after &#x27;abnegation&#x27; is a sensible correction of a missing comma. se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>6</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“What will you drink?” resumed Gregory, with the same careless yet
+apologetic air. “I shall only have a &lt;i&gt;<mark>crême</mark> de menthe&lt;/i&gt; myself; I
+have dined. But the champagne can really be trusted. Do let me start you with a</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“What will you drink?” resumed Gregory, with the same careless yet apologetic air. “I shall only have a <mark class="gap">&#8203;</mark>cr<mark>è</mark>me de menthe<mark class="gap">&#8203;</mark> myself; I have dined. But the champagne can really be trusted. Do let me start you with a half-bottle of Pommery at least?”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“What will you drink?” resumed Gregory, with the same careless yet apologetic air. “I shall only have a <mark>&lt;i&gt;</mark>cr<mark>ê</mark>me de menthe<mark>&lt;/i&gt;</mark> myself; I have dined. But the champagne can really be trusted. Do let me start you with a half-bottle of Pommery at least?”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>&#x27;crême&#x27; is a misspelling of French &#x27;crème&#x27;. SE corrected it, and se-llm keeps the Gutenberg spelling by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>7</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">settled thing that I am to be Thursday.”
+&lt;/p&gt;
+&lt;p&gt;
+“My dear fellow<mark>.</mark>” said Syme heartily, “I congratulate you. A
+great career!”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…that I am to be Thursday.”&lt;/p&gt;
+&lt;p&gt;“My dear fellow<mark>,</mark>” said Syme heartily, “I congratulate you. A great career!”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…that I am to be Thursday.”&lt;/p&gt;
+&lt;p&gt;“My dear fellow<mark>.</mark>” said Syme heartily, “I congratulate you. A great career!”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>The period before &#x27;said&#x27; is an obvious typo for a comma. SE fixed it, and se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>8</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Suppose we seem as mad as the Christians because we are really as
+meek.<mark>”’</mark>
+&lt;/p&gt;
+&lt;p&gt;
+The applause that had greeted the opening sentences had been gradually growing</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…as mad as the Christians because we are really as meek.<mark>’ </mark>”<mark class="gap">&#8203;</mark>&lt;/p&gt;
+&lt;p&gt;The applause that had greeted the opening sentences had been gradually growing…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…as mad as the Christians because we are really as meek.<mark class="gap">&#8203;</mark>”<mark> ’</mark>&lt;/p&gt;
+&lt;p&gt;The applause that had greeted the opening sentences had been gradually growing…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">quotation marks</span><br>Nested closing quotes should close the inner single quote first, so SE&#x27;s ’” is the proper order. se-llm keeps the Gutenberg order by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>9</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">make a good curate is not fitted to make a resolute, forcible, and efficient
+Thursday (hear, hear).
+&lt;/p&gt;
+&lt;p&gt;
+<mark class="gap">&#8203;</mark>“Comrade Gregory has told us, in only too apologetic a tone, that we are</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…, forcible, and efficient Thursday (hear, hear).<mark>”</mark>&lt;/p&gt;
+&lt;p&gt;“Comrade Gregory has told us, in only too apologetic a…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…, forcible, and efficient Thursday (hear, hear).<mark class="gap">&#8203;</mark>&lt;/p&gt;
+&lt;p&gt;“Comrade Gregory has told us, in only too apologetic a…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">quotation marks</span><br>SE added a missing closing quote after &#x27;(hear, hear).&#x27;. se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>10</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“Where did you have it?” asked Syme, wondering.
+&lt;/p&gt;
+&lt;p&gt;
+“Oh, at Harrow,” said the policeman
+&lt;/p&gt;
+&lt;p&gt;
+<mark class="gap">&#8203;</mark>The class sympathies which, false as they are, are the truest things in so many</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Where did you have it?” asked Syme, wondering.&lt;/p&gt;
+&lt;p&gt;“Oh, at Harrow,” said the policeman<mark>.</mark>&lt;/p&gt;
+&lt;p&gt;The class sympathies which, false as they are, are the truest things in so many men, broke out of Syme before he could control them.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Where did you have it?” asked Syme, wondering.&lt;/p&gt;
+&lt;p&gt;“Oh, at Harrow,” said the policeman<mark class="gap">&#8203;</mark>&lt;/p&gt;
+&lt;p&gt;The class sympathies which, false as they are, are the truest things in so many men, broke out of Syme before he could control them.&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>Gutenberg is missing a sentence-ending period after &#x27;policeman&#x27;. SE supplied it, and se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>11</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">February night he found himself steaming in a small tug up the silent Thames,
+armed with <mark>swordstick</mark> and revolver, the duly elected Thursday of the Central
+Council of Anarchists.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…steaming in a small tug up the silent Thames, armed with sword<mark class="gap">&#8203;</mark>stick and revolver, the duly elected Thursday of the Central Council of Anarchists.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…steaming in a small tug up the silent Thames, armed with sword<mark>-</mark>stick and revolver, the duly elected Thursday of the Central Council of Anarchists.&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Correct mismatched dashes</td><td><span class="b v-se">SE correct</span> <span class="small">hyphenation</span><br>&#x27;swordstick&#x27; is the standard closed form, and Gutenberg already has it. se-llm&#x27;s &#x27;sword-stick&#x27; is an unwarranted change made under a dash-correction step.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>12</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">armed with swordstick and revolver, the duly elected Thursday of the Central
+Council of Anarchists.
+&lt;/p&gt;
+&lt;p&gt;
+When Syme stepped out <mark>on to</mark> the steam-tug he had a singular sensation of
+stepping out into something entirely new; not merely into the landscape of a</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…Thursday of the Central Council of Anarchists.&lt;/p&gt;
+&lt;p&gt;When Syme stepped out on<mark> </mark>to the steam-tug he had a singular sensation of stepping out into something…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…Thursday of the Central Council of Anarchists.&lt;/p&gt;
+&lt;p&gt;When Syme stepped out on<mark class="gap">&#8203;</mark>to the steam-tug he had a singular sensation of stepping out into something…</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&#x27;stepped out on to&#x27; is acceptable British usage, and SE has no checked modernization to &#x27;onto&#x27;. se-llm&#x27;s change goes beyond its policy.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>13</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">mounting to attack the solid thrones of horrible and heathen kings. He leapt
+out of the boat <mark>on to</mark> one slimy step, and stood, a dark and slender figure,</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…of horrible and heathen kings. He leapt out of the boat on<mark> </mark>to one slimy step, and stood, a dark and slender figure…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…of horrible and heathen kings. He leapt out of the boat on<mark class="gap">&#8203;</mark>to one slimy step, and stood, a dark and slender figure…</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&#x27;leapt out of the boat on to one slimy step&#x27; is acceptable as &#x27;on to&#x27;. SE keeps it, and se-llm&#x27;s change to &#x27;onto&#x27; has no support.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="se-llm correct"><td>14</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">difficult to walk upright.”
+&lt;/p&gt;
+&lt;p&gt;
+“I am not good at <mark>concealment</mark>,” said Gogol sulkily, with a thick
+foreign accent; “I am not ashamed of the cause.”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…difficult to walk upright.”&lt;/p&gt;
+&lt;p&gt;“I am not good at <mark>g</mark>oncealment,” said Gogol sulkily, with a thick foreign accent; “I am not ashamed of the cause.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…difficult to walk upright.”&lt;/p&gt;
+&lt;p&gt;“I am not good at <mark>c</mark>oncealment,” said Gogol sulkily, with a thick foreign accent; “I am not ashamed of the cause.”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">typo introduced</span><br>SE&#x27;s &#x27;goncealment&#x27; is a new typo. Gutenberg&#x27;s &#x27;concealment&#x27; is correct.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="se-llm correct"><td>15</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">terrible truism in the song of Roland—
+&lt;/p&gt;
+&lt;p class=&quot;poem&quot;&gt;
+“Païens ont tort et Chrétiens ont droit<mark>,</mark>”
+&lt;/p&gt;
+&lt;p class=&quot;noindent&quot;&gt;
+which in the old nasal French has the clang and groan of great iron. This</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…song of Roland⁠—&lt;/p&gt;
+&lt;blockquote<mark>&gt;
+	&lt;</mark>p<mark>&gt;“&lt;i</mark> xml:lang=&quot;fr<mark class="gap">&#8203;</mark>&quot;<mark class="gap">&#8203;</mark>&gt;Païens ont tort et Chrétiens ont droit<mark>.</mark>&lt;/<mark>i</mark>&gt;<mark class="gap">&#8203;</mark>”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;continued&quot;&gt;which in the old nasal French has the clang and groan…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…song of Roland⁠—&lt;/p&gt;
+&lt;blockquote<mark> e</mark>p<mark>ub:type=&quot;z3998:song&quot;</mark> xml:lang=&quot;fr<mark>o</mark>&quot;<mark>&gt;
+	&lt;p&gt;“&lt;span</mark>&gt;Païens ont tort et Chrétiens ont droit<mark class="gap">&#8203;</mark>&lt;/<mark>span</mark>&gt;<mark>,</mark>”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;continued&quot;&gt;which in the old nasal French has the clang and groan…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-sellm">se-llm correct</span> <span class="small">punctuation</span><br>The comma inside the closing quote is correct, since the sentence continues with &#x27;which in the old nasal French…&#x27;. SE&#x27;s period wrongly ends the sentence.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>16</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">splash-board and, pausing for an instant to pant, he climbed <mark>on to</mark> the top.
+When he had been seated for about half a minute, he heard behind him a sort of</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…splashboard and, pausing for an instant to pant, he climbed on<mark> </mark>to the top. When he had been seated for about half a minute, he heard behind him a sort of heavy and asthmatic breathing.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…splashboard and, pausing for an instant to pant, he climbed on<mark class="gap">&#8203;</mark>to the top. When he had been seated for about half a minute, he heard behind him a sort of heavy and asthmatic breathing.&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&#x27;climbed on to the top&#x27; is acceptable as &#x27;on to&#x27;. se-llm&#x27;s change to &#x27;onto&#x27; is an overreach. Both editions correctly closed &#x27;splashboard&#x27;.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>17</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">restaurant?” asked Syme, smiling wildly. “Have I by any chance got
+a number stuck <mark>on to</mark> me somewhere? Have my boots got that watchful look? Why</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Did I take a policeman’s hat by mistake out of the restaurant?” asked Syme, smiling wildly. “Have I by any chance got a number stuck on<mark> </mark>to me somewhere? Have my boots got that watchful look? Why must I be a policeman? Do, do let me be a postman.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Did I take a policeman’s hat by mistake out of the restaurant?” asked Syme, smiling wildly. “Have I by any chance got a number stuck on<mark class="gap">&#8203;</mark>to me somewhere? Have my boots got that watchful look? Why must I be a policeman? Do, do let me be a postman.”&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&#x27;stuck on to me&#x27; is acceptable as &#x27;on to&#x27;. se-llm&#x27;s change to &#x27;onto&#x27; has no checked modernization behind it.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>18</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">and then suddenly adopted the third. Taking his own blue police ticket from his
+own waist coat pocket, he tossed it <mark>on to</mark> the table; then he flung his head
+back until his spike of yellow beard almost pointed at the ceiling, and shouted</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…police ticket from his own waist coat pocket, he tossed it on<mark> </mark>to the table; then he flung his head back until his spike of yellow beard almost pointed at the ceiling, and shouted with a barbaric laughter.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…police ticket from his own waist coat pocket, he tossed it on<mark class="gap">&#8203;</mark>to the table; then he flung his head back until his spike of yellow beard almost pointed at the ceiling, and shouted with a barbaric laughter.&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&#x27;tossed it on to the table&#x27; is acceptable as &#x27;on to&#x27;. se-llm&#x27;s change to &#x27;onto&#x27; is an unwarranted edit.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>19</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">seriously—“words that we are likely to want, fine shades of
+meaning. My favourite word is ‘coeval<mark>’.</mark> What’s yours?”
+&lt;/p&gt;
+&lt;p&gt;
+“Do stop playing the goat,” said the Professor plaintively.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“We must have several word-signs,” said Syme seriously⁠—“words that we are likely to want, fine shades of meaning. My favourite word is ‘coeval<mark>.</mark>’<mark class="gap">&#8203;</mark> What’s yours?”&lt;/p&gt;
+&lt;p&gt;“Do stop playing the goat,” said the Professor plaintively. “You don’t know how serious this is.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“We must have several word-signs,” said Syme seriously⁠—“words that we are likely to want, fine shades of meaning. My favourite word is ‘coeval<mark class="gap">&#8203;</mark>’<mark>.</mark> What’s yours?”&lt;/p&gt;
+&lt;p&gt;“Do stop playing the goat,” said the Professor plaintively. “You don’t know how serious this is.”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">punctuation</span><br>SE uses American-style punctuation, with the period inside the closing quote mark: ‘coeval.’ se-llm left it outside.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>20</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“You don’t know how serious this is.”
+&lt;/p&gt;
+&lt;p&gt;
+“‘Lush<mark class="gap">&#8203;</mark>’ too,” said Syme, shaking his head sagaciously,</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Do stop playing the goat,” said the Professor plaintively. “You don’t know how serious this is.”&lt;/p&gt;
+&lt;p&gt;“ ‘Lush<mark>,</mark>’ too,” said Syme, shaking his head sagaciously, “we must have ‘lush’⁠—word applied to grass, don’t you know?”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Do stop playing the goat,” said the Professor plaintively. “You don’t know how serious this is.”&lt;/p&gt;
+&lt;p&gt;“ ‘Lush<mark class="gap">&#8203;</mark>’ too,” said Syme, shaking his head sagaciously, “we must have ‘lush’⁠—word applied to grass, don’t you know?”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>SE added a comma inside the quote, as in “‘Lush,’ too,”. This is a plausible editorial punctuation choice. The Gutenberg reading is also acceptable, and se-llm keeps it by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>21</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“So I did,” said Bull brightly; “but we talked in a
+pitch-dark room like a <mark>coalcellar</mark>. There, you would never have guessed
+that.”
+&lt;/p&gt;
+&lt;p&gt;
+“I could not have conceived it,” said Syme gravely.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“So I did,” said Bull brightly; “but we talked in a pitch-dark room like a coal<mark> </mark>cellar. There, you would never have guessed that.”&lt;/p&gt;
+&lt;p&gt;“I could not have conceived it,” said Syme gravely.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“So I did,” said Bull brightly; “but we talked in a pitch-dark room like a coal<mark class="gap">&#8203;</mark>cellar. There, you would never have guessed that.”&lt;/p&gt;
+&lt;p&gt;“I could not have conceived it,” said Syme gravely.&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>&#x27;coalcellar&#x27; is a Gutenberg typo for &#x27;coal cellar&#x27;. SE corrected it, and se-llm keeps it by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>22</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">insist absolutely, on the duel coming off after seven tomorrow, so as to give
+me the chance of preventing him from catching the 7<mark>.</mark>45 for Paris. If he misses
+that he misses his crime. He can’t refuse to meet you on such a small</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…to give me the chance of preventing him from catching the 7<mark>:</mark>45 for Paris. If he misses that he misses his crime…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…to give me the chance of preventing him from catching the 7<mark>.</mark>45 for Paris. If he misses that he misses his crime…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>SE&#x27;s colon matches its time-formatting convention, though the space after it is odd. se-llm keeps the Gutenberg period by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>23</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">be ordinary tourists.”
+&lt;/p&gt;
+&lt;p&gt;
+“Do ordinary tourists,” asked Bull, with the <mark>fieldglasses</mark> to his
+eyes, “wear black masks half-way down the face?”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…”&lt;/p&gt;
+&lt;p&gt;“Do ordinary tourists,” asked Bull, with the field<mark class="gap">&#8203;</mark>glasses to his eyes, “wear black masks halfway down the face?”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…”&lt;/p&gt;
+&lt;p&gt;“Do ordinary tourists,” asked Bull, with the field<mark>-</mark>glasses to his eyes, “wear black masks halfway down the face?”&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Correct mismatched dashes</td><td><span class="b v-both">both acceptable</span> <span class="small">hyphenation</span><br>Both editions changed &#x27;half-way&#x27; to &#x27;halfway&#x27;. Gutenberg&#x27;s &#x27;fieldglasses&#x27; is probably a lost hyphen or space. SE kept it as is, and se-llm&#x27;s &#x27;field-glasses&#x27; is a reasonable repair.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>24</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“Oh, they,” said the new detective contemptuously; “no<mark>,</mark> they
+are not a very valuable force. But let me tell you frankly that they are</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Oh, they,” said the new detective contemptuously; “no<mark class="gap">&#8203;</mark> they are not a very valuable force. But let me tell…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Oh, they,” said the new detective contemptuously; “no<mark>,</mark> they are not a very valuable force. But let me tell…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">punctuation</span><br>The comma after &#x27;no&#x27; is standard, and SE&#x27;s removal is a light editorial choice. se-llm keeps the Gutenberg reading by policy.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>25</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">horse’s nose nearly struck the face of an old gentleman who was sitting
+on the benches outside the little café of <mark>“Le Soleil d’Or.”</mark>
+The peasant grunted an apology, and got down from his seat. The others also</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…gentleman who was sitting on the benches outside the little café of <mark class="gap">&#8203;</mark>Le Soleil d’Or.<mark class="gap">&#8203;</mark> The peasant grunted an apology, and got down from his seat…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…gentleman who was sitting on the benches outside the little café of <mark>“</mark>Le Soleil d’Or.<mark>”</mark> The peasant grunted an apology, and got down from his seat…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">italics to quotes</span><br>SE drops quotation marks around a foreign-language name. It is set in italics instead, which the markup would show and the plain-text diff does not. se-llm kept the Gutenberg quotes.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>26</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“I was speaking with strict accuracy when I said that the <mark>‘Soleil
+d’Or’</mark> was the only place where one can get horses within twenty
+miles.”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“I was speaking with strict accuracy when I said that the <mark class="gap">&#8203;</mark>Soleil d’Or<mark class="gap">&#8203;</mark> was the only place where one can get horses within twenty miles.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“I was speaking with strict accuracy when I said that the <mark>‘</mark>Soleil d’Or<mark>’</mark> was the only place where one can get horses within twenty miles.”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>SE does not put quotation marks around the name of an inn or other place. Gutenberg&#x27;s single quotes are only decoration, so se-llm should have removed them.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>27</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">others under his arm-pits, took a fourth in his left hand and the lantern in
+his right, and leapt off the high parade <mark>on to</mark> the beach below.
+&lt;/p&gt;
+&lt;p&gt;
+The others leapt after him, with a common acceptance of such decisive action,</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…the lantern in his right, and leapt off the high parade on<mark> </mark>to the beach below.&lt;/p&gt;
+&lt;p&gt;The others leapt after him, with a common acceptance of such decisive action, leaving the debris and the gathering mob above them.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…the lantern in his right, and leapt off the high parade on<mark class="gap">&#8203;</mark>to the beach below.&lt;/p&gt;
+&lt;p&gt;The others leapt after him, with a common acceptance of such decisive action, leaving the debris and the gathering mob above them.&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;On to&quot; is a valid reading here, since the verb phrase &quot;leapt off ... on to the beach&quot; is a movement onto a surface. Gutenberg&#x27;s reading is not on SE&#x27;s checked modernization list, so se-llm&#x27;s &quot;onto&quot; is an unsupported change from an overbroad compound-closing rule.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>28</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Two or three men, looking little and black like monkeys, leapt over the edge as
+they had done and dropped <mark>on to</mark> the beach. These came ploughing down the deep
+sand, shouting horribly, and strove to wade into the sea at random. The example</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;Two or three men, looking little and black like monkeys, leapt over the edge as they had done and dropped on<mark> </mark>to the beach. These came ploughing down the deep sand, shouting…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;Two or three men, looking little and black like monkeys, leapt over the edge as they had done and dropped on<mark class="gap">&#8203;</mark>to the beach. These came ploughing down the deep sand, shouting…</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>SE kept &quot;on to&quot;, which is acceptable British usage. The se-llm change to &quot;onto&quot; came from an overbroad compound-closing step and is not a verified SE modernization.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>29</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">dreamy voice, “What is all that at the end of the ‘Dunciad’?
+&lt;/p&gt;
+&lt;p class=&quot;poem&quot;&gt;
+<mark class="gap">&#8203;</mark>‘Nor public flame; nor private, dares to shine;&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“It may be,” said the Professor absently. Then he added in his dreamy voice, “What is all that at the end of the &lt;i epub:type=&quot;se:name.publication.poem&quot;&gt;Dunciad&lt;/i&gt;?&lt;/p&gt;
+&lt;blockquote epub:type=&quot;z3998:<mark>non-fiction z3998:</mark>verse&quot;&gt;
+	&lt;p&gt;
+		&lt;span&gt;<mark>“ </mark>‘Nor public flame; nor private, dares to shine;&lt;/span&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“It may be,” said the Professor absently. Then he added in his dreamy voice, “What is all that at the end of the &lt;i epub:type=&quot;se:name.publication.poem&quot;&gt;Dunciad&lt;/i&gt;?&lt;/p&gt;
+&lt;blockquote epub:type=&quot;z3998:<mark class="gap">&#8203;</mark>verse&quot;&gt;
+	&lt;p&gt;
+		&lt;span&gt;<mark class="gap">&#8203;</mark>‘Nor public flame; nor private, dares to shine;&lt;/span&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The quoted lines start a new paragraph inside a continuing speech, so SE opens it with a double quote and then the nested single quote. SE also drops the quotes around the title and sets it in italics. se-llm missed the paragraph-opening quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>30</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">by, Sunday had bounded out of his cab, sprung at the fire-engine, caught it,
+slung himself <mark>on to</mark> it, and was seen as he disappeared in the noisy distance</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…cab, sprung at the fire-engine, caught it, slung himself on<mark> </mark>to it, and was seen as he disappeared in the noisy distance talking to the astonished fireman with explanatory gestures.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…cab, sprung at the fire-engine, caught it, slung himself on<mark class="gap">&#8203;</mark>to it, and was seen as he disappeared in the noisy distance talking to the astonished fireman with explanatory gestures.&lt;/p&gt;</pre></td></tr></table></td><td>[Editorial] Close some one, any one, every one, any way, with out and similar phrases</td><td><span class="b v-se">SE correct</span> <span class="small">modernization</span><br>&quot;Slung himself on to it&quot; is a valid reading and SE kept it. se-llm&#x27;s &quot;onto&quot; is an unsupported change from an overbroad compound-closing rule.<br><span class="small">SE kept the Gutenberg reading; se-llm changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>31</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“Fly at once. The truth about your trouser-stretchers is
+known.<mark>—A F&lt;small&gt;RIEND</mark>&lt;/small&gt;.”
+&lt;/p&gt;
+&lt;p&gt;
+The fire-engine had struck still farther to the north, into a region that they</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">	&lt;p&gt;“Fly at once. The truth about your trouser-stretchers is known.<mark class="gap">&#8203;</mark>&lt;<mark>/</mark>p<mark>&gt;
+	&lt;p</mark> epub:type=&quot;z3998:s<mark class="gap">&#8203;</mark>ignature&quot;&gt;<mark>“⁠—</mark>A <mark>f</mark>riend<mark class="gap">&#8203;</mark>.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The fire-engine had struck still farther to the north,…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">	&lt;p&gt;“Fly at once. The truth about your trouser-stretchers is known.<mark>⁠—</mark>&lt;<mark>s</mark>p<mark>an</mark> epub:type=&quot;z3998:s<mark>ender z3998:s</mark>ignature&quot;&gt;<mark class="gap">&#8203;</mark>A <mark>F</mark>riend<mark>&lt;/span&gt;</mark>.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The fire-engine had struck still farther to the north,…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The attribution line is a separate paragraph in a multi-paragraph quoted letter, so SE gives it an opening quote mark. SE also sentence-cases the shouted small-caps &quot;A FRIEND&quot; to &quot;A friend&quot;. se-llm omitted the paragraph-opening quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>32</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">which was written:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“The word, I fancy, should be ‘pink<mark>’.</mark>”
+&lt;/p&gt;
+&lt;p&gt;
+The man once known as Gogol said nothing, but the movements of his hands and</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“The word, I fancy, should be ‘pink<mark>.</mark>’<mark> </mark>”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The man once known as Gogol said nothing, but the movements of his hands and feet were like those of a man urging a horse to renewed efforts.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“The word, I fancy, should be ‘pink<mark class="gap">&#8203;</mark>’<mark>.</mark>”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The man once known as Gogol said nothing, but the movements of his hands and feet were like those of a man urging a horse to renewed efforts.&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">punctuation</span><br>SE follows American-style logical-quote placement, so the period goes inside the closing single quote: ‘pink.’”. se-llm kept Gutenberg&#x27;s British ’. order.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>33</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">When the herring tries to &lt;i&gt;fly&lt;/i&gt;,&lt;br&gt;
+Let the Secretary die.&lt;br&gt;
+                    <mark class="gap">&#8203;</mark>Rustic Proverb.”
+&lt;/p&gt;
+&lt;p&gt;
+“Why the eternal crikey,” began the Secretary, “did you let</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src"><mark class="gap">&#8203;</mark>		&lt;span&gt;When the herring tries to &lt;em&gt;fly&lt;/em&gt;,&lt;/span&gt;
+		<mark class="gap">&#8203;</mark>&lt;br/&gt;
+<mark class="gap">&#8203;</mark>		&lt;span&gt;Let the Secretary die.&lt;/span&gt;
+	<mark class="gap">&#8203;</mark>&lt;<mark class="gap">&#8203;</mark>/<mark>p</mark>&gt;
+	<mark class="gap">&#8203;</mark>&lt;<mark class="gap">&#8203;</mark>c<mark class="gap">&#8203;</mark>i<mark>te</mark>&gt;<mark>“</mark>Rustic Proverb.”&lt;/<mark class="gap">&#8203;</mark>c<mark>i</mark>te&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“Why the eternal crikey,” began…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src"><mark>	</mark>		&lt;span&gt;When the herring tries to &lt;em&gt;fly&lt;/em&gt;,&lt;/span&gt;
+		<mark>	</mark>&lt;br/&gt;
+<mark>	</mark>		&lt;span&gt;Let the Secretary die.&lt;/span&gt;
+	<mark>		</mark>&lt;<mark>br</mark>/<mark class="gap">&#8203;</mark>&gt;
+	<mark>		</mark>&lt;<mark>span </mark>c<mark>lass=&quot;</mark>i<mark>1&quot;</mark>&gt;<mark class="gap">&#8203;</mark>Rustic Proverb.”&lt;/<mark>span&gt;
+		&lt;/p&gt;
+	&lt;/blo</mark>c<mark>kquo</mark>te&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“Why the eternal crikey,” began…</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The attribution &quot;Rustic Proverb.&quot; starts a new paragraph within a quoted passage, so SE adds an opening quote. se-llm left it unquoted at the start, leaving an unbalanced closing quote.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="SE correct"><td>34</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">knot and, the words:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“Your beauty has not left me indifferent.<mark class="gap">&#8203;</mark>—From
+L&lt;small&gt;ITTLE&lt;/small&gt; S&lt;small&gt;NOWDROP&lt;/small&gt;.”
+&lt;/p&gt;
+&lt;p&gt;
+There was a short silence, and then Syme said, biting his beard—</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…words:⁠—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“Your beauty has not left me indifferent.<mark class="gap">&#8203;</mark>&lt;<mark>/</mark>p<mark>&gt;
+	&lt;p</mark> epub:type=&quot;z3998:s<mark class="gap">&#8203;</mark>ignature&quot;<mark>&gt;“⁠—From &lt;b</mark>&gt;Little Snowdrop&lt;/<mark>b</mark>&gt;.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There was a short silence, and then Syme said, biting his beard⁠—&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…words:⁠—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“Your beauty has not left me indifferent.<mark>⁠—From </mark>&lt;<mark>s</mark>p<mark>an</mark> epub:type=&quot;z3998:s<mark>ender z3998:s</mark>ignature&quot;<mark class="gap">&#8203;</mark>&gt;Little Snowdrop&lt;/<mark>span</mark>&gt;.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There was a short silence, and then Syme said, biting his beard⁠—&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-se">SE correct</span> <span class="small">quotation marks</span><br>The attribution line &quot;—From Little Snowdrop.&quot; is a continuation paragraph of the quoted message, so SE opens it with a quote mark. se-llm omitted it. SE also normalizes the small caps to title case.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>35</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">it was powdered. His advance was very quiet; but for the silver frost upon his
+head, he might have been one <mark>to</mark> the shadows of the wood.
+&lt;/p&gt;
+&lt;p&gt;
+“Gentlemen,” he said, “my master has a carriage waiting for</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…the silver frost upon his head, he might have been one <mark class="gap">&#8203;</mark>o<mark>f</mark> the shadows of the wood.&lt;/p&gt;
+&lt;p&gt;“Gentlemen,” he said, “my master has a carriage waiting for you in the road just by.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…the silver frost upon his head, he might have been one <mark>t</mark>o<mark class="gap">&#8203;</mark> the shadows of the wood.&lt;/p&gt;
+&lt;p&gt;“Gentlemen,” he said, “my master has a carriage waiting for you in the road just by.”&lt;/p&gt;</pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">typo correction</span><br>&quot;One to the shadows&quot; is a genuine Gutenberg typo, and SE corrected it to &quot;one of the shadows&quot;. se-llm keeps the Gutenberg reading by policy and should record it as a suspected typo.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+<tr class="drow" data-v="both acceptable"><td>36</td><td><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">voice saying a commonplace text that he had heard somewhere, “Can ye
+drink of the cup that I drink of?”
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;
+<mark class="gap">&#8203;</mark>When men in books awake from a vision, they commonly find themselves in some</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…Can ye drink of the cup that I drink of?”&lt;/p&gt;<mark>
+&lt;hr/&gt;
+&lt;p&gt;When men in books awake from a vision, they commonly find themselves in some place in which they might have fallen asleep; they yawn in a chair, or lift themselves with bruised limbs from a field. Syme’s experience was something much more psychologically strange if there was indeed anything unreal, in the earthly sense, about the things he had gone through. For while he could always remember afterwards that he had swooned before the face of Sunday, he could not remember having ever come to at all. He could only remember that gradually and naturally he knew that he was and had been walking along a country lane with an easy and conversational companion. That companion had been a part of his recent drama; it was the red-haired poet Gregory. They were walking like old friends, and were in the middle of a conversation about some triviality. But Syme could only feel an unnatural buoyancy in his body and a crystal simplicity in his mind that seemed to be superior to everything that he said or did. He felt he was in possession of some impossible good news, which made every other thing a triviality, but an adorable triviality.&lt;/p&gt;
+&lt;p&gt;Dawn was breaking over everything in colours at once clear and timid; as if Nature made a first attempt at yellow and a first attempt at rose. A breeze blew so clean and sweet, that one could not think that it blew from the sky; it blew rather through some hole in the sky. Syme felt a simple surprise when he saw rising all round him on both sides of the road the red, irregular buildings of Saffron Park. He had no idea that he had walked so near London. He walked by instinct along one white road, on which early birds hopped and sang, and found himself outside a fenced garden. There he saw the sister of Gregory, the girl with the gold-red hair, cutting lilac before breakfast, with the great unconscious gravity of a girl.&lt;/p&gt;</mark></pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…Can ye drink of the cup that I drink of?”&lt;/p&gt;<mark class="gap">&#8203;</mark></pre></td></tr></table></td><td><span class="small">kept from the Gutenberg draft</span></td><td><span class="b v-both">both acceptable</span> <span class="small">alignment artifact</span><br>The Gutenberg context contains the same paragraph SE shows, so there is no real text difference. The se-llm context is probably cut off at the chapter break after the quoted line, so this is a diff-window artifact and not a drop by se-llm.<br><span class="small">se-llm kept the Gutenberg reading; SE changed it</span></td></tr>
+</tbody></table>
+<h2>Markup differences from the Standard Ebooks edition</h2>
+<p>23 places where the words agree but the markup differs, in 15 patterns. Tags are compared by element and by the epub:type, xml:lang, class and role attributes; ids and link targets are ignored. Each pattern is one row with its first example; open “more examples” for others. The verdict is given once per pattern by a model (Claude Sonnet) against the SE Manual of Style; it is not proof. Places where the words differ are in the text table above, where their markup is shown too.</p>
+<div class="filters"><button class="on" onclick="filt('all',this,'mrow')">All (15)</button><button onclick="filt('SE correct',this,'mrow')">SE correct (11)</button><button onclick="filt('se-llm correct',this,'mrow')">se-llm correct (2)</button><button onclick="filt('both acceptable',this,'mrow')">both acceptable (2)</button></div>
+<table class="diff"><thead><tr><th>Times</th><th>Gutenberg / SE / se-llm</th><th>se-llm step</th><th>Which is right, and why</th></tr></thead><tbody>
+<tr class="mrow" data-v="both acceptable"><td>5</td><td><div class="small"><b>se-llm only:</b> <code>&lt;blockquote epub:type=&quot;z3998:letter&quot;&gt;</code><br><b>SE only:</b> <code>&lt;blockquote&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">communication, for the communication consisted entirely of the words:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“What about Martin Tupper &lt;i&gt;now?&lt;/i&gt;”
+&lt;/p&gt;
+&lt;p&gt;
+“What does the old maniac mean?” asked Bull, staring at the words.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…his communication, for the communication consisted entirely of the words:⁠—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“What about Martin Tupper &lt;em&gt;now&lt;/em&gt;?”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“What does the old maniac mean?” asked Bull, staring at the words. “What does yours say, Syme?”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…his communication, for the communication consisted entirely of the words:⁠—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“What about Martin Tupper &lt;em&gt;now&lt;/em&gt;?”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“What does the old maniac mean?” asked Bull, staring at the words. “What does yours say, Syme?”&lt;/p&gt;</pre></td></tr></table><details><summary class="small">more examples (4)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Syme’s message was, at any rate, longer, and ran as follows:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“No one would regret anything in the nature of an interference by the</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;Syme’s message was, at any rate, longer, and ran as follows:⁠—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“No one would regret anything in the nature of an interference by…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;Syme’s message was, at any rate, longer, and ran as follows:⁠—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“No one would regret anything in the nature of an interference by…</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">without impatience, he found it contained the words:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“Fly at once. The truth about your trouser-stretchers is</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…, not without impatience, he found it contained the words:⁠—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“Fly at once. The truth about your trouser-stretchers is known.<mark class="gap">&#8203;</mark>&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…, not without impatience, he found it contained the words:⁠—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“Fly at once. The truth about your trouser-stretchers is known.<mark>⁠—&lt;span epub:type=&quot;z3998:sender z3998:signature&quot;&gt;A Friend&lt;/span&gt;.”</mark>&lt;/p&gt;</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">last covering was torn away it reduced itself to a small slip of paper, on
+which was written:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“The word, I fancy, should be ‘pink’.”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…to a small slip of paper, on which was written:⁠—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“The word, I fancy, should be ‘pink<mark>.</mark>’<mark> </mark>”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…to a small slip of paper, on which was written:⁠—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“The word, I fancy, should be ‘pink<mark class="gap">&#8203;</mark>’<mark>.</mark>”&lt;/p&gt;</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">which he opened absently only to find it inscribed with a true lover’s
+knot and, the words:—
+&lt;/p&gt;
+&lt;p class=&quot;letter&quot;&gt;
+“Your beauty has not left me indifferent.—From</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…it inscribed with a true lover’s knot and, the words:⁠—&lt;/p&gt;
+&lt;blockquote<mark class="gap">&#8203;</mark>&gt;
+	&lt;p&gt;“Your beauty has not left me indifferent.<mark class="gap">&#8203;</mark>&lt;<mark>/</mark>p<mark>&gt;
+	&lt;p</mark> epub:type=&quot;z3998:s<mark class="gap">&#8203;</mark>ignature&quot;<mark>&gt;“⁠—From &lt;b</mark>&gt;Little Snowdrop&lt;/<mark>b</mark>&gt;.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…it inscribed with a true lover’s knot and, the words:⁠—&lt;/p&gt;
+&lt;blockquote<mark> epub:type=&quot;z3998:letter&quot;</mark>&gt;
+	&lt;p&gt;“Your beauty has not left me indifferent.<mark>⁠—From </mark>&lt;<mark>s</mark>p<mark>an</mark> epub:type=&quot;z3998:s<mark>ender z3998:s</mark>ignature&quot;<mark class="gap">&#8203;</mark>&gt;Little Snowdrop&lt;/<mark>span</mark>&gt;.”&lt;/p&gt;</pre></td></tr></table></details></td><td>[Semantic] Apply letter-structure (7 changes)</td><td><span class="b v-both">both acceptable</span> <span class="small">letter markup</span><br>Gutenberg marks these paragraphs `class=&quot;letter&quot;`, so the source supports a written-message reading. The manual uses `z3998:letter` for letters, but these are short notes or telegrams quoted in a blockquote, and plain `&lt;blockquote&gt;` is also fine. Whether they count as letters is an editorial call.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>3</td><td><div class="small"><b>se-llm only:</b> <code>nothing</code><br><b>SE only:</b> <code>&lt;/p&gt; &lt;p&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">end all this!” he said, in a voice as heavy as stone.
+“This man cannot be elected. He is a—”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…this!” he said, in a voice as heavy as stone.<mark>&lt;/p&gt;
+&lt;p&gt;</mark>“This man cannot be elected. He is a⁠—”&lt;/p&gt;
+&lt;p&gt;…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…this!” he said, in a voice as heavy as stone.<mark> </mark>“This man cannot be elected. He is a⁠—”&lt;/p&gt;
+&lt;p&gt;…</pre></td></tr></table><details><summary class="small">more examples (2)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“It’s quite simple what they say,” answered his guide.
+“They say we are a lot of jolly gentlemen who pretend they are</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“It’s quite simple what they say,” answered his guide.<mark>&lt;/p&gt;
+&lt;p&gt;</mark>“They say we are a lot of jolly gentlemen who pretend they are anarchists.”&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“It’s quite simple what they say,” answered his guide.<mark> </mark>“They say we are a lot of jolly gentlemen who pretend they are anarchists.”&lt;/p&gt;</pre></td></tr></table><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“Going to Jericho to throw a Jabberwock!” cried the other, tearing
+his hair, which came off easily.
+“Have you all got softening of the brain, that you don’t realise</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Going to Jericho to throw a Jabberwock!” cried the other, tearing his hair, which came off easily.<mark>&lt;/p&gt;
+&lt;p&gt;</mark>“Have you all got softening of the brain, that you don’t realise…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Going to Jericho to throw a Jabberwock!” cried the other, tearing his hair, which came off easily.<mark> </mark>“Have you all got softening of the brain, that you don’t realise…</pre></td></tr></table></details></td><td><span class="small">se-llm has no markup here</span></td><td><span class="b v-se">SE correct</span> <span class="small">paragraph split</span><br>Gutenberg puts each speaker&#x27;s line on its own line, and the dialogue is a separate paragraph per speaker. se-llm merged them into one paragraph, which is wrong.</td></tr>
+<tr class="mrow" data-v="se-llm correct"><td>2</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/p&gt; &lt;p&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Gregory struck out with his stick at the lamp-post, and then at the tree.
+&lt;/p&gt;
+&lt;p&gt;
+“About &lt;i&gt;this&lt;/i&gt; and &lt;i&gt;this&lt;/i&gt;,” he cried; “about order</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;Gregory struck out with his stick at the lamppost, and then at the tree.<mark> </mark>“About &lt;em&gt;this&lt;/em&gt; and &lt;em&gt;this&lt;/em&gt;,” he cried;…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;Gregory struck out with his stick at the lamppost, and then at the tree.<mark>&lt;/p&gt;
+&lt;p&gt;</mark>“About &lt;em&gt;this&lt;/em&gt; and &lt;em&gt;this&lt;/em&gt;,” he cried;…</pre></td></tr></table><details><summary class="small">more examples (1)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Gregory’s mouth worked twice without sound; then slowly the blood began
+to crawl back into his dead face. &lt;/p&gt;
+&lt;p&gt;“He is a man quite inexperienced in our
+work,” he said, and sat down abruptly.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Yes,” said Syme, quite motionless, “what is he?” Gregory’s mouth worked twice without sound; then slowly the blood began to crawl back into his dead face.<mark> </mark>“He is a man quite inexperienced in our work,” he said, and sat down abruptly.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Yes,” said Syme, quite motionless, “what is he?” Gregory’s mouth worked twice without sound; then slowly the blood began to crawl back into his dead face.<mark>&lt;/p&gt;
+&lt;p&gt;</mark>“He is a man quite inexperienced in our work,” he said, and sat down abruptly.&lt;/p&gt;</pre></td></tr></table></details></td><td>Remove foreign-language markup from words that are now English<br>[Editorial] Correct mismatched dashes<br>Resolve lint findings</td><td><span class="b v-sellm">se-llm correct</span> <span class="small">paragraph split</span><br>Gutenberg breaks the paragraph at these points, and the new speaker&#x27;s quote starts a new paragraph. SE merged them into one, which loses the source&#x27;s paragraphing.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>2</td><td><div class="small"><b>se-llm only:</b> <code>&lt;abbr epub:type=&quot;z3998:name-title&quot;&gt;</code><br><b>SE only:</b> <code>&lt;abbr&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">figure; the adventures may be mad, but the adventurer must be sane. The dragon
+without St. George would not even be grotesque. So this inhuman landscape was</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…may be mad, but the adventurer must be sane. The dragon without &lt;abbr<mark class="gap">&#8203;</mark>&gt;St.&lt;/abbr&gt; George would not even be grotesque. So this inhuman landscape…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…may be mad, but the adventurer must be sane. The dragon without &lt;abbr<mark> epub:type=&quot;z3998:name-title&quot;</mark>&gt;St.&lt;/abbr&gt; George would not even be grotesque. So this inhuman landscape…</pre></td></tr></table><details><summary class="small">more examples (1)</summary><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">nearer and nearer, the lamplight shining on his lifted spectacles, his lifted,
+patient face. Syme waited for him as St. George waited for the dragon, as a man</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…lifted spectacles, his lifted, patient face. Syme waited for him as &lt;abbr<mark class="gap">&#8203;</mark>&gt;St.&lt;/abbr&gt; George waited for the dragon, as a man waits for…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…lifted spectacles, his lifted, patient face. Syme waited for him as &lt;abbr<mark> epub:type=&quot;z3998:name-title&quot;</mark>&gt;St.&lt;/abbr&gt; George waited for the dragon, as a man waits for…</pre></td></tr></table></details></td><td>[Semantic] Apply abbreviations/name-titles (7 changes)<br>[Editorial] Modernize spelling and hyphenation<br>[Editorial] Modernize archaic spellings</td><td><span class="b v-se">SE correct</span> <span class="small">abbreviation semantics</span><br>&#x27;St.&#x27; before a saint&#x27;s name is not a z3998:name-title in SE&#x27;s usage, which is for titles like Mr. or Dr. SE leaves the plain abbr, so se-llm&#x27;s epub:type is questionable.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;body epub:type=&quot;frontmatter z3998:non-fiction&quot;&gt;</code><br><b>SE only:</b> <code>&lt;body epub:type=&quot;frontmatter z3998:fiction&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">investigators finally discover who Sunday is.
+&lt;/p&gt;
+&lt;/div&gt;&lt;!--end chapter--&gt;
+&lt;div class=&quot;chapter&quot;&gt;
+&lt;h2&gt;&lt;a id=&quot;chap00&quot;&gt;&lt;/a&gt;THE MAN WHO WAS THURSDAY&lt;br&gt;
+A NIGHTMARE&lt;/h2&gt;
+&lt;p class=&quot;center&quot;&gt;
+To Edmund Clerihew Bentley
+&lt;/p&gt;
+&lt;p class=&quot;poem&quot;&gt;
+A cloud was on the mind of men, and wailing went the weather,&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;body epub:type=&quot;frontmatter z3998:<mark class="gap">&#8203;</mark>fiction&quot;&gt;
+	&lt;section id=&quot;dedication&quot; epub:type=&quot;dedication&quot;&gt;
+		&lt;p&gt;To Edmund Clerihew Bentley&lt;/p&gt;
+		&lt;<mark>div</mark> epub:type=&quot;z3998:poem&quot;&gt;
+			&lt;p&gt;
+				&lt;span&gt;A cloud was on the mind of men, and wailing went the weather,&lt;/span&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;body epub:type=&quot;frontmatter z3998:<mark>non-</mark>fiction&quot;&gt;
+	&lt;section id=&quot;dedication&quot; epub:type=&quot;dedication&quot;&gt;
+		&lt;p&gt;To Edmund Clerihew Bentley&lt;/p&gt;
+		&lt;<mark>blockquote</mark> epub:type=&quot;z3998:poem&quot;&gt;
+			&lt;p&gt;
+				&lt;span&gt;A cloud was on the mind of men, and wailing went the weather,&lt;/span&gt;</pre></td></tr></table></td><td>[Semantic] Apply semantic-section-types (2 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">body z3998 type</span><br>The Man Who Was Thursday is a novel, so the body should carry z3998:fiction per the SE manual; se-llm&#x27;s z3998:non-fiction is wrong.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;blockquote epub:type=&quot;z3998:poem&quot;&gt;</code><br><b>SE only:</b> <code>&lt;div epub:type=&quot;z3998:poem&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">&lt;h2&gt;&lt;a id=&quot;chap00&quot;&gt;&lt;/a&gt;THE MAN WHO WAS THURSDAY&lt;br&gt;
+A NIGHTMARE&lt;/h2&gt;
+&lt;p class=&quot;center&quot;&gt;
+To Edmund Clerihew Bentley
+&lt;/p&gt;
+&lt;p class=&quot;poem&quot;&gt;
+A cloud was on the mind of men, and wailing went the weather,&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;body epub:type=&quot;frontmatter z3998:<mark class="gap">&#8203;</mark>fiction&quot;&gt;
+	&lt;section id=&quot;dedication&quot; epub:type=&quot;dedication&quot;&gt;
+		&lt;p&gt;To Edmund Clerihew Bentley&lt;/p&gt;
+		&lt;<mark>div</mark> epub:type=&quot;z3998:poem&quot;&gt;
+			&lt;p&gt;
+				&lt;span&gt;A cloud was on the mind of men, and wailing went the weather,&lt;/span&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;body epub:type=&quot;frontmatter z3998:<mark>non-</mark>fiction&quot;&gt;
+	&lt;section id=&quot;dedication&quot; epub:type=&quot;dedication&quot;&gt;
+		&lt;p&gt;To Edmund Clerihew Bentley&lt;/p&gt;
+		&lt;<mark>blockquote</mark> epub:type=&quot;z3998:poem&quot;&gt;
+			&lt;p&gt;
+				&lt;span&gt;A cloud was on the mind of men, and wailing went the weather,&lt;/span&gt;</pre></td></tr></table></td><td>[Semantic] Apply poetry-verse-song (4 changes)<br>[Semantic] Apply letter-structure (7 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">verse markup</span><br>SE&#x27;s poetry rule puts z3998:poem on a div (or a section), and blockquote is for quoted material. This dedicatory poem is the book&#x27;s own text, not a quotation, so se-llm&#x27;s blockquote is wrong.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;/blockquote&gt; &lt;footer&gt; &lt;p epub:type=&quot;z3998:signature&quot;&gt; &lt;abbr class=&quot;eoc&quot; epub:type=&quot;z3998:personal-name&quot;&gt;</code><br><b>SE only:</b> <code>&lt;/div&gt; &lt;footer&gt; &lt;p epub:type=&quot;z3998:signature&quot;&gt; &lt;abbr epub:type=&quot;z3998:personal-name&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">And I may safely write it now, and you may safely read.&lt;br&gt;
+&lt;/p&gt;
+&lt;p class=&quot;right&quot;&gt;
+G. K. C.
+&lt;/p&gt;
+&lt;/div&gt;&lt;!--end chapter--&gt;
+&lt;div class=&quot;chapter&quot;&gt;
+&lt;h2&gt;&lt;a id=&quot;chap01&quot;&gt;&lt;/a&gt;CHAPTER I.&lt;br&gt;
+THE TWO POETS OF SAFFRON PARK&lt;/h2&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">					&lt;span&gt;And I may safely write it now, and you may safely read.&lt;/span&gt;
+				&lt;/p&gt;
+			&lt;/<mark>div</mark>&gt;
+			&lt;footer&gt;
+				&lt;p epub:type=&quot;z3998:signature&quot;&gt;
+					&lt;abbr<mark class="gap">&#8203;</mark> epub:type=&quot;z3998:personal-name&quot;&gt;G. K. C.&lt;/abbr&gt;
+				&lt;/p&gt;
+			&lt;/footer&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">					&lt;span&gt;And I may safely write it now, and you may safely read.&lt;/span&gt;
+				&lt;/p&gt;
+			&lt;/<mark>blockquote</mark>&gt;
+			&lt;footer&gt;
+				&lt;p epub:type=&quot;z3998:signature&quot;&gt;
+					&lt;abbr<mark> class=&quot;eoc&quot;</mark> epub:type=&quot;z3998:personal-name&quot;&gt;G. K. C.&lt;/abbr&gt;
+				&lt;/p&gt;
+			&lt;/footer&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr></table></td><td>[Semantic] Apply letter-structure (7 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">letter markup / eoc class</span><br>The poem should be in a div, not a blockquote. The eoc class is for abbreviations that end a sentence, but the initials &#x27;G. K. C.&#x27; are a signature, so the extra class is not needed.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>nothing</code><br><b>SE only:</b> <code>&lt;em&gt; &lt;/em&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">“Then may I ask you to swear by whatever gods or saints your religion
+involves that you will not reveal what I am now going to tell you to any son of</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“Then may I ask you to swear by whatever gods or saints your religion involves that you will <mark>&lt;em&gt;</mark>not<mark>&lt;/em&gt;</mark> reveal what I am now going to tell you to any son of Adam…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“Then may I ask you to swear by whatever gods or saints your religion involves that you will <mark class="gap">&#8203;</mark>not<mark class="gap">&#8203;</mark> reveal what I am now going to tell you to any son of Adam…</pre></td></tr></table></td><td><span class="small">se-llm has no markup here</span></td><td><span class="b v-se">SE correct</span> <span class="small">semantic italics</span><br>SE italicizes the emphasized word &#x27;not&#x27; with em. Gutenberg does not mark it, but the emphasis is clear from the context, so se-llm missed it.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;i epub:type=&quot;se:name.publication&quot;&gt; &lt;/i&gt; &lt;i epub:type=&quot;se:name.publication&quot;&gt;</code><br><b>SE only:</b> <code>&lt;i epub:type=&quot;se:name.publication.book&quot;&gt; &lt;/i&gt; &lt;i epub:type=&quot;se:name.publication.newspaper&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">anarchists from sixpenny novels; they learn about anarchists from
+tradesmen’s newspapers; they learn about anarchists from &lt;i&gt;Ally
+Sloper’s Half-Holiday&lt;/i&gt; and the &lt;i&gt;Sporting Times&lt;/i&gt;. They never learn</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…; they learn about anarchists from tradesmen’s newspapers; they learn about anarchists from &lt;i epub:type=&quot;se:name.publication<mark>.book</mark>&quot;&gt;Ally Sloper’s Half-Holiday&lt;/i&gt; and the &lt;i epub:type=&quot;se:name.publication<mark>.newspaper</mark>&quot;&gt;Sporting Times&lt;/i&gt;. They never learn about anarchists from anarchists. We have…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…; they learn about anarchists from tradesmen’s newspapers; they learn about anarchists from &lt;i epub:type=&quot;se:name.publication<mark class="gap">&#8203;</mark>&quot;&gt;Ally Sloper’s Half-Holiday&lt;/i&gt; and the &lt;i epub:type=&quot;se:name.publication<mark class="gap">&#8203;</mark>&quot;&gt;Sporting Times&lt;/i&gt;. They never learn about anarchists from anarchists. We have…</pre></td></tr></table></td><td>[Semantic] Apply publication-music-titles-tag (5 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">publication semantics</span><br>SE uses the specific se:name.publication.* subtypes, here .book and .newspaper. Ally Sloper&#x27;s Half-Holiday is a periodical, so SE&#x27;s .book is arguable. The generic se:name.publication that se-llm used is less precise.</td></tr>
+<tr class="mrow" data-v="both acceptable"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;i&gt; &lt;/i&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">clean-shaven, a medical practitioner going by the name of Bull. He had that
+combination of &lt;i&gt;savoir-faire&lt;/i&gt; with a sort of well-groomed coarseness which
+is not uncommon in young doctors. He carried his fine clothes with confidence</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…medical practitioner going by the name of Bull. He had that combination of <mark class="gap">&#8203;</mark>savoir-faire<mark class="gap">&#8203;</mark> with a sort of well-groomed coarseness which is not uncommon in young doctors.…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…medical practitioner going by the name of Bull. He had that combination of <mark>&lt;i&gt;</mark>savoir-faire<mark>&lt;/i&gt;</mark> with a sort of well-groomed coarseness which is not uncommon in young doctors.…</pre></td></tr></table></td><td>Set the source&#x27;s verse as SE verse, from the layout map<br>Typogrify<br>[Semantic] Apply letter-structure (7 changes)</td><td><span class="b v-both">both acceptable</span> <span class="small">foreign-language italics</span><br>&#x27;savoir-faire&#x27; is italic in Gutenberg but is in common English use. SE drops the italics for words in the dictionary, and se-llm keeps the source&#x27;s italics without an xml:lang. Keeping the italics would need xml:lang=&quot;fr&quot;, so se-llm&#x27;s markup is slightly incomplete.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;blockquote epub:type=&quot;z3998:song&quot; xml:lang=&quot;fro&quot;&gt; &lt;p&gt; &lt;span&gt;</code><br><b>SE only:</b> <code>&lt;blockquote&gt; &lt;p&gt; &lt;i xml:lang=&quot;fr&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">barrel-organ was right. There clanged in his mind that unanswerable and
+terrible truism in the song of Roland—
+&lt;/p&gt;
+&lt;p class=&quot;poem&quot;&gt;
+“Païens ont tort et Chrétiens ont droit,”</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…his mind that unanswerable and terrible truism in the song of Roland⁠—&lt;/p&gt;
+&lt;blockquote<mark>&gt;
+	&lt;</mark>p<mark>&gt;“&lt;i</mark> xml:lang=&quot;fr<mark class="gap">&#8203;</mark>&quot;<mark class="gap">&#8203;</mark>&gt;Païens ont tort et Chrétiens ont droit<mark>.</mark>&lt;/<mark>i</mark>&gt;<mark class="gap">&#8203;</mark>”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;continued&quot;&gt;which…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…his mind that unanswerable and terrible truism in the song of Roland⁠—&lt;/p&gt;
+&lt;blockquote<mark> e</mark>p<mark>ub:type=&quot;z3998:song&quot;</mark> xml:lang=&quot;fr<mark>o</mark>&quot;<mark>&gt;
+	&lt;p&gt;“&lt;span</mark>&gt;Païens ont tort et Chrétiens ont droit<mark class="gap">&#8203;</mark>&lt;/<mark>span</mark>&gt;<mark>,</mark>”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;continued&quot;&gt;which…</pre></td></tr></table></td><td><span class="small">not found</span></td><td><span class="b v-se">SE correct</span> <span class="small">verse/foreign-language markup</span><br>The quotation is a single line in French. SE italicizes it with xml:lang=&quot;fr&quot; in a plain blockquote, as the manual requires for foreign phrases. se-llm&#x27;s z3998:song type, xml:lang=&quot;fro&quot; and span treat a Roland quotation as a song, which is not well supported, and it drops the italics.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;time&gt; &lt;/time&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">Syme; “but there is a tradition that one of them rode behind Bruce at
+Bannockburn. Since 1350 the tree is quite clear.”
+&lt;/p&gt;
+&lt;p&gt;
+“He’s gone off his head,” said the little Doctor, staring.</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;“The Symes are first mentioned in the fourteenth century,” said Syme; “but there is a tradition that one of them rode behind Bruce at Bannockburn. Since <mark class="gap">&#8203;</mark>1350<mark class="gap">&#8203;</mark> the tree is quite clear.”&lt;/p&gt;
+&lt;p&gt;“He’s gone off his head,” said the little Doctor, staring.&lt;/p&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;“The Symes are first mentioned in the fourteenth century,” said Syme; “but there is a tradition that one of them rode behind Bruce at Bannockburn. Since <mark>&lt;time datetime=&quot;</mark>1350<mark>&quot;&gt;1350&lt;/time&gt;</mark> the tree is quite clear.”&lt;/p&gt;
+&lt;p&gt;“He’s gone off his head,” said the little Doctor, staring.&lt;/p&gt;</pre></td></tr></table></td><td>[Semantic] Apply time-elements (2 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">time element</span><br>The manual does not call for time elements around a bare year inside a sentence, so the tag adds nothing. SE leaves it plain.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>nothing</code><br><b>SE only:</b> <code>&lt;i xml:lang=&quot;fr&quot;&gt; &lt;/i&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">George!” And he stood up suddenly, his yellow hair blowing in the slight
+sea breeze.
+&lt;/p&gt;
+&lt;p&gt;
+A band was playing in a &lt;i&gt;café chantant&lt;/i&gt; hidden somewhere among the trees,
+and a woman had just stopped singing. On Syme’s heated head the bray of</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…in the slight sea breeze.&lt;/p&gt;
+&lt;p&gt;A band was playing in a <mark>&lt;i xml:lang=&quot;fr&quot;&gt;</mark>café chantant<mark>&lt;/i&gt;</mark> hidden somewhere among the trees, and a woman had just stopped singing.…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…in the slight sea breeze.&lt;/p&gt;
+&lt;p&gt;A band was playing in a <mark class="gap">&#8203;</mark>café chantant<mark class="gap">&#8203;</mark> hidden somewhere among the trees, and a woman had just stopped singing.…</pre></td></tr></table></td><td><span class="small">se-llm has no markup here</span></td><td><span class="b v-se">SE correct</span> <span class="small">foreign-language italics</span><br>Gutenberg italicizes &#x27;café chantant&#x27;, and it is a foreign phrase that is not in the dictionary. It should be italic with xml:lang=&quot;fr&quot;, as SE has it. se-llm wrongly stripped it as a word that is now English.</td></tr>
+<tr class="mrow" data-v="SE correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;blockquote epub:type=&quot;z3998:letter&quot;&gt; &lt;blockquote epub:type=&quot;z3998:poem&quot;&gt;</code><br><b>SE only:</b> <code>&lt;blockquote epub:type=&quot;z3998:verse&quot;&gt;</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">The Secretary, raging, rent it open, and found written inside it:—
+&lt;/p&gt;
+&lt;p class=&quot;poem&quot;&gt;
+“When the herring runs a mile,&lt;br&gt;
+Let the Secretary smile;&lt;br&gt;</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">&lt;p&gt;The Secretary, raging, rent it open, and found written inside it:⁠—&lt;/p&gt;
+&lt;blockquote epub:type=&quot;z3998:<mark>v</mark>er<mark>se</mark>&quot;&gt;
+	&lt;<mark class="gap">&#8203;</mark>p&gt;
+<mark class="gap">&#8203;</mark>		&lt;span&gt;“When the herring runs a mile,&lt;/span&gt;
+		<mark class="gap">&#8203;</mark>&lt;br/&gt;
+<mark class="gap">&#8203;</mark>		&lt;span&gt;Let the Secretary smile;&lt;/span&gt;</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">&lt;p&gt;The Secretary, raging, rent it open, and found written inside it:⁠—&lt;/p&gt;
+&lt;blockquote epub:type=&quot;z3998:<mark>lett</mark>er<mark class="gap">&#8203;</mark>&quot;&gt;
+	&lt;<mark>blockquote epub:type=&quot;z3998:poem&quot;&gt;
+		&lt;</mark>p&gt;
+<mark>	</mark>		&lt;span&gt;“When the herring runs a mile,&lt;/span&gt;
+		<mark>	</mark>&lt;br/&gt;
+<mark>	</mark>		&lt;span&gt;Let the Secretary smile;&lt;/span&gt;</pre></td></tr></table></td><td>[Semantic] Apply letter-structure (7 changes)</td><td><span class="b v-se">SE correct</span> <span class="small">verse markup</span><br>The manual says a blockquote of verse takes `z3998:verse`, which is what SE used. se-llm wrapped the verse in a letter blockquote and then nested a `z3998:poem` blockquote inside it. That adds an unnecessary level of nesting, and `z3998:poem` is meant for a whole poem as a section, not a quoted fragment. Gutenberg&#x27;s `class=&quot;poem&quot;` supports treating it as verse, not as a nested letter.</td></tr>
+<tr class="mrow" data-v="se-llm correct"><td>1</td><td><div class="small"><b>se-llm only:</b> <code>&lt;i epub:type=&quot;se:name.publication.book&quot;&gt; &lt;/i&gt;</code><br><b>SE only:</b> <code>nothing</code></div><table class="cmp"><tr class="g"><td class="l">Gutenberg HTML</td><td><pre class="src">pillar-box, or a peasant girl dancing with the moon; but in each case it was,
+somehow, as absurd as Alice in Wonderland, yet as grave and kind as a love</pre></td></tr><tr class="s"><td class="l">Standard Ebooks</td><td><pre class="src">…moon; but in each case it was, somehow, as absurd as <mark class="gap">&#8203;</mark>Alice in Wonderland<mark class="gap">&#8203;</mark>, yet as grave and kind as a love story. At last,…</pre></td></tr><tr class="o"><td class="l">se-llm</td><td><pre class="src">…moon; but in each case it was, somehow, as absurd as <mark>&lt;i epub:type=&quot;se:name.publication.book&quot;&gt;</mark>Alice in Wonderland<mark>&lt;/i&gt;</mark>, yet as grave and kind as a love story. At last,…</pre></td></tr></table></td><td>[Semantic] Apply publication-music-titles-tag (5 changes)<br>[Editorial] Modernize spelling and hyphenation</td><td><span class="b v-sellm">se-llm correct</span> <span class="small">title italics</span><br>The manual requires book titles in running text to be italicized with `&lt;i epub:type=&quot;se:name.publication.book&quot;&gt;`, and *Alice in Wonderland* is a book title. Gutenberg did not italicize it, so SE missed it and se-llm added it by rule. The italics are right even though the title is used only as a comparison.</td></tr>
+</tbody></table>
 <h2>Lint resolution</h2>
 <p>Result: failed. Owner and checker model: claude-opus-5-5. Repair rounds: 1. Owner calls: 4; checker calls: 4.</p>
 <p>Why it stopped: the independent checker did not accept every lint decision; checker rejections: 21452aa4707e: chapter-10.xhtml line 54: &quot;catching the 7.45 for Paris&quot; is clearly a clock time (a train departure), not a decimal. t-010 is a typography check, not a y- possible-typo check. The research-edition exception for keeping source readings covers only y- typo findings, not the house typographic convention that clock times use a colon. The decision should be FIX, with an edit in chapter-10.xhtml changing &quot;the 7.45 for Paris&quot; to &quot;the 7:45 for Paris&quot;. The wording stays the same.</p>
