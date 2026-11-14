@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Sea-Wolf, Jack London: se-llm research proof</title><style>
+body{font:15px/1.5 system-ui,sans-serif;margin:0 auto;max-width:1250px;padding:1.2em 1.5em;color:#1d1d1f;background:#fbfbfa}
+h1{font-size:1.6em;margin:.2em 0}h2{margin-top:1.8em;border-bottom:1px solid #ddd;padding-bottom:.2em}
+a{color:#0b57d0}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ddd;padding:5px 7px;vertical-align:top;text-align:left}th{background:#f0f0ee}
+.b{display:inline-block;border-radius:4px;padding:0 7px;font-size:12px;font-weight:600;white-space:nowrap}
+.ok{background:#d8f3dc;color:#14532d}.bad{background:#fde2e1;color:#7f1d1d}.warn{background:#fff3c4;color:#713f12}
+.run{background:#dbeafe;color:#1e3a8a}.unk{background:#eee;color:#444}
+.small{font-size:12.5px;color:#555}.cards{display:flex;flex-wrap:wrap;gap:.6em;margin:.8em 0}
+.card{background:#fff;border:1px solid #e3e3e0;border-radius:6px;padding:.5em .8em;min-width:150px}.card b{font-size:1.4em;display:block}
+.cmp{width:100%;border:none}.cmp td{border:none;padding:2px 6px;font-size:14px}
+.cmp td.l{width:90px;color:#555;font-size:12px;white-space:nowrap;padding-top:4px}
+.cmp tr.g td{background:#f6f6f4}.cmp tr.s td{background:#eef4ff}.cmp tr.o td{background:#fff6ea}
+mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:#ff8a80}
+.diff>tbody>tr>td{border-top:2px solid #ccc}
+.v-sellm{background:#d8f3dc;color:#14532d}.v-se{background:#fde2e1;color:#7f1d1d}.v-both{background:#e8eaf6;color:#283593}.v-ed{background:#eee;color:#444}
+.filters button{margin:0 .3em .5em 0;padding:.2em .7em;border:1px solid #bbb;border-radius:4px;background:#fff;cursor:pointer}
+.filters button.on{background:#1d1d1f;color:#fff}
+</style>
+<script>
+function filt(v,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+document.querySelectorAll('tr.drow').forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
+</script>
+</head><body>
+<p class="small"><a href="../index.html">← All twenty books</a></p>
+<h1>The Sea-Wolf, Jack London</h1>
+<p><a href="https://www.gutenberg.org/ebooks/1074">Project Gutenberg 1074</a> · <a href="https://standardebooks.org/ebooks/jack-london/the-sea-wolf">Standard Ebooks edition</a></p>
+<p><b>The run stopped at: lint resolve=1.</b></p>
+<div class="cards"><div class="card">Process<b><span class="b bad">failed</span></b></div><div class="card">Lint<b><span class="b bad">failed</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e78</b></div></div>
+<p class="small">Generated 2026-11-14 12:38 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: No specific extra reading matter established; retain PG vessel and song readings; runtime comparison pending. SE recorded source citations: https://www.gutenberg.org/ebooks/1074 | https://archive.org/details/seawolflond00lond</p>
+<h2>Text differences from the Standard Ebooks edition</h2>
+<p>No text comparison is available for this attempt yet.</p>
+<h2>Lint resolution</h2>
+<p>Result: failed. Owner and checker model: claude-opus-5-5. Repair rounds: 0. Owner calls: 2; checker calls: 0.</p>
+<p>Why it stopped: a FIX finding needs an accepted repair, not a disposition</p>
+<h2>Semantic markup compared with SE</h2>
+<p>347 of SE's 366 semantic elements match ours; we have 386. The kinds that differ most:</p>
+<table><tr><th>Kind</th><th>SE</th><th>se-llm</th><th>Match</th><th>SE has, se-llm lacks</th><th>se-llm has, SE lacks</th></tr>
+<tr><td><code>i</code></td><td>0</td><td>8</td><td>0</td><td></td><td>macedonia | ghost | macedonia s | age of fable</td></tr>
+<tr><td><code>blockquote[z3998:poem]</code></td><td>7</td><td>0</td><td>0</td><td>what without asking hither hurried whence and without asking | i wandered all these years among a world of women seeking yo | i lived with visions for my company instead of men and women | blessed am i beyond women even herein that beyond all born w</td><td></td></tr>
+<tr><td><code>blockquote[z3998:verse]</code></td><td>0</td><td>7</td><td>0</td><td></td><td>what without asking hither hurried whence and without asking | i wandered all these years among a world of women seeking yo | i lived with visions for my company instead of men and women | blessed am i beyond women even herein that beyond all born w</td></tr>
+<tr><td><code>span[se:name.publication.poem]</code></td><td>0</td><td>6</td><td>0</td><td></td><td>kiss endured | forge | iseult at tintagel | a kiss endured</td></tr>
+<tr><td><code>i[xml:lang=ru]</code></td><td>0</td><td>6</td><td>0</td><td></td><td>holluschickie</td></tr>
+<tr><td><code>i[se:name.vessel.ship]</code></td><td>191</td><td>187</td><td>186</td><td>macedonia | ghost | the city of tokyo</td><td>city of tokio</td></tr>
+<tr><td><code>i[se:name.publication.book]</code></td><td>10</td><td>6</td><td>6</td><td>age of fable | history of english and american literature | natural history | the dean s english</td><td></td></tr>
+<tr><td><code>span[z3998:grapheme]</code></td><td>0</td><td>4</td><td>0</td><td></td><td>b | o | s | h</td></tr>
+<tr><td><code>span[se:name.publication.essay]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>the necessity for freedom a plea for the artist</td></tr>
+<tr><td><code>span[se:name.publication.poem][xml:lang=la]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>impenitentia ultima</td></tr>
+<tr><td><code>i[se:name.vessel.boat]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>gazelle no 2</td></tr>
+<tr><td><code>blockquote[z3998:song]</code></td><td>1</td><td>2</td><td>1</td><td></td><td>through daylight and dark i follow the bark i keep like a ho</td></tr>
+</table>
+<h2>All attempts</h2><table><tr><th>Attempt</th><th>se-llm revision</th><th>Process</th><th>Where it stopped</th><th>Cost (USD)</th><th>Models used (calls)</th></tr>
+<tr><td>e2e78</td><td><code>4ac1c867</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>2.384</td><td class="small">haiku-5-5 104, sonnet-5-5 17, opus-5-5 2; lint: opus-5-5</td></tr>
+<tr><td>e2e56</td><td><code>94479d9c</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>2.3666</td><td class="small">haiku-5-5 102, sonnet-5-5 17, opus-5-5 2; lint: opus-5-5</td></tr>
+</table></body></html>

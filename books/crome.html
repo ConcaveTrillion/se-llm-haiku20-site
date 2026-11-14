@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Crome Yellow, Aldous Huxley: se-llm research proof</title><style>
+body{font:15px/1.5 system-ui,sans-serif;margin:0 auto;max-width:1250px;padding:1.2em 1.5em;color:#1d1d1f;background:#fbfbfa}
+h1{font-size:1.6em;margin:.2em 0}h2{margin-top:1.8em;border-bottom:1px solid #ddd;padding-bottom:.2em}
+a{color:#0b57d0}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ddd;padding:5px 7px;vertical-align:top;text-align:left}th{background:#f0f0ee}
+.b{display:inline-block;border-radius:4px;padding:0 7px;font-size:12px;font-weight:600;white-space:nowrap}
+.ok{background:#d8f3dc;color:#14532d}.bad{background:#fde2e1;color:#7f1d1d}.warn{background:#fff3c4;color:#713f12}
+.run{background:#dbeafe;color:#1e3a8a}.unk{background:#eee;color:#444}
+.small{font-size:12.5px;color:#555}.cards{display:flex;flex-wrap:wrap;gap:.6em;margin:.8em 0}
+.card{background:#fff;border:1px solid #e3e3e0;border-radius:6px;padding:.5em .8em;min-width:150px}.card b{font-size:1.4em;display:block}
+.cmp{width:100%;border:none}.cmp td{border:none;padding:2px 6px;font-size:14px}
+.cmp td.l{width:90px;color:#555;font-size:12px;white-space:nowrap;padding-top:4px}
+.cmp tr.g td{background:#f6f6f4}.cmp tr.s td{background:#eef4ff}.cmp tr.o td{background:#fff6ea}
+mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:#ff8a80}
+.diff>tbody>tr>td{border-top:2px solid #ccc}
+.v-sellm{background:#d8f3dc;color:#14532d}.v-se{background:#fde2e1;color:#7f1d1d}.v-both{background:#e8eaf6;color:#283593}.v-ed{background:#eee;color:#444}
+.filters button{margin:0 .3em .5em 0;padding:.2em .7em;border:1px solid #bbb;border-radius:4px;background:#fff;cursor:pointer}
+.filters button.on{background:#1d1d1f;color:#fff}
+</style>
+<script>
+function filt(v,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+document.querySelectorAll('tr.drow').forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
+</script>
+</head><body>
+<p class="small"><a href="../index.html">← All twenty books</a></p>
+<h1>Crome Yellow, Aldous Huxley</h1>
+<p><a href="https://www.gutenberg.org/ebooks/1999">Project Gutenberg 1999</a> · <a href="https://standardebooks.org/ebooks/aldous-huxley/crome-yellow">Standard Ebooks edition</a></p>
+<p><b>The run stopped at: rule semantic-section-types,dedications,letter-subroles,letter-structure,letter-loose-parts,letter-lift,letter-inline-parts,diary-structure,poetry-verse-song,epigraphs,blockquotes,tables,indentation attempt=1 exit=0 seconds=148.</b></p>
+<div class="cards"><div class="card">Process<b><span class="b run">running</span></b></div><div class="card">Lint<b><span class="b unk">not reached</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e80</b></div></div>
+<p class="small">Generated 2026-11-14 12:38 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: No specific extra reading matter established; Luna slice history is research only, not a carried-forward verdict. SE recorded source citations: https://www.gutenberg.org/ebooks/1999 | https://books.google.com/books?id=bA-j9fLGI_wC</p>
+<h2>Text differences from the Standard Ebooks edition</h2>
+<p>No text comparison is available for this attempt yet.</p>
+<h2>All attempts</h2><table><tr><th>Attempt</th><th>se-llm revision</th><th>Process</th><th>Where it stopped</th><th>Cost (USD)</th><th>Models used (calls)</th></tr>
+<tr><td>e2e80</td><td><code>8e216a11</code></td><td><span class="b run">running</span></td><td>rule semantic-section-types,dedications,letter-subroles,letter-structure,letter-loose-parts,letter-lift,letter-inline-parts,diary-structure,poetry-verse-song,epigraphs,blockquotes,tables,indentation attempt=1 exit=0 seconds=148</td><td>1.3654</td><td class="small">haiku-5-5 98, sonnet-5-5 10, opus-5-5 3</td></tr>
+<tr><td>e2e61</td><td><code>8c370363</code></td><td><span class="b bad">failed</span></td><td>lint exit=1</td><td>1.5201</td><td class="small">haiku-5-5 100, sonnet-5-5 10, opus-5-5 3</td></tr>
+<tr><td>e2e55</td><td><code>3d623ded</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>2.5826</td><td class="small">haiku-5-5 101, sonnet-5-5 11, opus-5-5 3; lint: opus-5-5</td></tr>
+</table></body></html>

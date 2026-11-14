@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Man Who Was Thursday, G. K. Chesterton: se-llm research proof</title><style>
+body{font:15px/1.5 system-ui,sans-serif;margin:0 auto;max-width:1250px;padding:1.2em 1.5em;color:#1d1d1f;background:#fbfbfa}
+h1{font-size:1.6em;margin:.2em 0}h2{margin-top:1.8em;border-bottom:1px solid #ddd;padding-bottom:.2em}
+a{color:#0b57d0}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid #ddd;padding:5px 7px;vertical-align:top;text-align:left}th{background:#f0f0ee}
+.b{display:inline-block;border-radius:4px;padding:0 7px;font-size:12px;font-weight:600;white-space:nowrap}
+.ok{background:#d8f3dc;color:#14532d}.bad{background:#fde2e1;color:#7f1d1d}.warn{background:#fff3c4;color:#713f12}
+.run{background:#dbeafe;color:#1e3a8a}.unk{background:#eee;color:#444}
+.small{font-size:12.5px;color:#555}.cards{display:flex;flex-wrap:wrap;gap:.6em;margin:.8em 0}
+.card{background:#fff;border:1px solid #e3e3e0;border-radius:6px;padding:.5em .8em;min-width:150px}.card b{font-size:1.4em;display:block}
+.cmp{width:100%;border:none}.cmp td{border:none;padding:2px 6px;font-size:14px}
+.cmp td.l{width:90px;color:#555;font-size:12px;white-space:nowrap;padding-top:4px}
+.cmp tr.g td{background:#f6f6f4}.cmp tr.s td{background:#eef4ff}.cmp tr.o td{background:#fff6ea}
+mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:#ff8a80}
+.diff>tbody>tr>td{border-top:2px solid #ccc}
+.v-sellm{background:#d8f3dc;color:#14532d}.v-se{background:#fde2e1;color:#7f1d1d}.v-both{background:#e8eaf6;color:#283593}.v-ed{background:#eee;color:#444}
+.filters button{margin:0 .3em .5em 0;padding:.2em .7em;border:1px solid #bbb;border-radius:4px;background:#fff;cursor:pointer}
+.filters button.on{background:#1d1d1f;color:#fff}
+</style>
+<script>
+function filt(v,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+document.querySelectorAll('tr.drow').forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
+</script>
+</head><body>
+<p class="small"><a href="../index.html">← All twenty books</a></p>
+<h1>The Man Who Was Thursday, G. K. Chesterton</h1>
+<p><a href="https://www.gutenberg.org/ebooks/1695">Project Gutenberg 1695</a> · <a href="https://standardebooks.org/ebooks/g-k-chesterton/the-man-who-was-thursday">Standard Ebooks edition</a></p>
+<p><b>The run stopped at: lint resolve=1.</b></p>
+<div class="cards"><div class="card">Process<b><span class="b bad">failed</span></b></div><div class="card">Lint<b><span class="b bad">failed</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e77</b></div></div>
+<p class="small">Generated 2026-11-14 12:38 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG promotional opening requires provenance classification; retained research scope, no SE-based cut. SE recorded source citations: https://www.gutenberg.org/ebooks/1695 | https://catalog.hathitrust.org/Record/007122502</p>
+<h2>Text differences from the Standard Ebooks edition</h2>
+<p>No text comparison is available for this attempt yet.</p>
+<h2>Lint resolution</h2>
+<p>Result: failed. Owner and checker model: claude-opus-5-5. Repair rounds: 1. Owner calls: 4; checker calls: 4.</p>
+<p>Why it stopped: the independent checker did not accept every lint decision; checker rejections: 21452aa4707e: chapter-10.xhtml line 54: &quot;catching the 7.45 for Paris&quot; is clearly a clock time (a train departure), not a decimal. t-010 is a typography check, not a y- possible-typo check. The research-edition exception for keeping source readings covers only y- typo findings, not the house typographic convention that clock times use a colon. The decision should be FIX, with an edit in chapter-10.xhtml changing &quot;the 7.45 for Paris&quot; to &quot;the 7:45 for Paris&quot;. The wording stays the same.</p>
+<p>What the independent checker rejected:</p><ul><li>The only edit targets local.css, but the only reported file for this finding is dedication.xhtml, so the replacement does not stay within a reported file. Its `old` string is also empty, so it is not an exact anchored replacement. Where the new `section[epub|type~=&quot;dedication&quot;] &gt; footer` rule would go is undefined, and source order matters next to the @supports block. The specificity analysis is correct, but the repair needs an exact, anchored edit that stays within the reported file scope.</li><li>The single dedication.xhtml edit moves the G. K. C. &lt;footer&gt; out of &lt;section id=&quot;dedication&quot;&gt; and into the dedication verse blockquote. This is a structural change made only to get around the margin override from `section[epub|type~=&quot;dedication&quot;] &gt; *`. It is not a narrow repair. The rationale cites the letter-signature pattern, but the dedication is not a z3998:letter, so letter semantics give no grounds for putting the signature inside the verse container. The move is also unlikely to produce right alignment. local.css sets `[epub|type~=&quot;z3998:poem&quot;] p` and `[epub|type~=&quot;z3998:verse&quot;] p` to `text-align: initial`. Those rules would then match the signature &lt;p&gt; and cancel the right alignment it inherits from the footer. The finding is a review item, and the centred-dedication rules override the footer on purpose. The correct outcome is either to accept the finding and keep the footer as a direct child of the section, or to make a CSS fix in local.css. local.css is not a reported file, so the CSS fix cannot be approved under this submission.</li><li>chapter-10.xhtml line 54: &quot;catching the 7.45 for Paris&quot; is clearly a clock time (a train departure), not a decimal. t-010 is a typography check, not a y- possible-typo check. The research-edition exception for keeping source readings covers only y- typo findings, not the house typographic convention that clock times use a colon. The decision should be FIX, with an edit in chapter-10.xhtml changing &quot;the 7.45 for Paris&quot; to &quot;the 7:45 for Paris&quot;. The wording stays the same.</li></ul>
+<h2>Semantic markup compared with SE</h2>
+<p>192 of SE's 209 semantic elements match ours; we have 216. The kinds that differ most:</p>
+<table><tr><th>Kind</th><th>SE</th><th>se-llm</th><th>Match</th><th>SE has, se-llm lacks</th><th>se-llm has, SE lacks</th></tr>
+<tr><td><code>blockquote[z3998:letter]</code></td><td>0</td><td>6</td><td>0</td><td></td><td>what about martin tupper now | no one would regret anything in the nature of an interferenc | fly at once the truth about your trouser stretchers is known | the word i fancy should be pink</td></tr>
+<tr><td><code>blockquote</code></td><td>6</td><td>0</td><td>0</td><td>what about martin tupper now | no one would regret anything in the nature of an interferenc | fly at once the truth about your trouser stretchers is known | the word i fancy should be pink</td><td></td></tr>
+<tr><td><code>i[se:name.publication.book]</code></td><td>1</td><td>3</td><td>0</td><td>ally sloper s half holiday</td><td>alice in wonderland | the man who was thursday</td></tr>
+<tr><td><code>i</code></td><td>0</td><td>3</td><td>0</td><td></td><td>flaneur | creme de menthe | savoir faire</td></tr>
+<tr><td><code>abbr[z3998:name-title]</code></td><td>109</td><td>111</td><td>109</td><td></td><td>st</td></tr>
+<tr><td><code>p[z3998:signature]</code></td><td>3</td><td>1</td><td>1</td><td>a friend | from little snowdrop</td><td></td></tr>
+<tr><td><code>span[z3998:sender z3998:signature]</code></td><td>0</td><td>2</td><td>0</td><td></td><td>a friend | little snowdrop</td></tr>
+<tr><td><code>blockquote[z3998:verse]</code></td><td>1</td><td>1</td><td>0</td><td>when the herring runs a mile let the secretary smile when th</td><td>nor public flame nor private dares to shine nor human light </td></tr>
+<tr><td><code>i[se:name.publication]</code></td><td>0</td><td>2</td><td>0</td><td></td><td>ally sloper s half holiday | sporting times</td></tr>
+<tr><td><code>blockquote[z3998:poem]</code></td><td>0</td><td>2</td><td>0</td><td></td><td>when the herring runs a mile let the secretary smile when th | a cloud was on the mind of men and wailing went the weather </td></tr>
+<tr><td><code>i[xml:lang=fr]</code></td><td>6</td><td>4</td><td>4</td><td>cafe chantant | paiens ont tort et chretiens ont droit</td><td></td></tr>
+<tr><td><code>section[introduction]</code></td><td>0</td><td>1</td><td>0</td><td></td><td>a wild mad hilarious and profoundly moving tale it is very d</td></tr>
+</table>
+<h2>All attempts</h2><table><tr><th>Attempt</th><th>se-llm revision</th><th>Process</th><th>Where it stopped</th><th>Cost (USD)</th><th>Models used (calls)</th></tr>
+<tr><td>e2e77</td><td><code>4ac1c867</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>2.0094</td><td class="small">haiku-5-5 71, sonnet-5-5 4, opus-5-5 4; lint: opus-5-5</td></tr>
+<tr><td>e2e54</td><td><code>932bd6f5</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>1.0998</td><td class="small">haiku-5-5 69, sonnet-5-5 3, opus-5-5 4; lint: opus-5-5</td></tr>
+</table></body></html>
