@@ -10,6 +10,8 @@ th,td{border:1px solid #ddd;padding:5px 7px;vertical-align:top;text-align:left}t
 .card{background:#fff;border:1px solid #e3e3e0;border-radius:6px;padding:.5em .8em;min-width:150px}.card b{font-size:1.4em;display:block}
 .cmp{width:100%;border:none}.cmp td{border:none;padding:2px 6px;font-size:14px}
 .cmp pre.src{margin:0;white-space:pre-wrap;word-break:break-word;tab-size:2;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace}
+.changes{min-width:340px;width:38%}.change{border-left:3px solid #ccc;padding:4px 8px;margin:0 0 10px}.change .what{margin-bottom:3px}
+.tag{font-size:11px;padding:1px 5px;border-radius:3px;color:#fff}.tag.t{background:#6d4c41}.tag.m{background:#5e35b1}q{font-family:ui-monospace,monospace;background:#f3f3f3;quotes:none;padding:0 2px}
 .cmp td.l{width:90px;color:#555;font-size:12px;white-space:nowrap;padding-top:4px}
 .cmp tr.g td{background:#f6f6f4}.cmp tr.s td{background:#eef4ff}.cmp tr.o td{background:#fff6ea}
 mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:none;border-left:3px solid #d32f2f;padding:0;margin:0 1px}
@@ -20,20 +22,34 @@ mark{background:#ffd54f;padding:0 1px;border-radius:2px}mark.gap{background:none
 </style>
 <script>
 function filt(v,btn,cls){cls=cls||'drow';btn.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
-document.querySelectorAll('tr.'+cls).forEach(r=>{r.style.display=(v==='all'||r.dataset.v===v)?'':'none'});}
+document.querySelectorAll('tr.'+cls).forEach(r=>{r.style.display=(v==='all'||r.dataset.v.split('|').includes(v))?'':'none'});}
 </script>
 </head><body>
 <p class="small"><a href="../index.html">← All twenty books</a></p>
 <h1>The Autobiography of Benjamin Franklin, Benjamin Franklin</h1>
 <p><a href="https://www.gutenberg.org/ebooks/20203">Project Gutenberg 20203</a> · <a href="https://standardebooks.org/ebooks/benjamin-franklin/the-autobiography-of-benjamin-franklin">Standard Ebooks edition</a></p>
-<p><b>The run stopped at: estimate time-elements,temperatures,legal-cases usd=0.0375.</b></p>
-<div class="cards"><div class="card">Process<b><span class="b run">running</span></b></div><div class="card">Lint<b><span class="b unk">not reached</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e86</b></div></div>
-<p class="small">Generated 2026-11-14 14:25 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG Pine introduction, mixed notes, bibliography and assembled appendix differ from SE scope; retain all, especially Franklin-authored letters. SE recorded source citations: https://www.gutenberg.org/ebooks/20203 | https://books.google.com/books?id=rT93AAAAMAAJ</p>
-<h2>Text differences from the Standard Ebooks edition</h2>
-<p>No text comparison is available for this attempt yet.</p>
-<h2>Markup differences from the Standard Ebooks edition</h2>
-<p>No markup comparison is available for this attempt yet.</p>
+<p><b>The run stopped at: modernize exit=1.</b></p>
+<div class="cards"><div class="card">Process<b><span class="b bad">failed</span></b></div><div class="card">Lint<b><span class="b unk">not reached</span></b></div><div class="card">Source audit<b><span class="b unk">not reached</span></b></div><div class="card">EPUB build<b><span class="b unk">not reached</span></b></div><div class="card">Reader<b><span class="b unk">not checked</span></b></div><div class="card">Attempt shown<b>e2e86</b></div></div>
+<p class="small">Generated 2026-11-14 15:02 UTC. The attempt shown is the latest one that passed lint, or the latest attempt. Gutenberg scope notes: PG Pine introduction, mixed notes, bibliography and assembled appendix differ from SE scope; retain all, especially Franklin-authored letters. SE recorded source citations: https://www.gutenberg.org/ebooks/20203 | https://books.google.com/books?id=rT93AAAAMAAJ</p>
+<h2>Differences from the Standard Ebooks edition</h2>
+<p>No comparison is available for this attempt yet.</p>
+<h2>Semantic markup compared with SE</h2>
+<p>271 of SE's 461 semantic elements match ours; we have 761. The kinds that differ most:</p>
+<table><tr><th>Kind</th><th>SE</th><th>se-llm</th><th>Match</th><th>SE has, se-llm lacks</th><th>se-llm has, SE lacks</th></tr>
+<tr><td><code>i</code></td><td>31</td><td>100</td><td>4</td><td>without vanity i may say | a godly learned englishman | at any other time friend hopkinson i would lend to thee freely but not now for thee seems to be out of thy right senses | don t let me be mistaken it was not for christ s sake but for your sake</td><td>the writings of benjamin franklin | works of benjamin franklin | the american men of letters series | american statesmen series</td></tr>
+<tr><td><code>em</code></td><td>76</td><td>113</td><td>62</td><td>other grain | fire engine | public spirited gentlemen | adopted from previous wisdom but forced by the occasion</td><td>stoop stoop | you are young and have the world before you stoop as you go through it and you will miss many hard thumps | richard saunders | at any other time friend hopkinson i would lend to thee freely but not now for thee seems to be out of thy right senses</td></tr>
+<tr><td><code>section[chapter]</code></td><td>18</td><td>23</td><td>0</td><td>x poor richard s almanac and other activities in 1732 i firs | xi interest in public affairs i began now to turn my thought | xii defense of the province i had on the whole abundant reas | xiii public services and duties 1749 1753 peace being conclu</td><td>a letter to samuel mather passy may 12 1784 revd sir it is n | i ancestry and early youth in boston twyford 3 at the bishop | x poor richard s almanac and other activities n 1732 i first | xi interest in public affairs began now to turn my thoughts </td></tr>
+<tr><td><code>td[rowspan]</code></td><td>12</td><td>39</td><td>10</td><td>rise wash and address powerful goodness contrive day s busin | evening question what good have i done today</td><td>1722 | 1729 | 1732 to 1757 | 1743</td></tr>
+<tr><td><code>b</code></td><td>11</td><td>30</td><td>6</td><td>twyford | the morning | noon | evening</td><td>passy | twyford 3 at the bishop of st asaph s 1771 | public services and duties | 1749 1753</td></tr>
+<tr><td><code>i[se:name.publication]</code></td><td>0</td><td>26</td><td>0</td><td></td><td>the century classics | dogood papers | the busybody | a modest enquiry into the nature and necessity of a paper currency</td></tr>
+<tr><td><code>span[se:name.publication]</code></td><td>0</td><td>24</td><td>0</td><td></td><td>hints for those that would be rich | electrical kite | father abraham s speech | rules by which a great empire may be reduced to a small one</td></tr>
+<tr><td><code>img[z3998:illustration]</code></td><td>0</td><td>24</td><td>0</td><td></td><td>a page of poor richard s almanac for 1736 for the month of june | a page of poor richard s almanac for 1736 for the month of july | franklin meets his brother at newport | firemen fight a blaze in a house with a fire engine and ladders</td></tr>
+<tr><td><code>th[scope]</code></td><td>0</td><td>21</td><td>0</td><td></td><td>s | m | t | w</td></tr>
+<tr><td><code>i[se:name.publication.book]</code></td><td>56</td><td>49</td><td>42</td><td>magnalia christi americana | poor richard s almanac | dialogue | transactions</td><td>autobiography | a list of books written by or relating to benjamin franklin | bagatelles | the art of virtue</td></tr>
+<tr><td><code>figure</code></td><td>0</td><td>20</td><td>0</td><td></td><td>franklin meets his brother at newport | firemen fight a blaze in a house with a fire engine and ladders | a silk flag of the pennsylvania association painted with a device and a motto | a soldier on the nightly guard at the battery</td></tr>
+<tr><td><code>p[title]</code></td><td>19</td><td>0</td><td>0</td><td>ancestry and early youth in boston | poor richard s almanac and other activities | interest in public affairs | defense of the province</td><td></td></tr>
+</table>
 <h2>All attempts</h2><table><tr><th>Attempt</th><th>se-llm revision</th><th>Process</th><th>Where it stopped</th><th>Cost (USD)</th><th>Models used (calls)</th></tr>
-<tr><td>e2e86</td><td><code>8e216a11</code></td><td><span class="b run">running</span></td><td>estimate time-elements,temperatures,legal-cases usd=0.0375</td><td>0.7585</td><td class="small">haiku-5-5 22</td></tr>
+<tr><td>e2e86</td><td><code>8e216a11</code></td><td><span class="b bad">failed</span></td><td>modernize exit=1</td><td>3.5424</td><td class="small">haiku-5-5 189, sonnet-5-5 21, opus-5-5 9</td></tr>
 <tr><td>e2e66</td><td><code>8796bacd</code></td><td><span class="b bad">failed</span></td><td>lint resolve=1</td><td>9.6119</td><td class="small">haiku-5-5 189, sonnet-5-5 21, opus-5-5 10; lint: opus-5-5</td></tr>
 </table></body></html>
